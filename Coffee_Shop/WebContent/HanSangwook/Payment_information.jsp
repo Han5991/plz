@@ -52,7 +52,7 @@ img {
 	object-fit: cover
 }
 </style>
-<title>Insert title here</title>
+<title>결제 정보</title>
 </head>
 <body style="background: lightgray">
 	<form>
