@@ -43,7 +43,6 @@ footer {
 
 .tab_motion {
 	text-align: center;
-	text-decoration: none;
 }
 
 .tabmenu>ul {
@@ -52,7 +51,7 @@ footer {
 }
 
 .tab_motion>li {
-	display: inline-block;
+	display: inline-table;
 	list-style-type: none;
 	font-size: 20px;
 	/*     font-color: black; */
@@ -62,11 +61,10 @@ footer {
 	padding: 50px;
 }
 
-#search_shop {
+.form-control {
+    display: inline-block;
+	width: 50%;
 	height: 50px;
-	/*     line-height: 48px; */
-	/* 	border:0 ; */
-	width: 100%;
 }
 
 #btn_search {
@@ -76,7 +74,7 @@ footer {
 	background-color: white;
 	width: 49px;
 	height: 49px;
-/* 	border: 0; */
+	border: 1;
 }
 </style>
 
@@ -119,17 +117,12 @@ footer {
 		</div>
 	</div>
 
-
 	<div class="jumbotron" style="background-color: white;">
 		<div class="container text-center">
-
-			<input placeholder="매장명 검색" id="search_shop" size="10">
+			<input type="text" placeholder="매장명 검색" id="search_shop" size="10"
+				class="form-control">
 			<button type="button" id="btn_search"></button>
-			<br>
-			<br>
-			<br>
-			<br>
-
+			<br> <br> <br> <br>
 			<h4>찾으실 매장명을 검색하세요.</h4>
 
 		</div>

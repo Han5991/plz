@@ -141,13 +141,13 @@ li {
 				<ul class="store_list">
 					<li>
 						<button type="button" class="btn btn-secondary" class="btn">선택불가</button> 
-						<strong>하계1호<i class="km">0.4km</i></strong> 
+						<strong>하계1호<i class="km">0.4km</i></strong>
 							<span>서울 노원구 하계 1동 251 청구상가 201동 101호</span>
 						<button type="button" id="place"></button><hr>
 					</li>
 					<li>
 						<button type="button" class="btn btn-success" class="btn">선택</button> 
-						<strong>중계역<i class="km">0.7km</i></strong> 
+						<strong>중계역<i class="km">0.7km</i></strong>
 							<span>서울 노원구 중계2동 503</span>
 						<button type="button" id="place"></button><hr>
 					</li>
