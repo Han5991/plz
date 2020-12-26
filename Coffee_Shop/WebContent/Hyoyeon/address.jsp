@@ -113,10 +113,8 @@ footer {
 				<ul class="tab_motion">
 					<li><a href="#">검색하기</a></li>
 					<li><a href="nearShop.jsp">가까운 매장</a></li>
-					<li><a href="">이전 주문매장</a></li>
-
+					<li><a href="#">이전 주문매장</a></li>
 				</ul>
-
 			</div>
 		</div>
 	</div>
@@ -125,7 +123,7 @@ footer {
 	<div class="jumbotron" style="background-color: white;">
 		<div class="container text-center">
 
-			<input placeholder="매장명 검색" id="search_shop" size="30">
+			<input placeholder="매장명 검색" id="search_shop" size="10">
 			<button type="button" id="btn_search"></button>
 			<br>
 			<br>
@@ -139,32 +137,3 @@ footer {
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
