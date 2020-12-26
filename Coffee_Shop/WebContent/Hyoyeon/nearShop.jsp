@@ -56,7 +56,6 @@ footer {
 /*     font-color: black; */
 	
 }
-
 .tab_motion a{
 	padding: 50px;
 }
