@@ -129,8 +129,6 @@ input::placeholder {
 					type="button" class="btn btn-secondary"
 					onclick="location.href='/register'" value="회원가입">
 			</div>
-
-
 		</div>
 	</div>
 
@@ -158,7 +156,5 @@ input::placeholder {
 					}, false);
 		})();
 	</script>
-
-
 </body>
 </html>
