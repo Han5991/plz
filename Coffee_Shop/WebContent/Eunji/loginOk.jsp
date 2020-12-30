@@ -15,9 +15,12 @@
 		m.setUserid("eunji");
 		m.setPwd("1234");
 		if (user_id.equals(m.getUserid()) && pwd.equals(m.getPwd())) {
-			out.print(m.getUserid() + "님 반갑습니다!");
+// 			out.print(m.getUserid() + "님 반갑습니다!");
+			// 로그인 성공 시 성공창 띄우고 login이 완료된 메인페이지로 이동하기.
+			out.print("<script>alert('"+m.getUserid()+"님 반갑습니다!'); location.href='login_success.jsp';</script>");
 		} else {
-			%>alert("회원정보가 존재하지 않습니다.");<% 
+			// 로그인 불가 시 창띄우고 뒤로가기
+			out.print("<script>alert('회원 정보가 존재하지 않습니다.'); history.back();</script>");
 		}
 		%>
 </body>
