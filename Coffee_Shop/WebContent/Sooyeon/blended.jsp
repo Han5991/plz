@@ -1,3 +1,4 @@
+<%@page import="java.io.File"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -100,74 +101,25 @@ a:hover:not(.active) {
 
 	<div id="tabCont01" class="tabConts">
 		<ul class="menuProduct">
+			<%
+			File file = new File("C:\\Users\\admin\\eclipse-workspace\\OracleImage\\WebContent\\img2");
+			File files[] = file.listFiles();
+			if (files != null && files.length > 0) {
+				for (File f : files) {
+			%>
 			<li class="list">
-				<!-- <a href="#"> -->
 				<p class="img">
-					<img src="../img/모카블렌.jpg" alt="모카블렌" width="250" height="250" />
+					<img alt="<%=f.getName()%>" src="img2/<%=f.getName()%>" width="250"
+						height="250" />
 				</p>
 				<dl class="text-center">
-					<dt>모카 블렌디드</dt>
+					<dt><%=f.getName()%></dt>
 				</dl>
 			</li>
-
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/바닐라블렌.jpg" alt="바닐라블렌" width="250" height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>바닐라 블렌디드</dt>
-				</dl>
-			</li>
-
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/초코칩블렌.jpg" alt="초코칩블렌" width="250" height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>초코칩 블렌디드</dt>
-				</dl>
-			</li>
-
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/화초블렌.jpg" alt="화초블렌" width="250" height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>화이트 초코 블렌디드</dt>
-				</dl>
-			</li>
-
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/화초모블렌.jpg" alt="화초모블렌" width="250" height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>화이트 초코 모카 블렌디드</dt>
-				</dl>
-			</li>
-
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/그린티블렌.jpg" alt="그린티블렌" width="250" height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>그린티 블렌디드</dt>
-				</dl>
-			</li>
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/흑임자블렌.jpg" alt="흑임자블렌" width="250" height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>흑임자 블렌디드</dt>
-				</dl>
-			</li>
+			<%
+				}
+			}
+			%>
 		</ul>
 	</div>
 </body>
