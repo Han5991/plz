@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-@WebServlet("/insertOk")
+@WebServlet("/HanSangwook/insertOk")
 public class insertOk extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
