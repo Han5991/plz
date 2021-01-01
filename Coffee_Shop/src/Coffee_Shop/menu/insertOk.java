@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-@WebServlet("/insertOk")
+@WebServlet("/HanSangwook/insertOk")
 public class insertOk extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -32,7 +32,7 @@ public class insertOk extends HttpServlet {
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter pw = response.getWriter();
 		int fileSize = 1024 * 1024 * 10; // 10mb로 파일 크기를 제한
-		String uploadPath = "C:\\Users\\admin\\git\\plz\\Coffee_Shop\\WebContent\\img2";
+		String uploadPath = "C:\\Users\\user\\git\\plz\\Coffee_Shop\\WebContent\\img2";
 		String uploadFile = null;
 		Connection con = null;
 		PreparedStatement stmt = null;
