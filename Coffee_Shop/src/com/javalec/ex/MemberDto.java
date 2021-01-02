@@ -11,7 +11,6 @@ public class MemberDto {
    private String birthdate;
    private String tel;
    private String postcode;
-   private String order_list;
    private String bankname;
    private String account_no;
    private String cardname;
@@ -21,6 +20,7 @@ public class MemberDto {
    private String card_no4;
    private String exp_month;
    private String exp_year;
+   private String order_list;
    
    public MemberDto() {
       
@@ -106,14 +106,6 @@ public class MemberDto {
       this.postcode = postcode;
    }
 
-   public String getOrder_list() {
-      return order_list;
-   }
-
-   public void setOrder_list(String order_list) {
-      this.order_list = order_list;
-   }
-
    public String getBankname() {
       return bankname;
    }
@@ -185,4 +177,12 @@ public class MemberDto {
    public void setExp_year(String exp_year) {
       this.exp_year = exp_year;
    }
+   
+	public String getOrder_list() {
+		return order_list;
+	}
+
+	public void setOrder_list(String order_list) {
+		this.order_list = order_list;
+	}
 }

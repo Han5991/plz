@@ -9,7 +9,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 public class MemberDao {
-	// 알림띄울때 int값 리턴
+	// �븣由쇰쓣�슱�븣 int媛� 由ы꽩
 	public static final int MEMBER_NONEXISTENT = 0;
 	public static final int MEMBER_EXISTENT = 1;
 	public static final int MEMBER_JOIN_FAIL = 0;
@@ -18,7 +18,7 @@ public class MemberDao {
 	public static final int MEMBER_LOGIN_SUCCESS = 1;
 	public static final int MEMBER_LOGIN_IS_NOT = -1;
 
-	// 싱글톤
+	// �떛湲��넠
 	private static MemberDao instance = new MemberDao();
 
 	public static MemberDao getInstance() {
@@ -29,7 +29,7 @@ public class MemberDao {
 
 	}
 
-// 아이디 중복 확인 
+// �븘�씠�뵒 以묐났 �솗�씤 
 	public int confirmId(String id) {
 		int ri = 0;
 
@@ -42,8 +42,8 @@ public class MemberDao {
 			connection = getConnection();
 			pstmt = connection.prepareStatement(query);
 			pstmt.setString(1, id);
-			set = pstmt.executeQuery(); // 쿼리문으로 조회 후 값을 set에 저장
-			if (set.next()) {// set에 아이디 데이터가 있으면 1, 없으면 0
+			set = pstmt.executeQuery(); // 荑쇰━臾몄쑝濡� 議고쉶 �썑 媛믪쓣 set�뿉 ���옣
+			if (set.next()) {// set�뿉 �븘�씠�뵒 �뜲�씠�꽣媛� �엳�쑝硫� 1, �뾾�쑝硫� 0
 				ri = MemberDao.MEMBER_EXISTENT; //
 			} else {
 				ri = MemberDao.MEMBER_NONEXISTENT;
@@ -54,47 +54,50 @@ public class MemberDao {
 			try {
 				set.close();
 				pstmt.close();
-				connection.close(); // 사용된 커넥션 풀안에 있는 커넥션을 끊고 다른 유저가 사용할수있게끔 비워둠.
+				connection.close(); // �궗�슜�맂 而ㅻ꽖�뀡 ���븞�뿉 �엳�뒗 而ㅻ꽖�뀡�쓣 �걡怨� �떎瑜� �쑀��媛� �궗�슜�븷�닔�엳寃뚮걫 鍮꾩썙�몺.
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
 		}
 
-		return ri; // 위에서 받은 값을 다 ri에 주었기 떄문에 리턴값은 ri가 된다
+		return ri; // �쐞�뿉�꽌 諛쏆� 媛믪쓣 �떎 ri�뿉 二쇱뿀湲� �뻹臾몄뿉 由ы꽩媛믪� ri媛� �맂�떎
 	}
 	
-// join.jsp에서 넘어온 회원정보(dto) 디비에 저장시키기.
+// join.jsp�뿉�꽌 �꽆�뼱�삩 �쉶�썝�젙蹂�(dto) �뵒鍮꾩뿉 ���옣�떆�궎湲�.
 	public int insertMember(MemberDto dto) {
 		int ri = 0;
 
 		Connection connection = null;
 		PreparedStatement pstmt = null;
-		String query = "insert into user_member values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String query = "insert into user_member values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		try {
 			connection = getConnection();
 			pstmt = connection.prepareStatement(query);
 			
-			pstmt.setString(1, dto.getName()); //joinOk.jsp에서 <jsp:useBean>으로 dto 잡아줬음
+			pstmt.setString(1, dto.getName()); //joinOk.jsp�뿉�꽌 <jsp:useBean>�쑝濡� dto �옟�븘以ъ쓬
 			pstmt.setString(2, dto.getId());
 			pstmt.setString(3, dto.getPwd());
-			pstmt.setString(4, dto.getEmail1());
-			pstmt.setString(5, dto.getEmail2());
-			pstmt.setString(6, dto.getBirthdate());
-			pstmt.setString(7, dto.getTel());
-			pstmt.setString(8, dto.getPostcode());
-			pstmt.setString(9, dto.getOrder_list());
-			pstmt.setString(10, dto.getBankname());
-			pstmt.setString(11, dto.getAccount_no());
-			pstmt.setString(12, dto.getCardname());
-			pstmt.setString(13, dto.getCard_no1());
-			pstmt.setString(14, dto.getCard_no2());
-			pstmt.setString(15, dto.getCard_no3());
-			pstmt.setString(16, dto.getCard_no4());
-			pstmt.setString(17, dto.getExp_month());
-			pstmt.setString(18, dto.getExp_year());
+			pstmt.setString(4, dto.getAddress1());
+			pstmt.setString(5, dto.getAddress2());
+			pstmt.setString(6, dto.getEmail1());
+			pstmt.setString(7, dto.getEmail2());
+			pstmt.setString(8, dto.getBirthdate());
+			pstmt.setString(9, dto.getTel());
+			pstmt.setString(10, dto.getPostcode());
+			pstmt.setString(11, dto.getBankname());
+			pstmt.setString(12, dto.getAccount_no());
+			pstmt.setString(13, dto.getCardname());
+			pstmt.setString(14, dto.getCard_no1());
+			pstmt.setString(15, dto.getCard_no2());
+			pstmt.setString(16, dto.getCard_no3());
+			pstmt.setString(17, dto.getCard_no4());
+			pstmt.setString(18, dto.getExp_month());
+			pstmt.setString(19, dto.getExp_year());
+			pstmt.setString(20, dto.getOrder_list());
+			
 			ri = MemberDao.MEMBER_JOIN_SUCCESS; // 1
-			// 값 대입이 완료된 쿼리문을 디비로 날리기
+			// 媛� ���엯�씠 �셿猷뚮맂 荑쇰━臾몄쓣 �뵒鍮꾨줈 �궇由ш린
 			pstmt.executeUpdate();
 
 
@@ -123,11 +126,11 @@ public class MemberDao {
 		Connection connection = null;
 
 		try {
-			// context: 현재 작동되고 있는 내 프로그램.
+			// context: �쁽�옱 �옉�룞�릺怨� �엳�뒗 �궡 �봽濡쒓렇�옩.
 			context = new InitialContext();
-			// ""경로에 있는 걸 dataSource를 구하기 위한 과정
+			// ""寃쎈줈�뿉 �엳�뒗 嫄� dataSource瑜� 援ы븯湲� �쐞�븳 怨쇱젙
 			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
-			// dataSource를 커넥션에 연결시켜줌.
+			// dataSource瑜� 而ㅻ꽖�뀡�뿉 �뿰寃곗떆耳쒖쨲.
 			connection = dataSource.getConnection();
 		} catch (Exception e) {
 			e.printStackTrace();
