@@ -83,7 +83,6 @@ a:hover:not(.active) {
 	</nav>
 
 	<div id="container">
-		<!-- <div id="contents"> -->
 		<div id="section">
 			<!-- 내용 -->
 			<div class="tabArea navbar- menus">
@@ -91,7 +90,7 @@ a:hover:not(.active) {
 					<a href="#" class="active"><span class="all">전체</span></a> <a
 						href="espresso.jsp"><span class="chi06">에스프레소</span></a> <a
 						href="blended.jsp"><span class="chi08">블렌디드 </span></a> <a
-						href="tea.jsp"><span class="chi01">티</span></a>  <a href="etc.jsp"><span
+						href="tea.jsp"><span class="chi01">티</span></a> <a href="etc.jsp"><span
 						class="chi03">기타 음료</span></a> <a href="dessert.jsp"><span
 						class="chi02">디저트</span></a>
 				</div>
@@ -102,18 +101,24 @@ a:hover:not(.active) {
 	<div id="tabCont01" class="tabConts">
 		<ul class="menuProduct">
 			<%
-			File file = new File("C:\\Users\\admin\\eclipse-workspace\\OracleImage\\WebContent\\img2");
+				File file = new File("C:\\Users\\admin\\git\\plz\\Coffee_Shop\\WebContent\\img");
 			File files[] = file.listFiles();
 			if (files != null && files.length > 0) {
 				for (File f : files) {
 			%>
 			<li class="list">
 				<p class="img">
-					<img alt="<%=f.getName()%>" src="img2/<%=f.getName()%>" width="250"
-						height="250" />
+					<img alt="<%=f.getName()%>" src="../img/<%=f.getName()%>"
+						width="250" height="250" /><br>
 				</p>
 				<dl class="text-center">
 					<dt><%=f.getName()%></dt>
+					<dt>
+						<input type="button" value="+" name="plus"> <input
+							type="text" value="0" name="quantity" style="text-align: center;"
+							onclick="" readonly="readonly"> <input type="button"
+							value="-" name="maineoseu">
+					</dt>
 				</dl>
 			</li>
 			<%
@@ -123,4 +128,21 @@ a:hover:not(.active) {
 		</ul>
 	</div>
 </body>
+<script type="text/javascript">
+	$(function() {
+		$('input[name=plus]').click(function() {
+			var n = $('input[name=plus]').index(this);
+			var num = $("input[name=quantity]:eq(" + n + ")").val();
+			$("input[name=quantity]:eq(" + n + ")").val(++num);
+		});
+
+		$('input[name=maineoseu]').click(function() {
+			var n = $('input[name=maineoseu]').index(this);
+			var num = $("input[name=quantity]:eq(" + n + ")").val();
+			if (num > 0) {
+				$("input[name=quantity]:eq(" + n + ")").val(--num);
+			}
+		});
+	})
+</script>
 </html>
