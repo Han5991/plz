@@ -37,7 +37,7 @@ function infoConfirm(){
 		return;
 	}
 	
-	document.reg_frm.submit(); //submit버튼이 눌렸을때에 대한 함수이니까!
+	$("#reg_frm").submit(); //submit버튼이 눌렸을때에 대한 함수이니까!
 }
 
 function updateInfoConfirm(){
