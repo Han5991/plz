@@ -1,10 +1,10 @@
 <%@page import="com.javalec.ex.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+	pageEncoding= "utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -17,23 +17,23 @@
 	if(dao.confirmId(dto.getId()) == MemberDao.MEMBER_EXISTENT){
 	%>
 	<script>
-		alert("¾ÆÀÌµğ°¡ ÀÌ¹Ì Á¸ÀçÇÕ´Ï´Ù.");
-		history.go(-1); //µÚ·Î°¡±â
+		alert("ì•„ì´ë””ê°€ ì´ë¯¸ ì¡´ì¬í•©ë‹ˆë‹¤.");
+		history.go(-1); //ë’¤ë¡œê°€ê¸°
 	</script>
 	<%
 	}else{
-		int ri = dao.insertMember(dto); // È¸¿øÁ¤º¸(dto) µğºñ¿¡ ÀúÀå½ÃÅ´
+		int ri = dao.insertMember(dto); // íšŒì›ì •ë³´(dto) ë””ë¹„ì— ì €ì¥ì‹œí‚´
 		if(ri == MemberDao.MEMBER_JOIN_SUCCESS){ //1
 	%>
 	<script>
-		alert("È¸¿ø°¡ÀÔÀ» ÃàÇÏÇÕ´Ï´Ù..");
-		document.location.href = "login.jsp"; //ÆäÀÌÁö ÀÌµ¿
+		alert("íšŒì›ê°€ì…ì„ ì¶•í•˜í•©ë‹ˆë‹¤..");
+		document.location.href = "login.jsp"; //í˜ì´ì§€ ì´ë™
 	</script>
 	<%
 		}else{
 	%>
 	<script>
-		alert("È¸¿ø°¡ÀÔ¿¡ ½ÇÆĞÇß½À´Ï´Ù.");
+		alert("íšŒì›ê°€ì…ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.");
 		document.location.href="join.html";
 	</script>
 	<%
