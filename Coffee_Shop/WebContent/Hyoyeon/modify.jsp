@@ -1,3 +1,13 @@
+<%@page import="com.javalec.ex.MemberDto"%>
+<%@page import="com.javalec.ex.MemberDao"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%
+	request.setCharacterEncoding("utf-8");
+	String id = (String) session.getAttribute("id");
+	MemberDao dao = MemberDao.getInstance();
+	MemberDto dto = dao.getMember(id);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -105,32 +115,32 @@ input::placeholder {
 			<div class="register_form">
 				<form name="reg_frm" id="detailJoinForm" method="POST"
 					action="joinOk.jsp" autocomplete="off">
-					<h2 id="pageTit" class="pageName" style="text-align: center">회원가입</h2>
+					<h2 id="pageTit" class="pageName">정보 수정</h2>
 					<table class="table">
 						<thead style="font-size: 30px;">
 							<tr>
-								<td><sup>계정 정보 입력</sup></td>
+								<td><sup>계정 정보</sup></td>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<td>
 									<div class="id_input">
-										아이디 설정<br>
+										아이디 <br>
 										<!-- <label style="display:none;" for="USER_ID">아이디</label> -->
-										<input type="text" name="id" placeholder="아이디 입력"
-											data-validation="1" maxlength="20" size="20" value=""
-											autocomplete="off">
+										<input type="text" name="id" data-validation="1"
+											maxlength="20" size="20" value="<%=dto.getId()%>"
+											autocomplete="off" readonly>
 										<!-- <input type="hidden" name="DUP_YN" value="N">
-                     <input type="hidden" name="MARKETING_YN" value="N">
-                     <input type="hidden" name="LOCATION_YN" value="N"> -->
+                 <input type="hidden" name="MARKETING_YN" value="N">
+                 <input type="hidden" name="LOCATION_YN" value="N"> -->
 
 										<!-- 										<button class="button h60 btn_gray_dark" id="btn_dup" -->
 										<!-- 											onclick="MemberDao.confirmId()">중복확인</button> -->
 
 									</div> <br>
 									<div class="pw_input">
-										비밀번호 설정<br>
+										비밀번호<br>
 										<!-- <label style="display:none;" for="PWD">비밀번호</label> -->
 										<span><input style="font-family: arial;"
 											type="password" name="pwd" data-validation="1" maxlength="14"
@@ -157,24 +167,26 @@ input::placeholder {
 								<td>이름<br> <!-- <label style="display:inline;" for="USER_NAME">이름</label> -->
 									<div class="name_input">
 										<span><input type="text" placeholder="이름 입력"
-											name="name" value="" data-validation="1" maxlength="6"
-											autocomplete="off"></span>
+											name="name" value="<%=dto.getName()%>" data-validation="1"
+											maxlength="6" autocomplete="off" readonly></span>
 									</div> <br> 전화번호<br> <!-- <label style="display:inline;" for="USER_TEL">전화번호</label> -->
 									<div class="tel_input">
 										<span><input type="tel" placeholder="휴대폰 번호 ('-'제외)"
-											name="tel" value="" data-validation="1" maxlength="11"
-											formattype="number" autocomplete="off"></span>
+											name="tel" value="<%=dto.getTel()%>" data-validation="1"
+											maxlength="11" formattype="number" autocomplete="off"></span>
 									</div> <br> 생년월일<br> <!-- <label for="USER_BIRTH" style="display:inline;">생년월일</label> -->
 									<div class="birth_input">
 										<span><input type="date" placeholder="생년월일 입력"
-											name="birthdate" value="" data-validation="1"></span>
+											name="birthdate" value="<%=dto.getBirthdate()%>"
+											data-validation="1"></span>
 									</div> <br> 이메일<br> <!-- <label style="display:inline;" for="USER_EMAIL1 USER_EMAIL2">이메일</label> -->
 									<div class="email_input">
 										<span><input type="text" placeholder="이메일 주소 입력"
-											name="email1" value="" data-validation="1" maxlength="50"
-											autocomplete="off"><i>@</i></span> <span><input
-											type="text" maxlength="50" name="email2" data-validation="1"
-											value="" autocomplete="off"></span> <span> <select
+											name="email1" value="<%=dto.getEmail1()%>"
+											data-validation="1" maxlength="50" autocomplete="off"><i>@</i></span>
+										<span><input type="text" maxlength="50" name="email2"
+											data-validation="1" value="<%=dto.getEmail2()%>"
+											autocomplete="off"></span> <span> <select
 											name="select_email" id="btn_email_select">
 												<option value="">직접입력</option>
 												<option value="naver.com">naver.com</option>
@@ -188,12 +200,13 @@ input::placeholder {
 									</div> <br> 주소<br> <!-- <label for="USER_ADDRESS" style="display:inline;">주소</label> -->
 									<div class="address_input">
 										<span><input type="text" placeholder="우편번호"
-											name="postcode" minlength="5" maxlength="5" size="5" value=""
-											data-validation="1"></span> <span><input
+											name="postcode" minlength="5" maxlength="5" size="5"
+											value="<%=dto.getPostcode()%>" data-validation="1"></span> <span><input
 											type="button" value="우편번호 검색"></span><br> <span><input
-											type="text" name="address1" value="" data-validation="1"></span>
-										<span><input type="text" placeholder="상세주소 입력"
-											name="address2" value="" data-validation="1"></span>
+											type="text" name="address1" value="<%=dto.getAddress1()%>"
+											data-validation="1"></span> <span><input type="text"
+											placeholder="상세주소 입력" name="address2"
+											value="<%=dto.getAddress2()%>" data-validation="1"></span>
 									</div>
 								</td>
 							</tr>
@@ -210,11 +223,13 @@ input::placeholder {
 							<tbody>
 								<tr>
 									<td>
+<!-- 									null이 나오는 값들을 공백으로 치환해야함! -->
 										<p>
 											계좌번호<br>
 											<!--    <label style="display:inline;" for="CREDIT_CARD CARD_EXP_DATE">신용카드</label> -->
-											<select name="bankname">
-												<option value="" selected>은행을 선택하세요</option>
+											<select name="bankname" >
+												<option value="<%if (dto.getBankname() == null) {%>
+												<%=""%><%} else {%><%=dto.getBankname()%><%}%>" selected>은행을 선택하세요</option>
 												<option value="신한은행">신한은행</option>
 												<option value="국민은행">국민은행</option>
 												<option value="농협">농협</option>
@@ -224,9 +239,11 @@ input::placeholder {
 										</p>
 										<p class="account_no">
 											계좌번호 입력<br> <span><input type="text"
-												name="account_no" formattype="number" minlength="4"
-												maxlength="15" size="15" data-validation="1" value=""></span>
+												name="account_no" formattype="number"
+												maxlength="15" size="15" data-validation="1" value="<%if (dto.getAccount_no() == null) {%>
+												<%=""%><%} else {%><%=dto.getAccount_no()%><%}%>"></span>
 										</p>
+
 										<p class="payment_reg_info" style="font-size: 0.9em">
 											<small>*자주 쓰는 카드를 등록하시면, 웹 주문시 자동 결제가 완료됩니다.</small>
 										</p>
@@ -235,7 +252,10 @@ input::placeholder {
 											신용카드<br>
 											<!--    <label style="display:inline;" for="CREDIT_CARD CARD_EXP_DATE">신용카드</label> -->
 											<select name="cardname">
-												<option value="" selected>카드를 선택하세요</option>
+												<option
+													value="<%if (dto.getCardname() == null) {%>
+												<%=""%><%} else {%><%=dto.getCardname()%><%}%>"
+													selected>카드를 선택하세요</option>
 												<option value="신한카드">신한카드</option>
 												<option value="비씨카드">비씨카드</option>
 												<option value="국민카드">국민카드</option>
@@ -253,22 +273,33 @@ input::placeholder {
 											<!-- <label style="display:inline;" for="CARD_NO1 CARD_NO2 CARD_NO3 CARD_NO4">카드번호</label> -->
 											<span><input type="text" name="card_no1"
 												formattype="number" minlength="4" maxlength="4" size="4"
-												data-validation="1" value=""></span> <span><input
-												type="text" name="card_no2" formattype="number"
-												minlength="4" maxlength="4" size="4" data-validation="1"
-												value=""></span> <span><input type="text"
-												name="card_no3" formattype="number" minlength="4"
-												maxlength="4" size="4" data-validation="1" value=""></span>
+												data-validation="1"
+												value="<%if (dto.getCard_no1() == null) {%>
+												<%=""%><%} else {%><%=dto.getCard_no1()%><%}%>"></span>
+											<span><input type="text" name="card_no2"
+												formattype="number" minlength="4" maxlength="4" size="4"
+												data-validation="1"
+												value="<%if (dto.getCard_no2() == null) {%>
+												<%=""%><%} else {%><%=dto.getCard_no2()%><%}%>"></span>
+											<span><input type="text" name="card_no3"
+												formattype="number" minlength="4" maxlength="4" size="4"
+												data-validation="1"
+												value="<%if (dto.getCard_no3() == null) {%>
+												<%=""%><%} else {%><%=dto.getCard_no3()%><%}%>"></span>
 											<span><input type="text" name="card_no4"
 												formattype="number" minlength="4" maxlength="4" size="4"
-												data-validation="1" value=""></span>
+												data-validation="1"
+												value="<%if (dto.getCard_no4() == null) {%>
+												<%=""%><%} else {%><%=dto.getCard_no4()%><%}%>"></span>
 										</p>
 										<p class="card_exp_date">
 											유효기간<br>
 											<!-- <label style="display:inline;" for="EXP_MONTH EXP_YEAR">유효기간</label> -->
 											<!-- <span><input type="month" name="EXP_MONTH" data-validation="1"></span> -->
 											<select name="EXP_MONTH">
-												<option value="">월(Month)</option>
+												<option
+													value="<%if (dto.getExp_month() == null) {%>
+												<%=""%><%} else {%><%=dto.getExp_month()%><%}%>">월(Month)</option>
 												<option value="1">01</option>
 												<option value="2">02</option>
 												<option value="3">03</option>
@@ -282,7 +313,9 @@ input::placeholder {
 												<option value="11">11</option>
 												<option value="12">12</option>
 											</select> <select name="EXP_YEAR">
-												<option value="">년(Year)</option>
+												<option
+													value="<%if (dto.getExp_year() == null) {%>
+												<%=""%><%} else {%><%=dto.getExp_year()%><%}%>">년(Year)</option>
 												<option value="21">21</option>
 												<option value="22">22</option>
 												<option value="23">23</option>

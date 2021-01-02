@@ -54,7 +54,6 @@
 				session.setAttribute("id", id);
 				session.setAttribute("name", name);
 				session.setAttribute("ValidMem", "yes");
-				session.setMaxInactiveInterval(10);
 
 				response.sendRedirect("main.jsp"); //서버가 클라이언트쪽으로 재요청함.
 

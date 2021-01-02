@@ -185,9 +185,9 @@ public class MemberDao {
 				dto.setId(set.getString("id"));
 				dto.setPwd(set.getString("pwd"));
 				dto.setAddress1(set.getString("address1"));
-				dto.setAddress1(set.getString("address2"));
+				dto.setAddress2(set.getString("address2"));
 				dto.setEmail1(set.getString("email1"));
-				dto.setEmail1(set.getString("email2"));
+				dto.setEmail2(set.getString("email2"));
 				dto.setBirthdate(set.getString("birthdate"));
 				dto.setTel(set.getString("tel"));
 				dto.setPostcode(set.getString("postcode"));
