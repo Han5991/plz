@@ -12,14 +12,14 @@ function infoConfirm(){
 		return;
 	}
 	
-	if(document.reg_frm.pw.value.length == 0){
+	if(document.reg_frm.pwd.value.length == 0){
 		alert("비밀번호는 필수 사항입니다.");
 		reg_frm.pw.focus(); //form 태그인 reg_frm의 pw에 focus주기
 		return;
 	}
 	
 
-	if((document.reg_frm.pw.value) != (document.reg_frm.pw_check.value)){
+	if((document.reg_frm.pwd.value) != (document.reg_frm.pwd_check.value)){
 		alert("비밀번호가 일치하지 않습니다.");
 		reg_frm.pw.focus(); //form 태그인 reg_frm의 pw에 focus주기
 		return;
@@ -31,7 +31,7 @@ function infoConfirm(){
 		return;
 	}
 	
-	if(document.reg_frm.email.value.length == 0){
+	if(document.reg_frm.email1.value.length == 0 || document.reg_frm.email2.value.length == 0){
 		alert("메일은 필수 사항입니다.");
 		reg_frm.email.focus();
 		return;
