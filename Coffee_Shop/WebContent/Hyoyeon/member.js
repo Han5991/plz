@@ -40,23 +40,24 @@ function infoConfirm(){
 }
 
 function updateInfoConfirm(){
-	if(document.reg_frm.pw.value == ""){
+	if(document.reg_frm.pwd.value == ""){
 		alert("패스워드를 입력하세요.");
-		document.reg_frm.pw.focus();
+		document.reg_frm.pwd.focus();
 		return;
 	}
 	
-	if((document.reg_frm.pw.value) != (document.reg_frm.pw_check.value)){
+	if((document.reg_frm.pwd.value) != (document.reg_frm.pwd_check.value)){
 		alert("비밀번호가 일치하지 않습니다.");
-		reg_frm.pw.focus();
+		reg_frm.pwd.focus();
 		return;
 	}
 	
-	if(document.reg_frm.email.value.length == 0){
+	if(document.reg_frm.email1.value.length == 0 || document.reg_frm.email2.value.length == 0 ){
 		alert("메일은 필수 사항입니다.");
-		reg_frm.email.focus(); 
+		reg_frm.email1.focus(); 
 		return;
 	}
 	
 	document.reg_frm.submit();
 }
+
