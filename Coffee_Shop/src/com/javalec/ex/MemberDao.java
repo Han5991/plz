@@ -219,6 +219,44 @@ public class MemberDao {
 	}
 
 	
+	public int updateMember(MemberDto dto) { // 회원 정보 업데이트 시 필요 메서드
+		int ri = 0;
+
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		// ResultSet set= null;
+		String query = "update user_member set pwd=?,address1=?,address2=?,email1=?,email2=? "; // 전화번호 이메일 주소 수정
+
+		try { 
+
+			con = getConnection();
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, dto.getPwd());
+			pstmt.setString(2, dto.getAddress1());
+			pstmt.setString(3, dto.getAddress2());
+			pstmt.setString(4, dto.getEmail1());
+			pstmt.setString(5, dto.getEmail2());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+
+				pstmt.close();
+				con.close(); // 사용된 커넥션 풀안에 있는 커넥션을 끊고 다른 유저가 사용할수있게끔 비워둠.
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+
+		return ri;
+
+	}
+	
+	
+	
+	
 	
 	
 	private Connection getConnection() {
