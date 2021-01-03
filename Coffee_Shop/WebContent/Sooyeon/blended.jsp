@@ -101,15 +101,15 @@ a:hover:not(.active) {
 	<div id="tabCont01" class="tabConts">
 		<ul class="menuProduct">
 			<%
-				File file = new File("C:\\Users\\admin\\git\\plz\\Coffee_Shop\\WebContent\\img");
+				File file = new File("C:\\Users\\admin\\git\\plz\\Coffee_Shop\\WebContent\\img\\menuImg\\tea");
 			File files[] = file.listFiles();
 			if (files != null && files.length > 0) {
 				for (File f : files) {
 			%>
 			<li class="list">
 				<p class="img">
-					<img alt="<%=f.getName()%>" src="../img/<%=f.getName()%>"
-						width="250" height="250" /><br>
+					<img alt="<%=f.getName()%>"
+						src="../img/menuImg/tea/<%=f.getName()%>" width="250" height="250" /><br>
 				</p>
 				<dl class="text-center">
 					<dt><%=f.getName()%></dt>

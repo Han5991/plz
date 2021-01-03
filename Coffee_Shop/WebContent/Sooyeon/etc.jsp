@@ -1,5 +1,19 @@
+<%@page import="java.io.File"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.sql.*"%>
+<%@page import="javax.naming.*"%>
+<%@page import="javax.sql.DataSource"%>
+<%@page import="Coffee_Shop.menu.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%!Context context = null;
+	DataSource dataSource = null;
+	Connection con = null;
+	PreparedStatement stmt = null;
+	ResultSet resultSet = null;
+	String name = null;
+	int price = 0;
+	int i;%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,11 +63,10 @@ a:hover:not(.active) {
 
 .list {
 	margin: 10px;
-	padding: 0 0 0 0;
+	padding: 0;
 	border: 0;
 	float: left;
 }
-
 </style>
 <title>Insert title here</title>
 </head>
@@ -83,9 +96,7 @@ a:hover:not(.active) {
 	</nav>
 
 	<div id="container">
-		<!-- <div id="contents"> -->
 		<div id="section">
-			<!-- 내용 -->
 			<div class="tabArea navbar- menus">
 				<div class="btnTab text-center">
 					<a href="#" class="active"><span class="all">전체</span></a> <a
@@ -95,83 +106,88 @@ a:hover:not(.active) {
 						class="chi03">기타 음료</span></a> <a href="dessert.jsp"><span
 						class="chi02">디저트</span></a>
 				</div>
-
 			</div>
 		</div>
 	</div>
-
 	<div id="tabCont01" class="tabConts">
 		<ul class="menuProduct">
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/기_우유.jpg" alt="우유" width="250" height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>우유</dt>
-				</dl>
-			</li>
+			<%
+				ArrayList<Menudto> menudto = new ArrayList<Menudto>();
+			try {
+				context = new InitialContext();
+				dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
+				con = dataSource.getConnection();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/기_핫초코.jpg" alt="핫초코" width="250" height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>핫초코</dt>
-				</dl>
-			</li>
+			try {
+				stmt = con.prepareStatement("SELECT * FROM menu WHERE filename LIKE 'etc%' ORDER BY filename asc");
+				resultSet = stmt.executeQuery();
+				while (resultSet.next()) {
+					name = resultSet.getString("name");
+					price = resultSet.getInt("price");
+					menudto.add(new Menudto(name, price));
+				}
+			} catch (Exception e) {
 
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/기_아포.jpg" alt="아포가토" width="250" height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>아포가토</dt>
-				</dl>
-			</li>
+			} finally {
+				try {
+					if (con != null)
+				con.close();
+					if (stmt != null)
+				stmt.close();
+				} catch (Exception e) {
+				}
+			}
 
-			<li class="list">
-				<!-- <a href="#"> -->
+			File file = new File("C:\\Users\\admin\\git\\plz\\Coffee_Shop\\WebContent\\img\\menuImg\\etc");
+			File files[] = file.listFiles();
+			if (files != null && files.length > 0) {
+				for (File f : files) {
+			%><li class="list">
 				<p class="img">
-					<img src="../img/기_토피넛.jpg" alt="토피넛" width="250" height="250" />
+					<img alt="<%=f.getName()%>"
+						src="../img/menuImg/etc/<%=f.getName()%>" width="250"
+						height="250" /><br>
 				</p>
 				<dl class="text-center">
-					<dt>토피넛 라떼</dt>
+					<dt>메뉴 : <%=menudto.get(i).getName()%></dt>
+					<dt>가격 : <%=menudto.get(i).getPrice()%></dt>
+					<dt>
+						<input type="button" value="+" name="plus"> <input
+							type="text" value="0" name="quantity" style="text-align: center;"
+							onclick="" readonly="readonly"> <input type="button"
+							value="-" name="maineoseu">
+					</dt>
 				</dl>
 			</li>
-
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/기_자몽에이드.jpg" alt="자몽에이드" width="250" height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>자몽에이드</dt>
-				</dl>
-			</li>
-
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/기_라임에이드.jpg" alt="라임에이드" width="250" height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>라임에이드</dt>
-				</dl>
-			</li>
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/기_복숭아에이드.jpg" alt="복숭아에이드" width="250"
-						height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>복숭아에이드</dt>
-				</dl>
-			</li>
+			<%
+				++i;
+			if (i >= menudto.size()) {
+				i = 0;
+			}
+			}
+			}
+			%>
 		</ul>
 	</div>
 </body>
+<script type="text/javascript">
+	$(function() {
+		$('input[name=plus]').click(function() {
+			var n = $('input[name=plus]').index(this);
+			var num = $("input[name=quantity]:eq(" + n + ")").val();
+			$("input[name=quantity]:eq(" + n + ")").val(++num);
+		});
+
+		$('input[name=maineoseu]').click(function() {
+			var n = $('input[name=maineoseu]').index(this);
+			var num = $("input[name=quantity]:eq(" + n + ")").val();
+			if (num > 0) {
+				$("input[name=quantity]:eq(" + n + ")").val(--num);
+			}
+		});
+	})
+</script>
 </html>
