@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>main.jsp</title>
 </head>
 <body>
 	<form action="logout.jsp" method="post">
