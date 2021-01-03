@@ -7,7 +7,7 @@
 	String id = (String) session.getAttribute("id");
 	MemberDao dao = MemberDao.getInstance();
 	MemberDto dto = dao.getMember(id);
-%>
+%>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -114,7 +114,7 @@ input::placeholder {
 		<div class="container text-center">
 			<div class="register_form">
 				<form name="reg_frm" id="detailJoinForm" method="POST"
-					action="joinOk.jsp" autocomplete="off">
+					action="modifyOk.jsp" autocomplete="off">
 					<h2 id="pageTit" class="pageName">정보 수정</h2>
 					<table class="table">
 						<thead style="font-size: 30px;">
@@ -335,9 +335,8 @@ input::placeholder {
 						</table>
 						<div class="btn_wrap">
 							<!-- <button class="btn_blk button h60" id="btn_join">회원 가입</button> -->
-							<input type="button" value="회원가입 신청" class="btn btn-warning"
-								onclick="infoConfirm()"> <input type="button"
-								value="다시 입력하기" class="btn btn-warning"
+							<input type="button" value="수정하기" class="btn btn-warning"onclick="updateInfoConfirm()"> 
+								<input type="button"value="다시 입력하기" class="btn btn-warning"
 								onclick="javascript:window.location='join.html'">
 						</div>
 					</div>
