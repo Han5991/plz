@@ -8,7 +8,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 public class MemberDao {
-	// alert 띄우기 위함.
+	// alert ���곌린 ����.
 	public static final int MEMBER_NONEXISTENT = 0;
 	public static final int MEMBER_EXISTENT = 1;
 	public static final int MEMBER_JOIN_FAIL = 0;
@@ -17,7 +17,7 @@ public class MemberDao {
 	public static final int MEMBER_LOGIN_SUCCESS = 1;
 	public static final int MEMBER_LOGIN_IS_NOT = -1;
 
-	// 싱글톤
+	// �깃���
 	private static MemberDao instance = new MemberDao();
 
 	public static MemberDao getInstance() {
@@ -28,7 +28,7 @@ public class MemberDao {
 
 	}
 
-	// 동일한 아이디 존재 유무 확인
+	// ���쇳�� ���대�� 議댁�� ��臾� ����
 	public int confirmId(String id) {
 		int ri = 0;
 
@@ -41,8 +41,8 @@ public class MemberDao {
 			connection = getConnection();
 			pstmt = connection.prepareStatement(query);
 			pstmt.setString(1, id);
-			set = pstmt.executeQuery(); // 쿼리문으로 조회 후 값을 set에 저장
-			if (set.next()) {// set에 아이디 데이터가 있으면 1, 없으면 0
+			set = pstmt.executeQuery(); // 荑쇰━臾몄�쇰� 議고�� �� 媛��� set�� ����
+			if (set.next()) {// set�� ���대�� �곗�댄�곌� ���쇰㈃ 1, ���쇰㈃ 0
 				ri = MemberDao.MEMBER_EXISTENT; //
 			} else {
 				ri = MemberDao.MEMBER_NONEXISTENT;
@@ -53,16 +53,16 @@ public class MemberDao {
 			try {
 				set.close();
 				pstmt.close();
-				connection.close(); // 사용된 커넥션 풀안에 있는 커넥션을 끊고 다른 유저가 사용할수있게끔 비워둠.
+				connection.close(); // �ъ�⑸�� 而ㅻ�μ�� ������ ���� 而ㅻ�μ���� ��怨� �ㅻⅨ ����媛� �ъ�⑺������寃��� 鍮�����.
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
 		}
 
-		return ri; // 위에서 받은 값을 다 ri에 주었기 떄문에 리턴값은 ri가 된다
+		return ri; // ������ 諛��� 媛��� �� ri�� 二쇱��湲� ��臾몄�� 由ы�닿��� ri媛� ����
 	}
 
-// join.jsp에서 넘어온 회원정보(dto) 디비에 저장시키기.
+// join.jsp���� ���댁�� ������蹂�(dto) ��鍮��� ���μ���ㅺ린.
 	public int insertMember(MemberDto dto) {
 		int ri = 0;
 
@@ -96,7 +96,6 @@ public class MemberDao {
 			pstmt.setString(20, dto.getOrder_list());
 
 			ri = MemberDao.MEMBER_JOIN_SUCCESS; // 1
-			// 값 대입이 완료된 쿼리문을 디비로 날리기
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -116,7 +115,7 @@ public class MemberDao {
 		return ri;
 	}
 
-	// 로그인할때 작성된 id, pwd를 디비와 대조 후 정보 가져오기.
+	// 濡�洹몄�명���� ���깅�� id, pwd瑜� ��鍮��� ��議� �� ��蹂� 媛��몄�ㅺ린.
 	public int userCheck(String id, String pwd) {
 		int ri = 0;
 		String dbPwd;
@@ -132,15 +131,15 @@ public class MemberDao {
 			pstmt.setString(1, id);
 			set = pstmt.executeQuery();
 
-			if (set.next()) { // 해당 id의 정보가 있다면
+			if (set.next()) { // �대�� id�� ��蹂닿� ���ㅻ㈃
 				dbPwd = set.getString("pwd");
-				if (dbPwd.equals(pwd)) { // 입력한 pwd와 디비 pwd가 일치하면
+				if (dbPwd.equals(pwd)) { // ���ν�� pwd�� ��鍮� pwd媛� �쇱���硫�
 					ri = MemberDao.MEMBER_LOGIN_SUCCESS; // 1
-				} else { // 입력한 pwd가 다르다면
+				} else { // ���ν�� pwd媛� �ㅻⅤ�ㅻ㈃
 					ri = MemberDao.MEMBER_LOGIN_PW_NO_GOOD; // 0
 				}
-			} else { // 해당 id의 정보가 없다면
-				ri = MemberDao.MEMBER_LOGIN_IS_NOT; // -1 회원이 아니다.
+			} else { // �대�� id�� ��蹂닿� ���ㅻ㈃
+				ri = MemberDao.MEMBER_LOGIN_IS_NOT; // -1 ������ ������.
 			}
 
 
@@ -178,7 +177,7 @@ public class MemberDao {
 			pstmt.setString(1, id);
 			set = pstmt.executeQuery();
 
-			//set안에 정보가 있다면 저장시켜라
+			//set���� ��蹂닿� ���ㅻ㈃ ���μ��耳���
 			if (set.next()) {
 				dto = new MemberDto();
 				dto.setName(set.getString("name"));
@@ -266,7 +265,7 @@ public class MemberDao {
 			try {
 
 				pstmt.close();
-				con.close(); // 사용된 커넥션 풀안에 있는 커넥션을 끊고 다른 유저가 사용할수있게끔 비워둠.
+				con.close(); // �ъ�⑸�� 而ㅻ�μ�� ������ ���� 而ㅻ�μ���� ��怨� �ㅻⅨ ����媛� �ъ�⑺������寃��� 鍮�����.
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
@@ -287,11 +286,11 @@ public class MemberDao {
 		Connection connection = null;
 
 		try {
-			// context: 현재 작동되고 있는 내 프로그램.
+			// context: ���� ������怨� ���� �� ��濡�洹몃��.
 			context = new InitialContext();
-			// ""경로에 있는 걸 dataSource를 구하기 위한 과정
+			// ""寃쎈��� ���� 嫄� dataSource瑜� 援ы��湲� ���� 怨쇱��
 			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
-			// dataSource를 커넥션에 연결시켜줌.
+			// dataSource瑜� 而ㅻ�μ���� �곌껐��耳�以�.
 			connection = dataSource.getConnection();
 		} catch (Exception e) {
 			e.printStackTrace();

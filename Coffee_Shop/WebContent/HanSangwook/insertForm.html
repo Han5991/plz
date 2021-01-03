@@ -5,8 +5,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <h2>JSP업로드 연습 - 이미지 업로드</h2>
+    <h2>메뉴 추가 페이지</h2>
     <form action="insertOk" method="post" enctype="multipart/form-data">
+    Type : <select name="type">
+    		  <option value="tea">tea</option>
+    		  <option value="dessert">dessert</option>
+    		  <option value="etc">etc</option>
+    		  </select><br>
       Name : <input type="text" name="name"><br>
       price : <input type="text" name="price"><br>
       image : <input type="file" name="image" ><br>

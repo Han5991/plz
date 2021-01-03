@@ -1,5 +1,19 @@
+<%@page import="java.io.File"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.sql.*"%>
+<%@page import="javax.naming.*"%>
+<%@page import="javax.sql.DataSource"%>
+<%@page import="Coffee_Shop.menu.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%!Context context = null;
+	DataSource dataSource = null;
+	Connection con = null;
+	PreparedStatement stmt = null;
+	ResultSet resultSet = null;
+	String name = null;
+	int price = 0;
+	int i;%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,7 +67,6 @@ a:hover:not(.active) {
 	border: 0;
 	float: left;
 }
-
 </style>
 <title>Insert title here</title>
 </head>
@@ -83,7 +96,6 @@ a:hover:not(.active) {
 	</nav>
 
 	<div id="container">
-		<!-- <div id="contents"> -->
 		<div id="section">
 			<!-- 내용 -->
 			<div class="tabArea navbar- menus">
@@ -98,86 +110,85 @@ a:hover:not(.active) {
 			</div>
 		</div>
 	</div>
-
 	<div id="tabCont01" class="tabConts">
 		<ul class="menuProduct">
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/디_블베.jpg" alt="블루베리 베이글" width="250" height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>블루베리 베이글</dt>
-				</dl>
-			</li>
+			<%
+				ArrayList<Menudto> menudto = new ArrayList<Menudto>();
+			try {
+				context = new InitialContext();// 프로그램
+				dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
+				con = dataSource.getConnection();// 연결
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/디_치즈베이글.jpg" alt="치즈베이글" width="250" height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>치즈베이글</dt>
-				</dl>
-			</li>
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/디_핫.jpg" alt="핫도그" width="250" height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>핫도그</dt>
-				</dl>
-			</li>
+			try {
+				stmt = con.prepareStatement("SELECT * FROM menu WHERE filename LIKE 'dessert%' ORDER BY filename asc");
+				resultSet = stmt.executeQuery();
+				while (resultSet.next()) {
+					name = resultSet.getString("name");
+					price = resultSet.getInt("price");
+					menudto.add(new Menudto(name, price));
+				}
+			} catch (Exception e) {
 
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/디_클스.jpg" alt="클래식 스콘" width="250" height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>클래식 스콘</dt>
-				</dl>
-			</li>
+			} finally {
+				try {
+					if (con != null)
+				con.close();
+					if (stmt != null)
+				stmt.close();
+				} catch (Exception e) {
+				}
+			}
 
-			<li class="list">
-				<!-- <a href="#"> -->
+			File file = new File("C:\\Users\\admin\\git\\plz\\Coffee_Shop\\WebContent\\img\\menuImg\\dessert");
+			File files[] = file.listFiles();
+			if (files != null && files.length > 0) {
+				for (File f : files) {
+			%><li class="list">
 				<p class="img">
-					<img src="../img/디_초스.jpg" alt="초코 스콘" width="250" height="250" />
+					<img alt="<%=f.getName()%>"
+						src="../img/menuImg/dessert/<%=f.getName()%>" width="250"
+						height="250" /><br>
 				</p>
 				<dl class="text-center">
-					<dt>초코 스콘</dt>
+					<dt>메뉴 : <%=menudto.get(i).getName()%></dt>
+					<dt>가격 : <%=menudto.get(i).getPrice()%></dt>
+					<dt>
+						<input type="button" value="+" name="plus"> <input
+							type="text" value="0" name="quantity" style="text-align: center;"
+							onclick="" readonly="readonly"> <input type="button"
+							value="-" name="maineoseu">
+					</dt>
 				</dl>
 			</li>
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/디_초크.jpg" alt="초코 크로아상" width="250" height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>초코 크로아상</dt>
-				</dl>
-			</li>
-
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/디_몽데.jpg" alt="몽블랑 데니쉬" width="250" height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>몽블랑 데니쉬</dt>
-				</dl>
-			</li>
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/디_빨.jpg" alt="빨미까레" width="250" height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>빨미까레</dt>
-				</dl>
-			</li>
+			<%
+				++i;
+			if (i == menudto.size()) {
+				i = 0;
+			}
+			}
+			}
+			%>
 		</ul>
 	</div>
 </body>
+<script type="text/javascript">
+	$(function() {
+		$('input[name=plus]').click(function() {
+			var n = $('input[name=plus]').index(this);
+			var num = $("input[name=quantity]:eq(" + n + ")").val();
+			$("input[name=quantity]:eq(" + n + ")").val(++num);
+		});
+
+		$('input[name=maineoseu]').click(function() {
+			var n = $('input[name=maineoseu]').index(this);
+			var num = $("input[name=quantity]:eq(" + n + ")").val();
+			if (num > 0) {
+				$("input[name=quantity]:eq(" + n + ")").val(--num);
+			}
+		});
+	})
+</script>
 </html>
