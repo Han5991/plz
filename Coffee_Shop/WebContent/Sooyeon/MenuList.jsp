@@ -129,21 +129,6 @@ height:52px;
 			</div>
 		</div>
 	</div>
-	<!-- 	<div class="btnTab">
-	
-	<h2 class="hide">대메뉴</h2>
-	<nav class="nav1">
-	<ul class="spot">
-	<li><a href="#a">전체</a></li>
-	<li><a href="#a">에스프레소</a></li>
-	<li><a href="#a">블렌디드</a></li>
-	<li><a href="#a">티</a></li>
-	<li><a href="#a">기타음료</a></li>
-	<li><a href="#a">디저트</a></li>
-	</ul>
-	
-	</nav>
-	</div> -->
 
 	<div id="tabCont01" class="tabConts">
 		<ul class="menuProduct">
@@ -461,15 +446,6 @@ height:52px;
 				</p>
 				<dl class="text-center">
 					<dt>몽블랑 데니쉬</dt>
-				</dl>
-			</li>
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/디_빨.jpg" alt="빨미까레" width="250" height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>빨미까레</dt>
 				</dl>
 			</li>
 		</ul>
