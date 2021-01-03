@@ -22,6 +22,7 @@
 
 
 <script type="text/javascript">
+
 	alert(" 수정 완료 되었습니다 ");	
 	document.location.href="main.jsp" ;
 </script>
