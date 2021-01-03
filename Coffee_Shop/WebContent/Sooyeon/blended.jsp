@@ -1,6 +1,19 @@
 <%@page import="java.io.File"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.sql.*"%>
+<%@page import="javax.naming.*"%>
+<%@page import="javax.sql.DataSource"%>
+<%@page import="Coffee_Shop.menu.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%!Context context = null;
+	DataSource dataSource = null;
+	Connection con = null;
+	PreparedStatement stmt = null;
+	ResultSet resultSet = null;
+	String name = null;
+	int price = 0;
+	int i;%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -97,22 +110,51 @@ a:hover:not(.active) {
 			</div>
 		</div>
 	</div>
-
 	<div id="tabCont01" class="tabConts">
 		<ul class="menuProduct">
 			<%
-				File file = new File("C:\\Users\\admin\\git\\plz\\Coffee_Shop\\WebContent\\img\\menuImg\\tea");
+				ArrayList<Menudto> menudto = new ArrayList<Menudto>();
+			try {
+				context = new InitialContext();// 프로그램
+				dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
+				con = dataSource.getConnection();// 연결
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			try {
+				stmt = con.prepareStatement("SELECT * FROM menu WHERE filename LIKE 'b%' ORDER BY filename asc");
+				resultSet = stmt.executeQuery();
+				while (resultSet.next()) {
+					name = resultSet.getString("name");
+					price = resultSet.getInt("price");
+					menudto.add(new Menudto(name, price));
+				}
+			} catch (Exception e) {
+
+			} finally {
+				try {
+					if (con != null)
+				con.close();
+					if (stmt != null)
+				stmt.close();
+				} catch (Exception e) {
+				}
+			}
+
+			File file = new File("C:\\Users\\admin\\git\\plz\\Coffee_Shop\\WebContent\\img\\menuImg\\blended");
 			File files[] = file.listFiles();
 			if (files != null && files.length > 0) {
 				for (File f : files) {
-			%>
-			<li class="list">
+			%><li class="list">
 				<p class="img">
 					<img alt="<%=f.getName()%>"
-						src="../img/menuImg/tea/<%=f.getName()%>" width="250" height="250" /><br>
+						src="../img/menuImg/blended/<%=f.getName()%>" width="250"
+						height="250" /><br>
 				</p>
 				<dl class="text-center">
-					<dt><%=f.getName()%></dt>
+					<dt>메뉴 : <%=menudto.get(i).getName()%></dt>
+					<dt>가격 : <%=menudto.get(i).getPrice()%></dt>
 					<dt>
 						<input type="button" value="+" name="plus"> <input
 							type="text" value="0" name="quantity" style="text-align: center;"
@@ -122,7 +164,11 @@ a:hover:not(.active) {
 				</dl>
 			</li>
 			<%
-				}
+				++i;
+			if (i == menudto.size()) {
+				i = 0;
+			}
+			}
 			}
 			%>
 		</ul>
