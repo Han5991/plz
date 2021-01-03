@@ -219,13 +219,16 @@ public class MemberDao {
 	}
 
 	
-	public int updateMember(MemberDto dto) { // 회원 정보 업데이트 시 필요 메서드
+	public int updateMember(MemberDto dto) { 
 		int ri = 0;
 
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		// ResultSet set= null;
-		String query = "update user_member set pwd=?,address1=?,address2=?,email1=?,email2=? "; // 전화번호 이메일 주소 수정
+		String query = "update user_member set pwd=?,address1=?,address2=?,email1=?,email2=?,postcode=? ,birthdate=?,tel=?,"
+				+ "bankname=?, account_no=?,cardname=?, card_no1=? ,card_no2=?, "
+				+ "card_no3=?,card_no4=? , exp_month=?, exp_year=? ,order_list=?"
+				+ " where id=? "; 
 
 		try { 
 
@@ -237,6 +240,25 @@ public class MemberDao {
 			pstmt.setString(3, dto.getAddress2());
 			pstmt.setString(4, dto.getEmail1());
 			pstmt.setString(5, dto.getEmail2());
+			pstmt.setString(6, dto.getPostcode());
+			
+			pstmt.setString(7, dto.getBirthdate());
+			pstmt.setString(8, dto.getTel());
+			pstmt.setString(9, dto.getBankname());
+			pstmt.setString(10, dto.getAccount_no());
+			pstmt.setString(11, dto.getCardname());
+			pstmt.setString(12, dto.getCard_no1());
+			pstmt.setString(13, dto.getCard_no2());
+			pstmt.setString(14, dto.getCard_no3());
+			pstmt.setString(15, dto.getCard_no4());
+			pstmt.setString(16, dto.getExp_month());
+			pstmt.setString(17, dto.getExp_year());
+			pstmt.setString(18, dto.getOrder_list());
+			
+			pstmt.setString(19, dto.getId());
+			
+			pstmt.executeUpdate();
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
