@@ -79,7 +79,7 @@ input::placeholder {
 }
 </style>
 
-<title>회원 가입 페이지</title>
+<title>회원 정보 수정페이지</title>
 </head>
 <body style="background: lightgray">
 	<!-- <h1 id="pageTit" class="pageName">회원가입</h1> -->
@@ -130,7 +130,7 @@ input::placeholder {
 										<!-- <label style="display:none;" for="USER_ID">아이디</label> -->
 										<input type="text" name="id" data-validation="1"
 											maxlength="20" size="20" value="<%=dto.getId()%>"
-											autocomplete="off" readonly>
+											autocomplete="off" readonly="readonly" >
 										<!-- <input type="hidden" name="DUP_YN" value="N">
                  <input type="hidden" name="MARKETING_YN" value="N">
                  <input type="hidden" name="LOCATION_YN" value="N"> -->
@@ -168,7 +168,7 @@ input::placeholder {
 									<div class="name_input">
 										<span><input type="text" placeholder="이름 입력"
 											name="name" value="<%=dto.getName()%>" data-validation="1"
-											maxlength="6" autocomplete="off" readonly></span>
+											maxlength="6" autocomplete="off" readonly="readonly"></span>
 									</div> <br> 전화번호<br> <!-- <label style="display:inline;" for="USER_TEL">전화번호</label> -->
 									<div class="tel_input">
 										<span><input type="tel" placeholder="휴대폰 번호 ('-'제외)"
@@ -337,7 +337,7 @@ input::placeholder {
 							<!-- <button class="btn_blk button h60" id="btn_join">회원 가입</button> -->
 							<input type="button" value="수정하기" class="btn btn-warning"onclick="updateInfoConfirm()"> 
 								<input type="button"value="다시 입력하기" class="btn btn-warning"
-								onclick="javascript:window.location='join.html'">
+								onclick="javascript:window.location='login.jsp'">
 						</div>
 					</div>
 
