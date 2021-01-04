@@ -9,7 +9,6 @@ request.setCharacterEncoding("utf-8");
     <jsp:setProperty name="dto" property="*"/> 
     
 <%	
-	request.setCharacterEncoding("utf-8"); 
 	String id=(String)session.getAttribute("id"); 
 	MemberDao dao = MemberDao.getInstance();
 	
