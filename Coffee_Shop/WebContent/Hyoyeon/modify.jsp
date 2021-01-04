@@ -296,7 +296,7 @@ input::placeholder {
 											유효기간<br>
 											<!-- <label style="display:inline;" for="EXP_MONTH EXP_YEAR">유효기간</label> -->
 											<!-- <span><input type="month" name="EXP_MONTH" data-validation="1"></span> -->
-											<select name="EXP_MONTH">
+											<select name="exp_month">
 												<option
 													value="<%if (dto.getExp_month() == null) {%>
 												<%=""%><%} else {%><%=dto.getExp_month()%><%}%>">월(Month)</option>
@@ -312,7 +312,7 @@ input::placeholder {
 												<option value="10">10</option>
 												<option value="11">11</option>
 												<option value="12">12</option>
-											</select> <select name="EXP_YEAR">
+											</select> <select name="exp_year">
 												<option
 													value="<%if (dto.getExp_year() == null) {%>
 												<%=""%><%} else {%><%=dto.getExp_year()%><%}%>">년(Year)</option>
@@ -335,7 +335,7 @@ input::placeholder {
 						</table>
 						<div class="btn_wrap">
 							<!-- <button class="btn_blk button h60" id="btn_join">회원 가입</button> -->
-							<input type="button" value="수정하기" class="btn btn-warning"onclick="updateInfoConfirm()"> 
+							<input type="button" value="수정하기" class="btn btn-warning" onclick="updateInfoConfirm()"> 
 								<input type="button"value="다시 입력하기" class="btn btn-warning"
 								onclick="javascript:window.location='login.jsp'">
 						</div>
