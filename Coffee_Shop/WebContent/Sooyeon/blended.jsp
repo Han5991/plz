@@ -1,5 +1,4 @@
 <%@page import="java.io.File"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.*"%>
 <%@page import="javax.naming.*"%>
 <%@page import="javax.sql.DataSource"%>
@@ -12,8 +11,7 @@
 	PreparedStatement stmt = null;
 	ResultSet resultSet = null;
 	String name = null;
-	int price = 0;
-	int i;%>
+	int price = 0;%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -97,10 +95,9 @@ a:hover:not(.active) {
 
 	<div id="container">
 		<div id="section">
-			<!-- 내용 -->
 			<div class="tabArea navbar- menus">
 				<div class="btnTab text-center">
-					<a href="#" class="active"><span class="all">전체</span></a> <a
+					<a href="MenuList.jsp" class="active"><span class="all">전체</span></a> <a
 						href="espresso.jsp"><span class="chi06">에스프레소</span></a> <a
 						href="blended.jsp"><span class="chi08">블렌디드 </span></a> <a
 						href="tea.jsp"><span class="chi01">티</span></a> <a href="etc.jsp"><span
@@ -113,11 +110,10 @@ a:hover:not(.active) {
 	<div id="tabCont01" class="tabConts">
 		<ul class="menuProduct">
 			<%
-				ArrayList<Menudto> menudto = new ArrayList<Menudto>();
-			try {
-				context = new InitialContext();// 프로그램
+				try {
+				context = new InitialContext();
 				dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
-				con = dataSource.getConnection();// 연결
+				con = dataSource.getConnection();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -128,32 +124,18 @@ a:hover:not(.active) {
 				while (resultSet.next()) {
 					name = resultSet.getString("name");
 					price = resultSet.getInt("price");
-					menudto.add(new Menudto(name, price));
-				}
-			} catch (Exception e) {
-
-			} finally {
-				try {
-					if (con != null)
-				con.close();
-					if (stmt != null)
-				stmt.close();
-				} catch (Exception e) {
-				}
-			}
-			for (i = 0; i < menudto.size(); i++) {
-			%><li class="list">
+			%>
+			<li class="list">
 				<p class="img">
-					<img src="showImage?key1=<%=menudto.get(i).getName()%>" width="250"
-						height="250" />
+					<img src="../showImage?key1=<%=name%>" width="250" height="250" />
 				</p>
 				<dl class="text-center">
 					<dt>
 						메뉴 :
-						<%=menudto.get(i).getName()%></dt>
+						<%=name%></dt>
 					<dt>
 						가격 :
-						<%=menudto.get(i).getPrice()%></dt>
+						<%=price%></dt>
 					<dt>
 						<input type="button" value="-" name="maineoseu"> <input
 							type="text" value="0" name="quantity" style="text-align: center;"
@@ -163,8 +145,17 @@ a:hover:not(.active) {
 				</dl>
 			</li>
 			<%
-				if (i == menudto.size()) {
-				i = 0;
+				}
+			} catch (Exception e) {
+			e.printStackTrace();
+			} finally {
+			try {
+			if (con != null)
+				con.close();
+			if (stmt != null)
+				stmt.close();
+			} catch (Exception e) {
+			e.printStackTrace();
 			}
 			}
 			%>

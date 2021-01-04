@@ -14,13 +14,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-@WebServlet("/HanSangwook/insertOk")
+@WebServlet("/insertOk")
 public class insertOk extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -32,7 +31,6 @@ public class insertOk extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter pw = response.getWriter();
-		HttpSession session = request.getSession();
 		Connection con = null;
 		PreparedStatement stmt = null;
 		MultipartRequest multi = null;
@@ -60,15 +58,16 @@ public class insertOk extends HttpServlet {
 			name = multi.getParameter("name");
 			price = Integer.parseInt(multi.getParameter("price"));
 			type = multi.getParameter("type");
-			uploadFile = multi.getFilesystemName("image") ;
+			uploadFile = multi.getFilesystemName("image");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		    
+
 		try {
 			File f = new File(uploadPath + "\\" + uploadFile);
-			File fileNew = new File(uploadPath + "\\" +type+uploadFile);
-			if( f.exists() ) f.renameTo( fileNew );
+			File fileNew = new File(uploadPath + "\\" + type + uploadFile);
+			if (f.exists())
+				f.renameTo(fileNew);
 			FileInputStream fis = new FileInputStream(fileNew);
 
 			stmt = con.prepareStatement("insert into menu values(?,?,?,?)");
@@ -79,13 +78,12 @@ public class insertOk extends HttpServlet {
 			rownum = stmt.executeUpdate();
 			if (rownum > 0) {
 				pw.print("삽입성공<br>");
-				pw.print("<a href=\"insertForm.jsp\">입력폼으로 이동</a>");
-				session.invalidate();
+				pw.print("<a href=\"../insertForm.jsp\">입력폼으로 이동</a>");
 			}
 		} catch (Exception e) {
 			pw.print("삽입실패");
+			pw.print("<a href=\"../insertForm.jsp\">입력폼으로 이동</a>");
 			System.out.println("여긴가" + e.getMessage());
-			session.invalidate();
 		} finally {
 			try {
 				if (con != null)
