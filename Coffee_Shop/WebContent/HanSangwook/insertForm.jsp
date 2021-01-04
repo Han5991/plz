@@ -10,11 +10,11 @@
 	<h2>메뉴 추가 페이지</h2>
 	<form action="insertOk" method="post" enctype="multipart/form-data">
 		Type : <select name="type">
-			<option value="etc" onclick="<%session.setAttribute("type", "blended");%>">blended</option>
-			<option value="dessert" onclick="<%session.setAttribute("type", "dessert");%>">dessert</option>
-			<option value="etc" onclick="<%session.setAttribute("type", "espresso");%>">espresso</option>
-			<option value="etc" onclick="<%session.setAttribute("type", "etc");%>">etc</option>
-			<option value="tea" onclick="<%session.setAttribute("type", "tea");%>">tea</option>
+			<option value="blended_">blended</option>
+			<option value="dessert_">dessert</option>
+			<option value="espresso_">espresso</option>
+			<option value="etc_">etc</option>
+			<option value="tea_">tea</option>
 			</select>
 		<br> Name : <input type="text" name="name"><br>
 		price : <input type="text" name="price"><br> image : <input

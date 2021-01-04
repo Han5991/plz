@@ -123,7 +123,7 @@ a:hover:not(.active) {
 			}
 
 			try {
-				stmt = con.prepareStatement("SELECT * FROM menu WHERE filename LIKE 'tea%' ORDER BY filename asc");
+				stmt = con.prepareStatement("SELECT * FROM menu WHERE filename LIKE 'tea%'");
 				resultSet = stmt.executeQuery();
 				while (resultSet.next()) {
 					name = resultSet.getString("name");
@@ -141,15 +141,11 @@ a:hover:not(.active) {
 				} catch (Exception e) {
 				}
 			}
-
-			File file = new File("C:\\Users\\admin\\git\\plz\\Coffee_Shop\\WebContent\\img\\menuImg\\tea");
-			File files[] = file.listFiles();
-			if (files != null && files.length > 0) {
-				for (File f : files) {
+			for (i = 0; i < menudto.size(); i++) {
 			%><li class="list">
 				<p class="img">
-					<img alt="<%=f.getName()%>"
-						src="../img/menuImg/tea/<%=f.getName()%>" width="250" height="250" /><br>
+					<img src="showImage?key1=<%=menudto.get(i).getName()%>" width="250"
+						height="250" />
 				</p>
 				<dl class="text-center">
 					<dt>
@@ -159,18 +155,16 @@ a:hover:not(.active) {
 						가격 :
 						<%=menudto.get(i).getPrice()%></dt>
 					<dt>
-						<input type="button" value="+" name="plus"> <input
+						<input type="button" value="-" name="maineoseu"> <input
 							type="text" value="0" name="quantity" style="text-align: center;"
 							onclick="" readonly="readonly"> <input type="button"
-							value="-" name="maineoseu">
+							value="+" name="plus">
 					</dt>
 				</dl>
 			</li>
 			<%
-				++i;
-			if (i == menudto.size()) {
+				if (i == menudto.size()) {
 				i = 0;
-			}
 			}
 			}
 			%>
