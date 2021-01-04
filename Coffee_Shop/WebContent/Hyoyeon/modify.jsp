@@ -315,16 +315,16 @@ input::placeholder {
 											<select name="exp_year">
 												<option
 													value="" <%=exp_year.equals("")|| exp_year == null?"selected":""%>>년(Year)</option>
-												<option value="21" <%=exp_year.equals("1")?"selected":""%>>21</option>
-												<option value="22" <%=exp_year.equals("2")?"selected":""%>>22</option>
-												<option value="23" <%=exp_year.equals("3")?"selected":""%>>23</option>
-												<option value="24" <%=exp_year.equals("4")?"selected":""%>>24</option>
-												<option value="25" <%=exp_year.equals("5")?"selected":""%>>25</option>
-												<option value="26" <%=exp_year.equals("6")?"selected":""%>>26</option>
-												<option value="27" <%=exp_year.equals("7")?"selected":""%>>27</option>
-												<option value="28" <%=exp_year.equals("8")?"selected":""%>>28</option>
-												<option value="29" <%=exp_year.equals("9")?"selected":""%>>29</option>
-												<option value="30" <%=exp_year.equals("10")?"selected":""%>>30</option>
+												<option value="1" <%=exp_year.equals("1")?"selected":""%>>21</option>
+												<option value="2" <%=exp_year.equals("2")?"selected":""%>>22</option>
+												<option value="3" <%=exp_year.equals("3")?"selected":""%>>23</option>
+												<option value="4" <%=exp_year.equals("4")?"selected":""%>>24</option>
+												<option value="5" <%=exp_year.equals("5")?"selected":""%>>25</option>
+												<option value="6" <%=exp_year.equals("6")?"selected":""%>>26</option>
+												<option value="7" <%=exp_year.equals("7")?"selected":""%>>27</option>
+												<option value="8" <%=exp_year.equals("8")?"selected":""%>>28</option>
+												<option value="9" <%=exp_year.equals("9")?"selected":""%>>29</option>
+												<option value="10" <%=exp_year.equals("10")?"selected":""%>>30</option>
 											</select> 년도
 										</p> <input type="hidden" name="loginRedirect"
 										value="/member/join_step4_basic">
