@@ -1,5 +1,4 @@
 <%@page import="java.io.File"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.*"%>
 <%@page import="javax.naming.*"%>
 <%@page import="javax.sql.DataSource"%>
@@ -12,8 +11,8 @@
 	PreparedStatement stmt = null;
 	ResultSet resultSet = null;
 	String name = null;
-	int price = 0;
-	int i;%>
+	String filename = null;
+	int price = 0;%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -97,11 +96,10 @@ a:hover:not(.active) {
 
 	<div id="container">
 		<div id="section">
-			<!-- 내용 -->
 			<div class="tabArea navbar- menus">
 				<div class="btnTab text-center">
-					<a href="#" class="active"><span class="all">전체</span></a> <a
-						href="espresso.jsp"><span class="chi06">에스프레소</span></a> <a
+					<a href="MenuList.jsp" class="active"><span class="all">전체</span></a>
+					<a href="espresso.jsp"><span class="chi06">에스프레소</span></a> <a
 						href="blended.jsp"><span class="chi08">블렌디드 </span></a> <a
 						href="tea.jsp"><span class="chi01">티</span></a> <a href="etc.jsp"><span
 						class="chi03">기타 음료</span></a> <a href="dessert.jsp"><span
@@ -110,61 +108,60 @@ a:hover:not(.active) {
 			</div>
 		</div>
 	</div>
-	<form action="deleteOk" method="post">
-	<div id="tabCont01" class="tabConts">
-		<ul class="menuProduct">
-			<%
-				ArrayList<Menudto> menudto = new ArrayList<Menudto>();
-			try {
-				context = new InitialContext();// 프로그램
-				dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
-				con = dataSource.getConnection();// 연결
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-			try {
-				stmt = con.prepareStatement("SELECT * FROM menu");
-				resultSet = stmt.executeQuery();
-				while (resultSet.next()) {
-					name = resultSet.getString("name");
-					price = resultSet.getInt("price");
-					menudto.add(new Menudto(name, price));
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				try {
-					if (con != null)
-				con.close();
-					if (stmt != null)
-				stmt.close();
+	<form action="../deleteOk">
+		<div id="tabCont01" class="tabConts">
+			<ul class="menuProduct">
+				<%
+					try {
+					context = new InitialContext();
+					dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
+					con = dataSource.getConnection();
 				} catch (Exception e) {
+					e.printStackTrace();
 				}
-			}
-			for (i = 0; i < menudto.size(); i++) {
-			%><li class="list">
-				<p class="img">
-					<img src="../showImage?key1=<%=menudto.get(i).getName()%>" width="250"
-						height="250" />
-				</p>
-				<dl class="text-center">
-					<dt><%=menudto.get(i).getName()%></dt>
-					<dt><%=menudto.get(i).getPrice()%></dt>
-					<dt>
-						삭제 선택 <input type="radio" name="delete" value="<%=menudto.get(i).getName()%>">
-					</dt>
-				</dl>
-			</li>
-			<%
-				if (i == menudto.size()) {
-				i = 0;
-			}
-			}
-			%>
-		</ul>
-	</div>
-	<input type="submit" value="삭제">
+
+				try {
+					stmt = con.prepareStatement("SELECT * FROM menu");
+					resultSet = stmt.executeQuery();
+					while (resultSet.next()) {
+						name = resultSet.getString("name");
+						price = resultSet.getInt("price");
+						filename = resultSet.getString("filename");
+				%>
+				<li class="list">
+					<p class="img">
+						<img src="../showImage?key1=<%=name%>" width="250" height="250" />
+					</p>
+					<dl class="text-center">
+						<dt>
+							메뉴 :
+							<%=name%></dt>
+						<dt>
+							가격 :
+							<%=price%></dt>
+						<dt>
+							삭제 선택 <input type="radio" value='<%=filename%>' name="delete">
+						</dt>
+					</dl>
+				</li>
+				<%
+					}
+				} catch (Exception e) {
+				e.printStackTrace();
+				} finally {
+				try {
+				if (con != null)
+					con.close();
+				if (stmt != null)
+					stmt.close();
+				} catch (Exception e) {
+				e.printStackTrace();
+				}
+				}
+				%>
+			</ul>
+		</div>
+		<input type="submit" value="삭제">
 	</form>
 </body>
 <script type="text/javascript">

@@ -1,7 +1,6 @@
 package Coffee_Shop.menu;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -16,10 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-
-@WebServlet("/HanSangwook/deleteOk")
+@WebServlet("/deleteOk")
 public class deleteOk extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -31,15 +27,15 @@ public class deleteOk extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter pw = response.getWriter();
-		String uploadPath = "C:\\Users\\admin\\git\\plz\\Coffee_Shop\\WebContent\\img2";
-		String uploadFile = null;
 		Connection con = null;
 		PreparedStatement stmt = null;
-		String name = null;
-		int rownum = 0;
-		int price = 0;
 		Context context = null;
 		DataSource dataSource = null;
+		String delete = null;
+		int rownum = 0;
+		boolean de = false;
+
+		String uploadPath = "C:\\Users\\admin\\git\\plz\\Coffee_Shop\\WebContent\\img\\menuImg";
 
 		try {
 			context = new InitialContext();// 프로그램
@@ -50,19 +46,19 @@ public class deleteOk extends HttpServlet {
 		}
 
 		try {
-
-			stmt = con.prepareStatement("delete from menu where name");
-			stmt.setString(1, name);
-			stmt.setInt(2, price);
+			delete = request.getParameter("delete");
+			stmt = con.prepareStatement("DELETE FROM menu WHERE filename='" + delete+"'");
 			rownum = stmt.executeUpdate();
-			if (rownum > 0) {
-				System.out.println("삽입성공");
-				pw.print("삽입성공");
-			} else {
-				System.out.println("실패");
-				pw.print("삽입실패");
+			File f = new File(uploadPath + "\\" + delete);
+			if (f.exists())
+				de = f.delete();
+			if (rownum > 0 && de == true) {
+				pw.print("삭제성공<br>");
+				pw.print("<a href=\"../deleteForm.jsp\">삭제폼으로 이동</a>");
 			}
 		} catch (Exception e) {
+			pw.print("삭제실패");
+			pw.print("<a href=\"../deleteForm.jsp\">삭제폼으로 이동</a>");
 			System.out.println("여긴가" + e.getMessage());
 		} finally {
 			try {

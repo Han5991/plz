@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h2>메뉴 추가 페이지</h2>
-	<form action="insertOk" method="post" enctype="multipart/form-data">
+	<form action="../insertOk" method="post" enctype="multipart/form-data">
 		Type : <select name="type">
 			<option value="blended_">blended</option>
 			<option value="dessert_">dessert</option>
