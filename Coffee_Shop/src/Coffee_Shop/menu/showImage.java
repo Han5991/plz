@@ -37,7 +37,7 @@ public class showImage extends HttpServlet {
 		PreparedStatement stmt = null;
 		ResultSet resultSet = null;
 		InputStream is = null;
-		String key1 = request.getParameter("key1"); // Primary key 1
+		String key1 = request.getParameter("key1");
 
 		final String sql = " SELECT img FROM menu WHERE name = '"+key1+"'";
 		try {

@@ -50,7 +50,7 @@ public class insertOk extends HttpServlet {
 			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
 			con = dataSource.getConnection();// 연결
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("오라클 로그인 실패 : " + e);
 		}
 
 		try {
@@ -60,7 +60,7 @@ public class insertOk extends HttpServlet {
 			type = multi.getParameter("type");
 			uploadFile = multi.getFilesystemName("image");
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println("파라미터 값 받아오기 실패 : " + e);
 		}
 
 		try {
@@ -83,7 +83,7 @@ public class insertOk extends HttpServlet {
 		} catch (Exception e) {
 			pw.print("삽입실패");
 			pw.print("<a href=\"../insertForm.jsp\">입력폼으로 이동</a>");
-			System.out.println("여긴가" + e.getMessage());
+			System.out.println("삽입 실패 : " + e.getMessage());
 		} finally {
 			try {
 				if (con != null)
@@ -91,6 +91,7 @@ public class insertOk extends HttpServlet {
 				if (stmt != null)
 					stmt.close();
 			} catch (Exception e) {
+				System.out.println("마무리 작업 실패 : " + e);
 			}
 		}
 	}

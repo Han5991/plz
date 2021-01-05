@@ -24,12 +24,12 @@ public class deleteOk extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html; charset=utf-8");
-		PrintWriter pw = response.getWriter();
 		Connection con = null;
 		PreparedStatement stmt = null;
 		Context context = null;
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter pw = response.getWriter();
 		DataSource dataSource = null;
 		String delete = null;
 		int rownum = 0;
@@ -59,7 +59,7 @@ public class deleteOk extends HttpServlet {
 		} catch (Exception e) {
 			pw.print("삭제실패");
 			pw.print("<a href=\"../deleteForm.jsp\">삭제폼으로 이동</a>");
-			System.out.println("여긴가" + e.getMessage());
+			System.out.println("쿼리문 실행 실패 : " + e.getMessage());
 		} finally {
 			try {
 				if (con != null)
@@ -67,6 +67,7 @@ public class deleteOk extends HttpServlet {
 				if (stmt != null)
 					stmt.close();
 			} catch (Exception e) {
+				System.out.println("마무리 작업 실패 : "+e);
 			}
 		}
 	}

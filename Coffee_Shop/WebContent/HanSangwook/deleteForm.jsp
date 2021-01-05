@@ -164,21 +164,4 @@ a:hover:not(.active) {
 		<input type="submit" value="삭제">
 	</form>
 </body>
-<script type="text/javascript">
-	$(function() {
-		$('input[name=plus]').click(function() {
-			var n = $('input[name=plus]').index(this);
-			var num = $("input[name=quantity]:eq(" + n + ")").val();
-			$("input[name=quantity]:eq(" + n + ")").val(++num);
-		});
-
-		$('input[name=maineoseu]').click(function() {
-			var n = $('input[name=maineoseu]').index(this);
-			var num = $("input[name=quantity]:eq(" + n + ")").val();
-			if (num > 0) {
-				$("input[name=quantity]:eq(" + n + ")").val(--num);
-			}
-		});
-	})
-</script>
 </html>
