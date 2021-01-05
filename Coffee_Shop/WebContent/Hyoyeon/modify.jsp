@@ -236,7 +236,7 @@ input::placeholder {
 <!-- 									null이 나오는 값들을 공백으로 치환해야함! -->
 										<p>
 											계좌번호<br>
-											<select name="bankname" id="bankname" name="bankname">
+											<select name="bankname" id="bankname">
 												<option value="0" <%=bankname.equals("")|| bankname == null?"selected":""%>>은행을 선택하세요</option>
 												<option value="1" <%=bankname.equals("1")?"selected":""%>>신한은행</option>
 												<option value="2" <%=bankname.equals("2")?"selected":""%>>국민은행</option>
@@ -258,18 +258,18 @@ input::placeholder {
 
 										<p>
 											신용카드<br>
-											<select name="exp_year">
-												<option value="0" <%=exp_year.equals("")|| bankname == null?"selected":""%>>카드를 선택하세요</option>
-												<option value="1" <%=exp_year.equals("1")?"selected":""%>>신한카드</option>
-												<option value="2" <%=exp_year.equals("2")?"selected":""%>>비씨카드</option>
-												<option value="3" <%=exp_year.equals("3")?"selected":""%>>국민카드</option>
-												<option value="4" <%=exp_year.equals("4")?"selected":""%>>NH농협카드</option>
-												<option value="5" <%=exp_year.equals("5")?"selected":""%>>현대카드</option>
-												<option value="6" <%=exp_year.equals("6")?"selected":""%>>삼성카드</option>
-												<option value="7" <%=exp_year.equals("7")?"selected":""%>>하나카드</option>
-												<option value="8" <%=exp_year.equals("8")?"selected":""%>>롯데카드</option>
-												<option value="9" <%=exp_year.equals("9")?"selected":""%>>씨티카드</option>
-												<option value="10" <%=exp_year.equals("10")?"selected":""%>>우리카드</option>
+											<select name="cardname" id="cardname">
+												<option value="0" <%=cardname.equals("0")|| cardname == null?"selected":""%>>카드를 선택하세요</option>
+												<option value="1" <%=cardname.equals("1")?"selected":""%>>신한카드</option>
+												<option value="2" <%=cardname.equals("2")?"selected":""%>>비씨카드</option>
+												<option value="3" <%=cardname.equals("3")?"selected":""%>>국민카드</option>
+												<option value="4" <%=cardname.equals("4")?"selected":""%>>NH농협카드</option>
+												<option value="5" <%=cardname.equals("5")?"selected":""%>>현대카드</option>
+												<option value="6" <%=cardname.equals("6")?"selected":""%>>삼성카드</option>
+												<option value="7" <%=cardname.equals("7")?"selected":""%>>하나카드</option>
+												<option value="8" <%=cardname.equals("8")?"selected":""%>>롯데카드</option>
+												<option value="9" <%=cardname.equals("9")?"selected":""%>>씨티카드</option>
+												<option value="10" <%=cardname.equals("10")?"selected":""%>>우리카드</option>
 											</select>
 										</p>
 										<p class="card_number">
@@ -297,8 +297,8 @@ input::placeholder {
 										</p>
 										<p class="card_exp_date">
 											유효기간<br>
-											<select name="exp_month">
-												<option value="" <%=exp_month.equals("")|| exp_month == null?"selected":""%>>월(Month)</option>
+											<select name="exp_month" >
+												<option value="" <%=exp_month.equals("0")|| exp_month == null?"selected":""%>>월(Month)</option>
 												<option value="1" <%=exp_month.equals("1")?"selected":""%>>01</option>
 												<option value="2" <%=exp_month.equals("2")?"selected":""%>>02</option>
 												<option value="3" <%=exp_month.equals("3")?"selected":""%>>03</option>
