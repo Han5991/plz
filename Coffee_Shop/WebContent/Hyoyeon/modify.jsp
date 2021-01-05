@@ -298,7 +298,7 @@ input::placeholder {
 										<p class="card_exp_date">
 											유효기간<br>
 											<select name="exp_month" >
-												<option value="" <%=exp_month.equals("0")|| exp_month == null?"selected":""%>>월(Month)</option>
+												<option value="0" <%=exp_month.equals("0")|| exp_month == null?"selected":""%>>월(Month)</option>
 												<option value="1" <%=exp_month.equals("1")?"selected":""%>>01</option>
 												<option value="2" <%=exp_month.equals("2")?"selected":""%>>02</option>
 												<option value="3" <%=exp_month.equals("3")?"selected":""%>>03</option>
@@ -314,7 +314,7 @@ input::placeholder {
 											</select> 월 &nbsp;&nbsp;
 											<select name="exp_year">
 												<option
-													value="" <%=exp_year.equals("")|| exp_year == null?"selected":""%>>년(Year)</option>
+													value="0" <%=exp_year.equals("")|| exp_year == null?"selected":""%>>년(Year)</option>
 												<option value="1" <%=exp_year.equals("1")?"selected":""%>>21</option>
 												<option value="2" <%=exp_year.equals("2")?"selected":""%>>22</option>
 												<option value="3" <%=exp_year.equals("3")?"selected":""%>>23</option>

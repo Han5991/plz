@@ -182,7 +182,7 @@ public class MemberDto {
 		return order_list;
 	}
 
-	public void setOrder_list(String order_list) {
+	public void setOrder_list(String order_list) { //객체로 들어갈수도
 		this.order_list = order_list;
 	}
 }
