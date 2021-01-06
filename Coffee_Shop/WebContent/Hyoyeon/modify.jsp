@@ -2,6 +2,8 @@
 <%@page import="com.javalec.ex.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	request.setCharacterEncoding("utf-8");
 	String id = (String) session.getAttribute("id");
@@ -104,7 +106,7 @@ input::placeholder {
 <title>회원 정보 수정페이지</title>
 </head>
 <body style="background: lightgray">
-	<!-- <h1 id="pageTit" class="pageName">회원가입</h1> -->
+<c:set value="<%=new java.util.Date()%>" var="now"></c:set>
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -192,8 +194,8 @@ input::placeholder {
 									</div> <br> 생년월일<br>
 									<div class="birth_input">
 										<span><input type="date" placeholder="생년월일 입력"
-											name="birthdate" value="<%=dto.getBirthdate()%>"
-											data-validation="1"></span>
+											name="birthdate"
+											max='<fmt:formatDate value="${now}" pattern="yyyy-MM-dd"/>'></span>
 									</div> <br> 이메일<br>
 									<div class="email_input">
 										<span><input type="text" placeholder="이메일 주소 입력"
