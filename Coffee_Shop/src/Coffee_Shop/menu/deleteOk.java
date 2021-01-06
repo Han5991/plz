@@ -47,18 +47,16 @@ public class deleteOk extends HttpServlet {
 
 		try {
 			delete = request.getParameter("delete");
-			stmt = con.prepareStatement("DELETE FROM menu WHERE filename='" + delete+"'");
+			stmt = con.prepareStatement("DELETE FROM menu WHERE filename='" + delete + "'");
 			rownum = stmt.executeUpdate();
 			File f = new File(uploadPath + "\\" + delete);
 			if (f.exists())
 				de = f.delete();
 			if (rownum > 0 && de == true) {
-				pw.print("삭제성공<br>");
-				pw.print("<a href=\"../deleteForm.jsp\">삭제폼으로 이동</a>");
+				pw.println("<script>alert('삭제 성공!!!'); location.href='HanSangwook/updateSelect.jsp.jsp';</script>");
 			}
 		} catch (Exception e) {
-			pw.print("삭제실패");
-			pw.print("<a href=\"../deleteForm.jsp\">삭제폼으로 이동</a>");
+			pw.println("<script>alert('삭제 실패!!!'); location.href='HanSangwook/updateSelect.jsp.jsp';</script>");
 			System.out.println("쿼리문 실행 실패 : " + e.getMessage());
 		} finally {
 			try {
@@ -67,7 +65,7 @@ public class deleteOk extends HttpServlet {
 				if (stmt != null)
 					stmt.close();
 			} catch (Exception e) {
-				System.out.println("마무리 작업 실패 : "+e);
+				System.out.println("마무리 작업 실패 : " + e);
 			}
 		}
 	}

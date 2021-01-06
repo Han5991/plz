@@ -77,12 +77,10 @@ public class insertOk extends HttpServlet {
 			stmt.setString(4, fileNew.getName());
 			rownum = stmt.executeUpdate();
 			if (rownum > 0) {
-				pw.print("삽입성공<br>");
-				pw.print("<a href=\"../insertForm.jsp\">입력폼으로 이동</a>");
+				pw.println("<script>alert('삽입 성공!'); location.href='HanSangwook/insertForm.jsp';</script>");
 			}
 		} catch (Exception e) {
-			pw.print("삽입실패");
-			pw.print("<a href=\"../insertForm.jsp\">입력폼으로 이동</a>");
+			pw.println("<script>alert('삽입 실패!'); location.href='HanSangwook/insertForm.jsp';</script>");
 			System.out.println("삽입 실패 : " + e.getMessage());
 		} finally {
 			try {

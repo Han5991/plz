@@ -65,7 +65,7 @@ public class updateOk extends HttpServlet {
 		} catch (Exception e) {
 			System.out.println("파라미터 값 받아오기 실패 : " + e);
 		}
-		
+
 		try {
 			File f = new File(uploadPath + "\\" + uploadFile);
 			File fileNew = new File(uploadPath + "\\" + type + uploadFile);
@@ -86,12 +86,10 @@ public class updateOk extends HttpServlet {
 				update = f.delete();
 
 			if (rownum > 0 && update == true) {
-				pw.print("수정성공<br>");
-				pw.print("<a href=\"../insertForm.jsp\">수정선택으로 이동</a>");
+				pw.println("<script>alert('수정 성공!!!'); location.href='HanSangwook/updateSelect.jsp.jsp';</script>");
 			}
 		} catch (Exception e) {
-			pw.print("수정실패");
-			pw.print("<a href=\"../insertForm.jsp\">수정선택으로 이동</a>");
+			pw.println("<script>alert('수정 성공!!!'); location.href='HanSangwook/updateSelect.jsp.jsp';</script>");
 			System.out.println("수정 실패 : " + e.getMessage());
 		} finally {
 			try {
