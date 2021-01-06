@@ -13,7 +13,6 @@
 	<jsp:setProperty property="*" name="dto" />
 	<% 
 	MemberDao dao = MemberDao.getInstance();
-	
 	if(dao.confirmId(dto.getId()) == MemberDao.MEMBER_EXISTENT){
 	%>
 	<script>
