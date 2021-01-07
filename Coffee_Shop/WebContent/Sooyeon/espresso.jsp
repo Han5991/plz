@@ -1,5 +1,17 @@
+<%@page import="java.io.File"%>
+<%@page import="java.sql.*"%>
+<%@page import="javax.naming.*"%>
+<%@page import="javax.sql.DataSource"%>
+<%@page import="Coffee_Shop.menu.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%!Context context = null;
+	DataSource dataSource = null;
+	Connection con = null;
+	PreparedStatement stmt = null;
+	ResultSet resultSet = null;
+	String name = null;
+	int price = 0;%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,13 +65,8 @@ a:hover:not(.active) {
 	border: 0;
 	float: left;
 }
-
-/* tabCont01 {
-float:center;
-} */
 </style>
-
-<title>메뉴 | Autumn Leaves</title>
+<title>Insert title here</title>
 </head>
 <body style="background: white">
 	<nav class="navbar navbar-inverse">
@@ -87,12 +94,10 @@ float:center;
 	</nav>
 
 	<div id="container">
-		<!-- <div id="contents"> -->
 		<div id="section">
-			<!-- 내용 -->
 			<div class="tabArea navbar- menus">
 				<div class="btnTab text-center">
-					<a href="#" class="active"><span class="all">전체</span></a> <a
+					<a href="MenuList.jsp" class="active"><span class="all">전체</span></a> <a
 						href="espresso.jsp"><span class="chi06">에스프레소</span></a> <a
 						href="blended.jsp"><span class="chi08">블렌디드 </span></a> <a
 						href="tea.jsp"><span class="chi01">티</span></a> <a href="etc.jsp"><span
@@ -102,73 +107,76 @@ float:center;
 			</div>
 		</div>
 	</div>
-
-
 	<div id="tabCont01" class="tabConts">
 		<ul class="menuProduct">
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/에스프레소.jpg" alt="에스프레소" width="250" height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>에스프레소</dt>
-				</dl>
-			</li>
+			<%
+				try {
+				context = new InitialContext();
+				dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
+				con = dataSource.getConnection();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
+			try {
+				stmt = con.prepareStatement("SELECT * FROM menu WHERE filename LIKE 'espresso%'");
+				resultSet = stmt.executeQuery();
+				while (resultSet.next()) {
+					name = resultSet.getString("name");
+					price = resultSet.getInt("price");
+			%>
 			<li class="list">
-				<!-- <a href="#"> -->
 				<p class="img">
-					<img src="../img/아메리카노.jpg" alt="아메리카노" width="250" height="250" />
+					<img src="../showImage?key1=<%=name%>" width="250" height="250" />
 				</p>
 				<dl class="text-center">
-					<dt>아메리카노</dt>
+					<dt>
+						메뉴 :
+						<%=name%></dt>
+					<dt>
+						가격 :
+						<%=price%></dt>
+					<dt>
+						<input type="button" value="-" name="maineoseu"> <input
+							type="text" value="0" name="quantity" style="text-align: center;"
+							onclick="" readonly="readonly"> <input type="button"
+							value="+" name="plus">
+					</dt>
 				</dl>
 			</li>
-
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/카푸치노.jpg" alt="카푸치노" width="250" height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>아메리카노</dt>
-				</dl>
-			</li>
-
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/카페모카.jpg" alt="카페모카" width="250" height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>아메리카노</dt>
-				</dl>
-			</li>
-
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/카라멜 마키아토.jpg" alt="카라멜 마키아토" width="250"
-						height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>아메리카노</dt>
-				</dl>
-			</li>
-
-			<li class="list">
-				<!-- <a href="#"> -->
-				<p class="img">
-					<img src="../img/화초모_아이스.jpg" alt="화초모_아이스" width="250"
-						height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>아메리카노</dt>
-				</dl>
-			</li>
+			<%
+				}
+			} catch (Exception e) {
+			e.printStackTrace();
+			} finally {
+			try {
+			if (con != null)
+				con.close();
+			if (stmt != null)
+				stmt.close();
+			} catch (Exception e) {
+			e.printStackTrace();
+			}
+			}
+			%>
 		</ul>
 	</div>
-
 </body>
+<script type="text/javascript">
+	$(function() {
+		$('input[name=plus]').click(function() {
+			var n = $('input[name=plus]').index(this);
+			var num = $("input[name=quantity]:eq(" + n + ")").val();
+			$("input[name=quantity]:eq(" + n + ")").val(++num);
+		});
+
+		$('input[name=maineoseu]').click(function() {
+			var n = $('input[name=maineoseu]').index(this);
+			var num = $("input[name=quantity]:eq(" + n + ")").val();
+			if (num > 0) {
+				$("input[name=quantity]:eq(" + n + ")").val(--num);
+			}
+		});
+	})
+</script>
 </html>

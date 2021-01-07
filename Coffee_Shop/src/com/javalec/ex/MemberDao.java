@@ -226,7 +226,7 @@ public class MemberDao {
 		// ResultSet set= null;
 		String query = "update user_member set pwd=?,address1=?,address2=?,email1=?,email2=?,postcode=? ,birthdate=?,tel=?,"
 				+ "bankname=?, account_no=?,cardname=?, card_no1=? ,card_no2=?, "
-				+ "card_no3=?,card_no4=? , exp_month=?, exp_year=? ,order_list=?"
+				+ "card_no3=?,card_no4=? , exp_month=?, exp_year=?"
 				+ " where id=? "; 
 
 		try { 
@@ -252,9 +252,8 @@ public class MemberDao {
 			pstmt.setString(15, dto.getCard_no4());
 			pstmt.setString(16, dto.getExp_month());
 			pstmt.setString(17, dto.getExp_year());
-			pstmt.setString(18, dto.getOrder_list());
-			
-			pstmt.setString(19, dto.getId());
+
+			pstmt.setString(18, dto.getId());
 			
 			pstmt.executeUpdate();
 			

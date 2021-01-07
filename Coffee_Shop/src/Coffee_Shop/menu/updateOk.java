@@ -19,11 +19,11 @@ import javax.sql.DataSource;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-@WebServlet("/insertOk")
-public class insertOk extends HttpServlet {
+@WebServlet("/updateOk")
+public class updateOk extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public insertOk() {
+	public updateOk() {
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -40,8 +40,10 @@ public class insertOk extends HttpServlet {
 		String uploadFile = null;
 		String name = null;
 		String type = null;
+		String filename = null;
 		int rownum = 0;
 		int price = 0;
+		boolean update = false;
 
 		String uploadPath = "C:\\Users\\admin\\git\\plz\\Coffee_Shop\\WebContent\\img\\menuImg";
 
@@ -59,6 +61,7 @@ public class insertOk extends HttpServlet {
 			price = Integer.parseInt(multi.getParameter("price"));
 			type = multi.getParameter("type");
 			uploadFile = multi.getFilesystemName("image");
+			filename = multi.getParameter("filename");
 		} catch (Exception e) {
 			System.out.println("파라미터 값 받아오기 실패 : " + e);
 		}
@@ -70,18 +73,24 @@ public class insertOk extends HttpServlet {
 				f.renameTo(fileNew);
 			FileInputStream fis = new FileInputStream(fileNew);
 
-			stmt = con.prepareStatement("insert into menu values(?,?,?,?)");
+			stmt = con.prepareStatement("UPDATE menu SET name=?, price=?, img=?, filename=? WHERE filename=?");
 			stmt.setString(1, name);
 			stmt.setInt(2, price);
 			stmt.setBinaryStream(3, fis, (int) fileNew.length());
 			stmt.setString(4, fileNew.getName());
+			stmt.setString(5, filename);
 			rownum = stmt.executeUpdate();
-			if (rownum > 0) {
-				pw.println("<script>alert('삽입 성공!'); location.href='HanSangwook/insertForm.jsp';</script>");
+
+			f = new File(uploadPath + "\\" + filename);
+			if (f.exists())
+				update = f.delete();
+
+			if (rownum > 0 && update == true) {
+				pw.println("<script>alert('수정 성공!!!'); location.href='HanSangwook/updateSelect.jsp';</script>");
 			}
 		} catch (Exception e) {
-			pw.println("<script>alert('삽입 실패!'); location.href='HanSangwook/insertForm.jsp';</script>");
-			System.out.println("삽입 실패 : " + e.getMessage());
+			pw.println("<script>alert('수정 성공!!!'); location.href='HanSangwook/updateSelect.jsp';</script>");
+			System.out.println("수정 실패 : " + e.getMessage());
 		} finally {
 			try {
 				if (con != null)
