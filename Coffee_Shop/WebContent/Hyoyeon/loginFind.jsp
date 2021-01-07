@@ -8,6 +8,5 @@
 </head>
 <body>
 id를 찾자!
-pw를 찾자!
 </body>
 </html>

@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +23,6 @@
 		var cnt = str.length;
 		return cnt;
 	}
-
 	$(document).ready(function() {
 		//이메일선택
 		$("select[name=select_email]").change(function() {
@@ -72,6 +75,7 @@ input::placeholder {
 <title>회원 가입 페이지</title>
 </head>
 <body style="background: lightgray">
+	<c:set value="<%=new java.util.Date()%>" var="now"></c:set>
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -112,20 +116,19 @@ input::placeholder {
 							<tr>
 								<td>
 									<div class="id_input">
-										아이디 설정<br>
-										<input type="text" name="id" placeholder="아이디 입력"
-											data-validation="1" maxlength="20" size="20" value=""
-											autocomplete="off">
+										아이디 설정<br> <input type="text" name="id"
+											placeholder="아이디 입력" data-validation="1" maxlength="20"
+											size="20" value="" autocomplete="off">
+										<button type="button" class="button h60 btn_gray_dark"
+											id="btn_dup" onclick="javascript:">중복확인</button>
 									</div> <br>
 									<div class="pw_input">
-										비밀번호 설정<br>
-										<span><input style="font-family: arial;"
-											type="password" name="pwd" data-validation="1" maxlength="14"
-											placeholder="비밀번호(6~14자리)" autocomplete="new-password"></span>
-
-										<span><input style="font-family: arial;"
-											type="password" name="pwd_check" data-validation="1"
-											maxlength="14" placeholder="비밀번호 확인"></span>
+										비밀번호 설정<br> <span><input
+											style="font-family: arial;" type="password" name="pwd"
+											data-validation="1" maxlength="14" placeholder="비밀번호(6~14자리)"
+											autocomplete="new-password"></span> <span><input
+											style="font-family: arial;" type="password" name="pwd_check"
+											data-validation="1" maxlength="14" placeholder="비밀번호 확인"></span>
 									</div>
 								</td>
 							</tr>
@@ -153,7 +156,8 @@ input::placeholder {
 									</div> <br> 생년월일<br>
 									<div class="birth_input">
 										<span><input type="date" placeholder="생년월일 입력"
-											name="birthdate" value="" data-validation="1"></span>
+											name="birthdate"
+											max='<fmt:formatDate value="${now}" pattern="yyyy-MM-dd"/>'></span>
 									</div> <br> 이메일<br>
 									<div class="email_input">
 										<span><input type="text" placeholder="이메일 주소 입력"
@@ -197,8 +201,7 @@ input::placeholder {
 								<tr>
 									<td>
 										<p>
-											계좌번호<br>
-											<select name="bankname">
+											계좌번호<br> <select name="bankname">
 												<option value="">은행을 선택하세요</option>
 												<option value="1">신한은행</option>
 												<option value="2">국민은행</option>
@@ -217,8 +220,7 @@ input::placeholder {
 										</p>
 
 										<p>
-											신용카드<br>
-											<select name="cardname">
+											신용카드<br> <select name="cardname">
 												<option value="">카드를 선택하세요</option>
 												<option value="1">신한카드</option>
 												<option value="2">비씨카드</option>
@@ -233,22 +235,20 @@ input::placeholder {
 											</select>
 										</p>
 										<p class="card_number">
-											카드번호 입력<br>
-											<span><input type="text" name="card_no1"
+											카드번호 입력<br> <span><input type="text"
+												name="card_no1" formattype="number" minlength="4"
+												maxlength="4" size="4" data-validation="1" value=""></span>
+											<span><input type="text" name="card_no2"
 												formattype="number" minlength="4" maxlength="4" size="4"
 												data-validation="1" value=""></span> <span><input
-												type="text" name="card_no2" formattype="number"
+												type="text" name="card_no3" formattype="number"
 												minlength="4" maxlength="4" size="4" data-validation="1"
 												value=""></span> <span><input type="text"
-												name="card_no3" formattype="number" minlength="4"
+												name="card_no4" formattype="number" minlength="4"
 												maxlength="4" size="4" data-validation="1" value=""></span>
-											<span><input type="text" name="card_no4"
-												formattype="number" minlength="4" maxlength="4" size="4"
-												data-validation="1" value=""></span>
 										</p>
 										<p class="card_exp_date">
-											유효기간<br>
-											<select name="exp_month">
+											유효기간<br> <select name="exp_month">
 												<option value="">월(Month)</option>
 												<option value="1">01</option>
 												<option value="2">02</option>
@@ -262,8 +262,7 @@ input::placeholder {
 												<option value="10">10</option>
 												<option value="11">11</option>
 												<option value="12">12</option>
-											</select> 
-											<select name="exp_year">
+											</select> <select name="exp_year">
 												<option value="">년(Year)</option>
 												<option value="1">21</option>
 												<option value="2">22</option>

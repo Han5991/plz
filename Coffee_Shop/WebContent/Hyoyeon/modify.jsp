@@ -2,6 +2,8 @@
 <%@page import="com.javalec.ex.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	request.setCharacterEncoding("utf-8");
 	String id = (String) session.getAttribute("id");
@@ -20,8 +22,6 @@
 
 	String exp_month = dto.getExp_month();
 	if(exp_month == null) exp_month = "";
-	
-
 %>   
 
 <!DOCTYPE html>
@@ -41,7 +41,23 @@
 		$("select[name=select_email]").change(function() {
 			$("input[name=email2]").val(this.value);
 		});
+		
+		//카드번호 공백출력_하위선택자 찾아보기.
+		if($('input[name=card_no1]').val() == "null"){
+			$('input[name=card_no1]').val("");
+		}
+		if($('input[name=card_no2]').val() == "null"){
+			$('input[name=card_no2]').val("");
+		}
+		if($('input[name=card_no3]').val() == "null"){
+			$('input[name=card_no3]').val("");
+		}
+		if($('input[name=card_no4]').val() == "null"){
+			$('input[name=card_no4]').val("");
+		}
 	});
+	
+	
 </script>
 <style>
 @font-face {
@@ -88,7 +104,7 @@ input::placeholder {
 <title>회원 정보 수정페이지</title>
 </head>
 <body style="background: lightgray">
-	<!-- <h1 id="pageTit" class="pageName">회원가입</h1> -->
+<c:set value="<%=new java.util.Date()%>" var="now"></c:set>
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -112,9 +128,6 @@ input::placeholder {
 			</div>
 		</div>
 	</nav>
-
-
-
 
 	<div class="jumbotron" style="background-color: lightgray;">
 		<div class="container text-center">
@@ -176,8 +189,8 @@ input::placeholder {
 									</div> <br> 생년월일<br>
 									<div class="birth_input">
 										<span><input type="date" placeholder="생년월일 입력"
-											name="birthdate" value="<%=dto.getBirthdate()%>"
-											data-validation="1"></span>
+											name="birthdate"
+											max='<fmt:formatDate value="${now}" pattern="yyyy-MM-dd"/>'></span>
 									</div> <br> 이메일<br>
 									<div class="email_input">
 										<span><input type="text" placeholder="이메일 주소 입력"
@@ -234,11 +247,11 @@ input::placeholder {
 												<option value="5" <%=bankname.equals("5")?"selected":""%>>우리은행</option>
 											</select>
 										</p>
-										<p class="account_no">
+										
+										<p >
 											계좌번호 입력<br> <span><input type="text"
-												name="account_no" formattype="number"
-												maxlength="15" size="15" data-validation="1" value="<%if (dto.getAccount_no() == null) {%>
-												<%=""%><%} else {%><%=dto.getAccount_no()%><%}%>"></span>
+												name="account_no" id="account_no"
+												maxlength="15" size="15" data-validation="1" value="<%=dto.getAccount_no()%>"></span>
 										</p>
 
 										<p class="payment_reg_info" style="font-size: 0.9em">
@@ -261,28 +274,22 @@ input::placeholder {
 												<option value="10" <%=cardname.equals("10")?"selected":""%>>우리카드</option>
 											</select>
 										</p>
-										<p class="card_number">
+										<p>
 											카드번호 입력<br>
-											<span><input type="text" name="card_no1"
-												formattype="number" minlength="4" maxlength="4" size="4"
-												data-validation="1"
-												value="<%if (dto.getCard_no1() == null) {%>
-												<%=""%><%} else {%><%=dto.getCard_no1()%><%}%>"></span>
+											<span><input type="text" name="card_no1" maxlength="4" size="4"
+												data-validation="1" value="<%=dto.getCard_no1()%>"></span>
 											<span><input type="text" name="card_no2"
-												formattype="number" minlength="4" maxlength="4" size="4"
+												maxlength="4" size="4"
 												data-validation="1"
-												value="<%if (dto.getCard_no2() == null) {%>
-												<%=""%><%} else {%><%=dto.getCard_no2()%><%}%>"></span>
+												value="<%=dto.getCard_no2()%>"></span>
 											<span><input type="text" name="card_no3"
-												formattype="number" minlength="4" maxlength="4" size="4"
+												 maxlength="4" size="4"
 												data-validation="1"
-												value="<%if (dto.getCard_no3() == null) {%>
-												<%=""%><%} else {%><%=dto.getCard_no3()%><%}%>"></span>
+												value="<%=dto.getCard_no3()%>"></span>
 											<span><input type="text" name="card_no4"
-												formattype="number" minlength="4" maxlength="4" size="4"
+												 maxlength="4" size="4"
 												data-validation="1"
-												value="<%if (dto.getCard_no4() == null) {%>
-												<%=""%><%} else {%><%=dto.getCard_no4()%><%}%>"></span>
+												value="<%=dto.getCard_no4()%>"></span>
 										</p>
 										<p class="card_exp_date">
 											유효기간<br>
@@ -327,13 +334,9 @@ input::placeholder {
 								onclick="javascript:window.location='login.jsp'">
 						</div>
 					</div>
-
 				</form>
 			</div>
-
 		</div>
 	</div>
-
-
 </body>
 </html>
