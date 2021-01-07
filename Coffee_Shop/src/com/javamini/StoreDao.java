@@ -232,6 +232,69 @@ public ArrayList<StoreDto> getTotalStore() {
 		return ri;
 	}
 	
+	public int deleteStore(String id) {
+		int ri=0;
+		
+		Connection connection = getConnection();
+		PreparedStatement pstmt= null;
+		String query = "delete store where storeId=?";
+		
+		try {
+			pstmt=connection.prepareStatement(query);
+			pstmt.setString(1, id);
+			
+			ri=pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				connection.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return ri;
+	}
+	
+	public String createStoreId() {
+		ArrayList<String> storeIds = new ArrayList<String>();
+		
+		Connection connection=getConnection();
+		ResultSet rs = null;
+		String query = "select storeid from store";
+		query += " order by storeid";
+		Statement stmt=null;
+		int lastNumber=0;
+		
+		try {
+			stmt=connection.createStatement();
+			rs = stmt.executeQuery(query);
+			
+			while(rs.next()) {
+		 		
+		 		storeIds.add(rs.getString("storeId"));
+			}
+			String lastStoreId = storeIds.get(storeIds.size()-1).substring(5);
+			lastNumber = Integer.parseInt(lastStoreId);
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}finally {
+			try {
+				rs.close();
+				stmt.close();
+				connection.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return "store"+(lastNumber+1);
+	}
+	
+	
+	
 	private Connection getConnection() {
 		Connection connection =null;
 		try {

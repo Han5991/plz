@@ -2,7 +2,10 @@
 <%@page import="com.javamini.StoreDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%
+StoreDao dao = StoreDao.getInstance();
+String autoStoreId= dao.createStoreId();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -119,7 +122,7 @@ img {
             <tbody>
                <tr>
                   <td>
-                     관리 번호 : <input type="text" name="storeId"size="50"><br>  
+                     관리 번호 : <input type="text" name="storeId"size="50" value="<%=autoStoreId%>"><br>  
                      매장 이름 : <input type="text" name="storeName" size="50"><br>
                      매장 주소 : <input type="text" name="storeAddress" size="50"><br>
                      전화 번호 : <input type="text" name="storePhone"size="50"><br>

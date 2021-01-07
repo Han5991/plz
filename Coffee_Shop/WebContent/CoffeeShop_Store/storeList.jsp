@@ -16,6 +16,19 @@
    src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+function deleteConfirm()
+{
+	const result = confirm("정말 삭제하시겠습니까?");
+	console.log(result);
+    if (result) {
+         document.deleteButton.submit();
+    } else {
+    	history.go(-1);
+}
+}
+
+</script>
 <style>
 @font-face {
    font-family: hzStyleFont;
@@ -152,8 +165,7 @@ for(int i=0; i<dtos.size();i++){
 						<td><span><%=storeAddress %></span></td>
 						<td><span><%=storePhone %></span></td>
 						<td><form  action="storeModify.jsp" method= "post"><button class="btn btn-warning" class="btn-storeModify" name="storeId" value="<%=storeId %>">수정</button></form></td>
-						<%-- <td><form  name="<%=storeId %>" action="storeModify.jsp" method= "post"><input type="submit" class="btn btn-warning" class="btn-storeModify" name="storeId" value="<%=storeId %>"></form></td> --%>
-						<td><span><button type="button" class="btn btn-danger" class="btn-storeDelete" name="<%=storeId %>" value="<%=storeId %>">삭제</button></span></td>
+						<td><form  name="deleteButton" action="storeDelete.jsp" method= "post"><button class="btn btn-danger" class="btn-storeDelete" name="storeId" value="<%=storeId %>" onclick="deleteConfirm()">삭제</button></form></td>
 					</tr>
 
 
