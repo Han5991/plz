@@ -86,10 +86,10 @@ public class updateOk extends HttpServlet {
 				update = f.delete();
 
 			if (rownum > 0 && update == true) {
-				pw.println("<script>alert('수정 성공!!!'); location.href='HanSangwook/updateSelect.jsp.jsp';</script>");
+				pw.println("<script>alert('수정 성공!!!'); location.href='HanSangwook/updateSelect.jsp';</script>");
 			}
 		} catch (Exception e) {
-			pw.println("<script>alert('수정 성공!!!'); location.href='HanSangwook/updateSelect.jsp.jsp';</script>");
+			pw.println("<script>alert('수정 성공!!!'); location.href='HanSangwook/updateSelect.jsp';</script>");
 			System.out.println("수정 실패 : " + e.getMessage());
 		} finally {
 			try {

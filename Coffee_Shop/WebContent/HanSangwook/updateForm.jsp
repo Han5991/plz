@@ -99,12 +99,13 @@ a:hover:not(.active) {
 		<div id="section">
 			<div class="tabArea navbar- menus">
 				<div class="btnTab text-center">
-					<a href="MenuList.jsp" class="active"><span class="all">전체</span></a>
-					<a href="espresso.jsp"><span class="chi06">에스프레소</span></a> <a
-						href="blended.jsp"><span class="chi08">블렌디드 </span></a> <a
-						href="tea.jsp"><span class="chi01">티</span></a> <a href="etc.jsp"><span
-						class="chi03">기타 음료</span></a> <a href="dessert.jsp"><span
-						class="chi02">디저트</span></a>
+					<a href="../Sooyeon/MenuList.jsp" class="active"><span
+						class="all">전체</span></a> <a href="../Sooyeon/espresso.jsp"><span
+						class="chi06">에스프레소</span></a> <a href="../Sooyeon/blended.jsp"><span
+						class="chi08">블렌디드 </span></a> <a href="../Sooyeon/etc.jsp"><span
+						class="chi01">티</span></a> <a href="etc.jsp"><span
+						class="../Sooyeon/etc.jsp">기타 음료</span></a> <a
+						href="../Sooyeon/dessert.jsp"><span class="chi02">디저트</span></a>
 				</div>
 			</div>
 		</div>

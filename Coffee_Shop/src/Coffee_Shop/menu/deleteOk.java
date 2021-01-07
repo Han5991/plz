@@ -53,10 +53,10 @@ public class deleteOk extends HttpServlet {
 			if (f.exists())
 				de = f.delete();
 			if (rownum > 0 && de == true) {
-				pw.println("<script>alert('삭제 성공!!!'); location.href='HanSangwook/updateSelect.jsp.jsp';</script>");
+				pw.println("<script>alert('삭제 성공!!!'); location.href='HanSangwook/updateSelect.jsp';</script>");
 			}
 		} catch (Exception e) {
-			pw.println("<script>alert('삭제 실패!!!'); location.href='HanSangwook/updateSelect.jsp.jsp';</script>");
+			pw.println("<script>alert('삭제 실패!!!'); location.href='HanSangwook/updateSelect.jsp';</script>");
 			System.out.println("쿼리문 실행 실패 : " + e.getMessage());
 		} finally {
 			try {

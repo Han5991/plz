@@ -111,6 +111,7 @@ a:hover:not(.active) {
 			</div>
 		</div>
 	</div>
+	
 	<form action="../insertOk" method="post" enctype="multipart/form-data" name="reg_frm">
 		<div class="jumbotron">
 			<div class="container text-center">
@@ -137,7 +138,6 @@ a:hover:not(.active) {
 								required="required"></td>
 							<td>price : <input type="text" name="price"
 								required="required"></td>
-
 						</tr>
 						<tr>
 							<td>image : <input type="file" name="image"
@@ -146,8 +146,8 @@ a:hover:not(.active) {
 					</tbody>
 					<tfoot>
 						<tr>
-							<td colspan="2"><input type="button" value="submit"
-								onclick="infoConfirm()"></td>
+							<td colspan="2"><input type="button" value="메뉴 추가"
+								onclick="infoConfirm()" class="btn btn-warning"></td>
 						</tr>
 					</tfoot>
 				</table>

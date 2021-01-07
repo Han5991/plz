@@ -36,23 +36,12 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="member.js"></script>
 <script type="text/javascript">
-	$(document).on('keyup', '#textarea01', function(e) {
-		var textarea01 = $(this).val();
-		$('#cntSPAN').text(getBytes(textarea01));
-	});
-
-	function getBytes(str) {
-		var cnt = str.length;
-		return cnt;
-	}
-
 	$(document).ready(function() {
 		//이메일선택
 		$("select[name=select_email]").change(function() {
 			$("input[name=email2]").val(this.value);
 		});
 	});
-
 </script>
 <style>
 @font-face {
