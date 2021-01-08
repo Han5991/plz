@@ -97,8 +97,8 @@ a:hover:not(.active) {
 		<div id="section">
 			<div class="tabArea navbar- menus">
 				<div class="btnTab text-center">
-					<a href="MenuList.jsp" class="active"><span class="all">전체</span></a> <a
-						href="espresso.jsp"><span class="chi06">에스프레소</span></a> <a
+					<a href="MenuList.jsp" class="active"><span class="all">전체</span></a>
+					<a href="espresso.jsp"><span class="chi06">에스프레소</span></a> <a
 						href="blended.jsp"><span class="chi08">블렌디드 </span></a> <a
 						href="tea.jsp"><span class="chi01">티</span></a> <a href="etc.jsp"><span
 						class="chi03">기타 음료</span></a> <a href="dessert.jsp"><span
@@ -107,60 +107,65 @@ a:hover:not(.active) {
 			</div>
 		</div>
 	</div>
-	<div id="tabCont01" class="tabConts">
-		<ul class="menuProduct">
-			<%
-				try {
-				context = new InitialContext();
-				dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
-				con = dataSource.getConnection();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-			try {
-				stmt = con.prepareStatement("SELECT * FROM menu");
-				resultSet = stmt.executeQuery();
-				while (resultSet.next()) {
-					name = resultSet.getString("name");
-					price = resultSet.getInt("price");
-			%>
-			<li class="list">
-				<p class="img">
-					<img src="../showImage?key1=<%=name%>" width="250" height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>
-						메뉴 :
-						<%=name%></dt>
-					<dt>
-						가격 :
-						<%=price%></dt>
-					<dt>
-						<input type="button" value="-" name="maineoseu"> <input
-							type="text" value="0" name="quantity" style="text-align: center;"
-							onclick="" readonly="readonly"> <input type="button"
-							value="+" name="plus">
-					</dt>
-				</dl>
-			</li>
-			<%
+	<form action="../JangJaehee/shopping_basket.html">
+		<div id="tabCont01" class="tabConts">
+			<ul class="menuProduct">
+				<%
+					try {
+					context = new InitialContext();
+					dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
+					con = dataSource.getConnection();
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
-			} catch (Exception e) {
-			e.printStackTrace();
-			} finally {
-			try {
-			if (con != null)
-				con.close();
-			if (stmt != null)
-				stmt.close();
-			} catch (Exception e) {
-			e.printStackTrace();
-			}
-			}
-			%>
-		</ul>
-	</div>
+
+				try {
+					stmt = con.prepareStatement("SELECT * FROM menu");
+					resultSet = stmt.executeQuery();
+					while (resultSet.next()) {
+						name = resultSet.getString("name");
+						price = resultSet.getInt("price");
+				%>
+				<li class="list">
+					<p class="img">
+						<img src="../showImage?key1=<%=name%>" width="250" height="250" />
+					</p>
+					<dl class="text-center">
+						<dt>
+							메뉴 :
+							<%=name%></dt>
+						<dt>
+							가격 :
+							<%=price%></dt>
+						<dt>
+							<input type="button" value="-" name="maineoseu"> <input
+								type="text" value="0" name="quantity"
+								style="text-align: center;" readonly="readonly"> <input
+								type="button" value="+" name="plus"> <input type="checkbox"
+								name="menu" value="<%=name%>">
+						</dt>
+					</dl>
+				</li>
+				<%
+					}
+				} catch (Exception e) {
+				e.printStackTrace();
+				} finally {
+				try {
+				if (con != null)
+					con.close();
+				if (stmt != null)
+					stmt.close();
+				} catch (Exception e) {
+				e.printStackTrace();
+				}
+				}
+				session.setAttribute("menu", name);
+				%>
+				<input type="submit" value="담기">
+			</ul>
+		</div>
+	</form>
 </body>
 <script type="text/javascript">
 	$(function() {

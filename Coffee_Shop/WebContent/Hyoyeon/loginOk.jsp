@@ -49,7 +49,7 @@
 				session.setAttribute("id", id);
 				session.setAttribute("name", name);
 				session.setAttribute("ValidMem", "yes");
-				response.sendRedirect("main.jsp"); //서버가 클라이언트쪽으로 재요청함.
+				response.sendRedirect("../CoffeeShop_Store/address.jsp"); //서버가 클라이언트쪽으로 재요청함.
 			}
 		}
 	%>

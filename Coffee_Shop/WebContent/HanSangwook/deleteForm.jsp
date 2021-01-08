@@ -162,7 +162,7 @@ a:hover:not(.active) {
 				%>
 			</ul>
 		</div>
-		<input type="submit" value="삭제">
+		
 	</form>
 </body>
 </html>
