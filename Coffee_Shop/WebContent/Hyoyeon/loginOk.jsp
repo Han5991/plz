@@ -49,7 +49,12 @@
 				session.setAttribute("id", id);
 				session.setAttribute("name", name);
 				session.setAttribute("ValidMem", "yes");
-				response.sendRedirect("../CoffeeShop_Store/address.jsp"); //서버가 클라이언트쪽으로 재요청함.
+				
+				//정보수정을 테스트위해 main.jsp이동 살려둠
+				response.sendRedirect("main.jsp");
+				
+/* 				매장찾기페이지로 이동
+				response.sendRedirect("../CoffeeShop_Store/address.jsp"); 서버가 클라이언트쪽으로 재요청함. */
 			}
 		}
 	%>
