@@ -12,7 +12,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="member.js"></script>
+<script type="text/javascript" src="member.js"></script>
 <script type="text/javascript">
 	$(document).on('keyup', '#textarea01', function(e) {
 		var textarea01 = $(this).val();
@@ -285,7 +285,7 @@ input::placeholder {
 							<input type="button" value="회원가입 신청" class="btn btn-warning"
 								onclick="infoConfirm()"> <input type="button"
 								value="다시 입력하기" class="btn btn-warning"
-								onclick="javascript:window.location='join.html'">
+								onclick="javascript:window.location='join.jsp'">
 						</div>
 					</div>
 				</form>

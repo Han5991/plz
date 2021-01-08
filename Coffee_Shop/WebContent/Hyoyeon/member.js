@@ -18,6 +18,12 @@ function infoConfirm(){
 		return;
 	}
 	
+	if(document.reg_frm.pwd.value.length < 6){
+		alert("비밀번호는 6~14 글자로 입력해야 합니다.");
+		reg_frm.pwd.focus(); //form 태그인 reg_frm의 pwd에 focus주기
+		return;
+	}
+	
 
 	if((document.reg_frm.pwd.value) != (document.reg_frm.pwd_check.value)){
 		alert("비밀번호가 일치하지 않습니다.");
@@ -36,6 +42,7 @@ function infoConfirm(){
 		reg_frm.email1.focus();
 		return;
 	}
+	
 	document.reg_frm.submit(); //submit버튼이 눌렸을때에 대한 함수이니까!
 }
 

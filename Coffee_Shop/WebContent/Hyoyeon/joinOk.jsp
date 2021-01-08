@@ -33,7 +33,7 @@
 	%>
 	<script>
 		alert("회원가입에 실패하였습니다 .");
-		document.location.href="join.html";
+		document.location.href="join.jsp";
 	</script>
 	<%
 		}
