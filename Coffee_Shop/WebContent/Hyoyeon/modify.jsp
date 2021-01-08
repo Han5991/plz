@@ -93,6 +93,11 @@ function execDaumPostcode() {
 			$("input[name=email2]").val(this.value);
 		});
 		
+		//계좌번호 공백 출력
+		if($('input[name=account_no]').val() == "null"){
+			$('input[name=account_no]').val("");
+		}
+		
 		//카드번호 공백출력_하위선택자 찾아보기.
 		if($('input[name=card_no1]').val() == "null"){
 			$('input[name=card_no1]').val("");
