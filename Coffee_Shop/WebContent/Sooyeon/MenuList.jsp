@@ -107,26 +107,27 @@ a:hover:not(.active) {
 			</div>
 		</div>
 	</div>
-	<form action="../JangJaehee/shopping_basket.html">
-		<div id="tabCont01" class="tabConts">
-			<ul class="menuProduct">
-				<%
-					try {
-					context = new InitialContext();
-					dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
-					con = dataSource.getConnection();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
 
+	<div id="tabCont01" class="tabConts">
+		<ul class="menuProduct">
+			<%
 				try {
-					stmt = con.prepareStatement("SELECT * FROM menu");
-					resultSet = stmt.executeQuery();
-					while (resultSet.next()) {
-						name = resultSet.getString("name");
-						price = resultSet.getInt("price");
-				%>
-				<li class="list">
+				context = new InitialContext();
+				dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
+				con = dataSource.getConnection();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			try {
+				stmt = con.prepareStatement("SELECT * FROM menu");
+				resultSet = stmt.executeQuery();
+				while (resultSet.next()) {
+					name = resultSet.getString("name");
+					price = resultSet.getInt("price");
+			%>
+			<li class="list">
+				<form action="../JangJaehee/shopping_basket.jsp">
 					<p class="img">
 						<img src="../showImage?key1=<%=name%>" width="250" height="250" />
 					</p>
@@ -138,34 +139,39 @@ a:hover:not(.active) {
 							가격 :
 							<%=price%></dt>
 						<dt>
-							<input type="button" value="-" name="maineoseu"> <input
+							<input type="button" value="-" name="maineoseu"><input
 								type="text" value="0" name="quantity"
-								style="text-align: center;" readonly="readonly"> <input
-								type="button" value="+" name="plus"> <input type="checkbox"
-								name="menu" value="<%=name%>">
+								style="text-align: center;" readonly="readonly"><input
+								type="button" value="+" name="plus">
+						</dt>
+						<dt>
+							<input type="hidden" name="name" value="<%=name%>">
+							<input type="hidden" name="price" value="<%=price%>">
+							<input
+								type="submit" value="담기">
 						</dt>
 					</dl>
-				</li>
-				<%
-					}
-				} catch (Exception e) {
-				e.printStackTrace();
-				} finally {
-				try {
-				if (con != null)
-					con.close();
-				if (stmt != null)
-					stmt.close();
-				} catch (Exception e) {
-				e.printStackTrace();
+				</form>
+			</li>
+			<%
 				}
-				}
-				session.setAttribute("menu", name);
-				%>
-				<input type="submit" value="담기">
-			</ul>
-		</div>
-	</form>
+			} catch (Exception e) {
+			e.printStackTrace();
+			} finally {
+			try {
+			if (con != null)
+				con.close();
+			if (stmt != null)
+				stmt.close();
+			} catch (Exception e) {
+			e.printStackTrace();
+			}
+			}
+			%>
+
+		</ul>
+	</div>
+
 </body>
 <script type="text/javascript">
 	$(function() {

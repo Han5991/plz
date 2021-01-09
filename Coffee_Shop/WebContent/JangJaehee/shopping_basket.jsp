@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +40,6 @@
 	text-align: left;
 	font-size: 20px;
 }
-
 </style>
 <title>장바구니</title>
 </head>
@@ -83,11 +84,19 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td>
-								<p>
-									장바구니에 담긴 메뉴가 없습니다.<br> <br>주문하실 메뉴를 추가 해보세요.
-								</p>
-							<td>
+							<%
+								String name = request.getParameter("name");
+							int price = Integer.parseInt(request.getParameter("price"));
+							int quantity = Integer.parseInt(request.getParameter("quantity"));
+							%>
+							<td><img src="../showImage?key1=<%=name%>" width="250"
+								height="250" /></td>
+							<td>메뉴 <%=name%></td>
+							<input type="hidden" value="<%=name%>" name="name">
+							<td>가격 <%=price%></td>
+							<input type="hidden" value="<%=price%>" name="price">
+							<td>수량 <%=quantity%></td>
+							<input type="hidden" value="<%=quantity%>" name="quantity">
 						</tr>
 					</tbody>
 				</table>
@@ -99,7 +108,7 @@
 				<table class="table">
 					<thead style="font-size: 30px;">
 						<tr>
-							<td>총 합계금액 0원</td>
+							<td>총 합계금액 <%=price*quantity%>원</td>
 						</tr>
 					</thead>
 					<tbody>
