@@ -1,4 +1,5 @@
 <%@page import="java.io.File"%>
+<%@ page import="com.javamini.*"%>
 <%@page import="java.sql.*"%>
 <%@page import="javax.naming.*"%>
 <%@page import="javax.sql.DataSource"%>
@@ -10,8 +11,16 @@
 	Connection con = null;
 	PreparedStatement stmt = null;
 	ResultSet resultSet = null;
+	StoreDto dto;
 	String name = null;
 	int price = 0;%>
+<%
+	request.setCharacterEncoding("UTF-8");
+String storeId = (String) session.getAttribute("storeId2");
+StoreDao dao = StoreDao.getInstance();
+StoreDto dto = dao.getStore(storeId);
+session.setAttribute("storeId", dto);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -97,8 +106,8 @@ a:hover:not(.active) {
 		<div id="section">
 			<div class="tabArea navbar- menus">
 				<div class="btnTab text-center">
-					<a href="MenuList.jsp" class="active"><span class="all">전체</span></a> <a
-						href="espresso.jsp"><span class="chi06">에스프레소</span></a> <a
+					<a href="MenuList.jsp" class="active"><span class="all">전체</span></a>
+					<a href="espresso.jsp"><span class="chi06">에스프레소</span></a> <a
 						href="blended.jsp"><span class="chi08">블렌디드 </span></a> <a
 						href="tea.jsp"><span class="chi01">티</span></a> <a href="etc.jsp"><span
 						class="chi03">기타 음료</span></a> <a href="dessert.jsp"><span
@@ -107,60 +116,69 @@ a:hover:not(.active) {
 			</div>
 		</div>
 	</div>
-	<div id="tabCont01" class="tabConts">
-		<ul class="menuProduct">
-			<%
-				try {
-				context = new InitialContext();
-				dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
-				con = dataSource.getConnection();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 
-			try {
-				stmt = con.prepareStatement("SELECT * FROM menu WHERE filename LIKE 'tea%'");
-				resultSet = stmt.executeQuery();
-				while (resultSet.next()) {
-					name = resultSet.getString("name");
-					price = resultSet.getInt("price");
-			%>
-			<li class="list">
-				<p class="img">
-					<img src="../showImage?key1=<%=name%>" width="250" height="250" />
-				</p>
-				<dl class="text-center">
-					<dt>
-						메뉴 :
-						<%=name%></dt>
-					<dt>
-						가격 :
-						<%=price%></dt>
-					<dt>
-						<input type="button" value="-" name="maineoseu"> <input
-							type="text" value="0" name="quantity" style="text-align: center;"
-							onclick="" readonly="readonly"> <input type="button"
-							value="+" name="plus">
-					</dt>
-				</dl>
-			</li>
-			<%
+	<div id="tabCont01" class="tabConts">
+		<form action="../JangJaehee/shopping_basket.jsp">
+			<ul class="menuProduct">
+				<%
+					try {
+					context = new InitialContext();
+					dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
+					con = dataSource.getConnection();
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
-			} catch (Exception e) {
-			e.printStackTrace();
-			} finally {
-			try {
-			if (con != null)
-				con.close();
-			if (stmt != null)
-				stmt.close();
-			} catch (Exception e) {
-			e.printStackTrace();
-			}
-			}
-			%>
-		</ul>
+
+				try {
+					stmt = con.prepareStatement("SELECT * FROM menu WHERE filename LIKE 'tea%'");
+					resultSet = stmt.executeQuery();
+					while (resultSet.next()) {
+						name = resultSet.getString("name");
+						price = resultSet.getInt("price");
+				%>
+				<li class="list">
+					<p class="img">
+						<img src="../showImage?key1=<%=name%>" width="250" height="250" />
+					</p>
+					<dl class="text-center">
+						<dt>
+							메뉴 :
+							<%=name%></dt>
+						<dt>
+							가격 :
+							<%=price%></dt>
+						<dt>
+							<input type="button" value="-" name="maineoseu"><input
+								type="text" value="0" name="quantity"
+								style="text-align: center;" readonly="readonly"><input
+								type="button" value="+" name="plus">
+						</dt>
+						<dt>
+							<input type="hidden" name="name" value="<%=name%>"> <input
+								type="hidden" name="price" value="<%=price%>">
+						</dt>
+					</dl>
+				</li>
+				<%
+					}
+				} catch (Exception e) {
+				e.printStackTrace();
+				} finally {
+				try {
+				if (con != null)
+					con.close();
+				if (stmt != null)
+					stmt.close();
+				} catch (Exception e) {
+				e.printStackTrace();
+				}
+				}
+				%>
+				<input type="submit" value="담기">
+			</ul>
+		</form>
 	</div>
+
 </body>
 <script type="text/javascript">
 	$(function() {

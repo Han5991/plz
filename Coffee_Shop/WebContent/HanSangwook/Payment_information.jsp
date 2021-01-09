@@ -1,3 +1,5 @@
+<%@page import="Coffee_Shop.menu.*"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.javamini.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -5,12 +7,12 @@
 	request.setCharacterEncoding("UTF-8");
 String storeName = request.getParameter("search_shop"); //효연이가 만든 address.jpg 파일에서 검색창 부분 name값 받아오기
 StoreDao dao = StoreDao.getInstance();
-StoreDto dto = new StoreDto();
-dto = (StoreDto) session.getAttribute("storeId");
+StoreDto dto = (StoreDto) session.getAttribute("storeId");
 
-String name = request.getParameter("name");
-int price = Integer.parseInt(request.getParameter("price"));
-int quantity = Integer.parseInt(request.getParameter("quantity"));
+ArrayList<MenuDto> Menudtos = new ArrayList<MenuDto>();
+Menudtos = (ArrayList) session.getAttribute("orderList");
+MenuDto Menudto = null;
+int sum = 0;
 %>
 <!DOCTYPE html>
 <html>
@@ -137,21 +139,26 @@ img {
 						</tr>
 					</thead>
 					<tbody>
+						<%
+							for (int b = 0; b < Menudtos.size(); b++) {
+							Menudto = Menudtos.get(b);
+						%>
 						<tr>
-							<td><img src="../showImage?key1=<%=name%>" width="250"
-								height="250" /></td>
-							<td>메뉴 <%=name%></td>
-							<input type="hidden" value="<%=name%>" name="name">
-							<td>가격 <%=price%></td>
-							<input type="hidden" value="<%=price%>" name="price">
-							<td>수량 <%=quantity%></td>
-							<input type="hidden" value="<%=quantity%>" name="quantity">
+							<td><img src="../showImage?key1=<%=Menudto.getName()%>"
+								width="250" height="250" /></td>
+							<td><%=Menudto.getName()%></td>
+							<td><%=Menudto.getPrice()%></td>
+							<td><%=Menudto.getQuantity()%></td>
 						</tr>
+						<%
+							sum += Menudto.getPrice();
+						}
+						%>
 						<tr>
 							<td></td>
 							<td></td>
 							<td>총 주문 금액</td>
-							<td><%=price * quantity%>원</td>
+							<td><%=sum%>원</td>
 						</tr>
 					</tbody>
 				</table>
@@ -174,7 +181,7 @@ img {
 										<label class="btn  btn-warning"> <input type="radio"
 											name="jb-radio" id="jb-radio-3">신용카드
 										</label> <label class="btn btn-warning"> <input type="radio"
-											name="jb-radio" id="jb-radio-4">계좌이체
+											name="jb-radio" id="jb-radio-3">계좌이체
 										</label>
 									</div>
 								</div></td>
@@ -186,7 +193,7 @@ img {
 										<label class="btn  btn-warning"> <input type="radio"
 											name="jb-radio" id="jb-radio-3">신용카드
 										</label> <label class="btn  btn-warning"> <input type="radio"
-											name="jb-radio" id="jb-radio-4">현금결제
+											name="jb-radio" id="jb-radio-3">현금결제
 										</label>
 									</div>
 								</div></td>
@@ -220,11 +227,11 @@ img {
 					<tbody>
 						<tr>
 							<td>일반제품</td>
-							<td>16,500원</td>
+							<td><%=sum%>원</td>
 						</tr>
 						<tr>
 							<td>총 합계 금액</td>
-							<td>16,500원</td>
+							<td><%=sum%>원</td>
 						</tr>
 						<tr>
 							<td><input type="reset" value="주문 다시 하기"

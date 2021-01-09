@@ -1,5 +1,19 @@
+<%@page import="Coffee_Shop.menu.MenuDto"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	String name[] = request.getParameterValues("name");
+String price[] = request.getParameterValues("price");
+String quantity[] = request.getParameterValues("quantity");
+MenuDto dto = null;
+ArrayList<MenuDto> Menudtos = new ArrayList<MenuDto>();
+for (int a = 0; a < name.length; a++)
+	if (!quantity[a].equals("0"))
+		Menudtos.add(new MenuDto(name[a], Integer.parseInt(price[a]), Integer.parseInt(quantity[a])));
+session.setAttribute("orderList", Menudtos);
+int sum = 0;
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,20 +98,26 @@
 					</thead>
 					<tbody>
 						<tr>
-							<%
-								String name = request.getParameter("name");
-							int price = Integer.parseInt(request.getParameter("price"));
-							int quantity = Integer.parseInt(request.getParameter("quantity"));
-							%>
-							<td><img src="../showImage?key1=<%=name%>" width="250"
-								height="250" /></td>
-							<td>메뉴 <%=name%></td>
-							<input type="hidden" value="<%=name%>" name="name">
-							<td>가격 <%=price%></td>
-							<input type="hidden" value="<%=price%>" name="price">
-							<td>수량 <%=quantity%></td>
-							<input type="hidden" value="<%=quantity%>" name="quantity">
+							<td></td>
+							<td>메뉴</td>
+							<td>가격</td>
+							<td>수량</td>
 						</tr>
+						<%
+							for (int b = 0; b < Menudtos.size(); b++) {
+							dto = Menudtos.get(b);
+						%>
+						<tr>
+							<td><img src="../showImage?key1=<%=dto.getName()%>"
+								width="250" height="250" /></td>
+							<td><%=dto.getName()%></td>
+							<td><%=dto.getPrice()%></td>
+							<td><%=dto.getQuantity()%></td>
+						</tr>
+						<%
+							sum += dto.getPrice();
+						}
+						%>
 					</tbody>
 				</table>
 			</div>
@@ -108,7 +128,8 @@
 				<table class="table">
 					<thead style="font-size: 30px;">
 						<tr>
-							<td>총 합계금액 <%=price*quantity%>원</td>
+							<td>총 합계금액<%=sum%> 원
+							</td>
 						</tr>
 					</thead>
 					<tbody>

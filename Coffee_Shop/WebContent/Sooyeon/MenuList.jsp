@@ -1,5 +1,5 @@
-<%@ page import="com.javamini.*"%>
 <%@page import="java.io.File"%>
+<%@ page import="com.javamini.*"%>
 <%@page import="java.sql.*"%>
 <%@page import="javax.naming.*"%>
 <%@page import="javax.sql.DataSource"%>
@@ -17,6 +17,7 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 String storeId = request.getParameter("storeId"); //효연이가 만든 address.jpg 파일에서 검색창 부분 name값 받아오기
+session.setAttribute("storeId2", storeId);
 StoreDao dao = StoreDao.getInstance();
 StoreDto dto = dao.getStore(storeId);
 session.setAttribute("storeId", dto);
@@ -118,25 +119,25 @@ a:hover:not(.active) {
 	</div>
 
 	<div id="tabCont01" class="tabConts">
-		<ul class="menuProduct">
-			<%
-				try {
-				context = new InitialContext();
-				dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
-				con = dataSource.getConnection();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+		<form action="../JangJaehee/shopping_basket.jsp">
+			<ul class="menuProduct">
+				<%
+					try {
+					context = new InitialContext();
+					dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
+					con = dataSource.getConnection();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 
-			try {
-				stmt = con.prepareStatement("SELECT * FROM menu");
-				resultSet = stmt.executeQuery();
-				while (resultSet.next()) {
-					name = resultSet.getString("name");
-					price = resultSet.getInt("price");
-			%>
-			<li class="list">
-				<form action="../JangJaehee/shopping_basket.jsp">
+				try {
+					stmt = con.prepareStatement("SELECT * FROM menu");
+					resultSet = stmt.executeQuery();
+					while (resultSet.next()) {
+						name = resultSet.getString("name");
+						price = resultSet.getInt("price");
+				%>
+				<li class="list">
 					<p class="img">
 						<img src="../showImage?key1=<%=name%>" width="250" height="250" />
 					</p>
@@ -155,29 +156,28 @@ a:hover:not(.active) {
 						</dt>
 						<dt>
 							<input type="hidden" name="name" value="<%=name%>"> <input
-								type="hidden" name="price" value="<%=price%>"> <input
-								type="submit" value="담기">
+								type="hidden" name="price" value="<%=price%>">
 						</dt>
 					</dl>
-				</form>
-			</li>
-			<%
+				</li>
+				<%
+					}
+				} catch (Exception e) {
+				e.printStackTrace();
+				} finally {
+				try {
+				if (con != null)
+					con.close();
+				if (stmt != null)
+					stmt.close();
+				} catch (Exception e) {
+				e.printStackTrace();
 				}
-			} catch (Exception e) {
-			e.printStackTrace();
-			} finally {
-			try {
-			if (con != null)
-				con.close();
-			if (stmt != null)
-				stmt.close();
-			} catch (Exception e) {
-			e.printStackTrace();
-			}
-			}
-			%>
-
-		</ul>
+				}
+				%>
+				<input type="submit" value="담기">
+			</ul>
+		</form>
 	</div>
 
 </body>
