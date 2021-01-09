@@ -3,14 +3,12 @@
 <%@ page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%
 	request.setCharacterEncoding("UTF-8");
 String storeName = request.getParameter("search_shop"); //효연이가 만든 address.jpg 파일에서 검색창 부분 name값 받아오기
 StoreDao dao = StoreDao.getInstance();
 %>
-<%!StoreDto dto;
-	String storeId, storeAddress, storePhone;%>
+<%!StoreDto dto;%>
 
 <!DOCTYPE html>
 <html>
@@ -165,13 +163,8 @@ footer {
 				</tr>
 				<%
 					ArrayList<StoreDto> dtos = dao.getStoreByName(storeName);
-
 				for (int i = 0; i < dtos.size(); i++) {
 					dto = dtos.get(i);
-					storeId = dto.getStoreId();
-					storeName = dto.getStoreName();
-					storeAddress = dto.getStoreAddress();
-					storePhone = dto.getStorePhone();
 				%>
 				<tr>
 					<td><span style="margin-left: 10px"><%=dto.getStoreName()%></span></td>
@@ -179,8 +172,7 @@ footer {
 					<td><span><%=dto.getStorePhone()%></span></td>
 					<td>
 						<form action="../Sooyeon/MenuList.jsp" method="post">
-							<input type="hidden" value="<%=dto.getStoreId()%>">
-							<%session.setAttribute("StoreId", dao.getStore(dto.getStoreId()));%>
+							<input type="hidden" name="storeId" value="<%=dto.getStoreId()%>">
 							<button type="submit" class="btn btn-warning">선택</button>
 						</form>
 					</td>

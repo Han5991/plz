@@ -1,3 +1,4 @@
+<%@ page import="com.javamini.*"%>
 <%@page import="java.io.File"%>
 <%@page import="java.sql.*"%>
 <%@page import="javax.naming.*"%>
@@ -10,8 +11,16 @@
 	Connection con = null;
 	PreparedStatement stmt = null;
 	ResultSet resultSet = null;
+	StoreDto dto;
 	String name = null;
 	int price = 0;%>
+<%
+	request.setCharacterEncoding("UTF-8");
+String storeId = request.getParameter("storeId"); //효연이가 만든 address.jpg 파일에서 검색창 부분 name값 받아오기
+StoreDao dao = StoreDao.getInstance();
+StoreDto dto = dao.getStore(storeId);
+session.setAttribute("storeId", dto);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -145,9 +154,8 @@ a:hover:not(.active) {
 								type="button" value="+" name="plus">
 						</dt>
 						<dt>
-							<input type="hidden" name="name" value="<%=name%>">
-							<input type="hidden" name="price" value="<%=price%>">
-							<input
+							<input type="hidden" name="name" value="<%=name%>"> <input
+								type="hidden" name="price" value="<%=price%>"> <input
 								type="submit" value="담기">
 						</dt>
 					</dl>

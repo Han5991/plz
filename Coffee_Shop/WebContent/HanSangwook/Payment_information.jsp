@@ -6,7 +6,7 @@
 String storeName = request.getParameter("search_shop"); //효연이가 만든 address.jpg 파일에서 검색창 부분 name값 받아오기
 StoreDao dao = StoreDao.getInstance();
 StoreDto dto = new StoreDto();
-dto = (StoreDto) session.getAttribute("StoreId");
+dto = (StoreDto) session.getAttribute("storeId");
 
 String name = request.getParameter("name");
 int price = Integer.parseInt(request.getParameter("price"));
