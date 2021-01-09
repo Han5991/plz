@@ -85,8 +85,7 @@ function execDaumPostcode() {
         }
     }).open();
 }
-</script>
-<script type="text/javascript">
+
 	$(document).ready(function() {
 		//이메일선택
 		$("select[name=select_email]").change(function() {
@@ -145,6 +144,10 @@ img {
 	object-fit: cover
 }
 
+input {
+	margin-bottom: 7px;
+}
+
 input[type=password] {
 	font-family: arial;
 }
@@ -200,21 +203,14 @@ input::placeholder {
 								<td>
 									<div class="id_input">
 										아이디 <br>
-
-										<input type="text" name="id" data-validation="1"
-											maxlength="20" size="20" value="<%=dto.getId()%>"
-											autocomplete="off" readonly="readonly" >
-									</div> <br>
+										<input type="text" name="id" data-validation="1" maxlength="20" size="20" value="<%=dto.getId()%>"
+											autocomplete="off" readonly="readonly">
+									</div><br>
 									<div class="pw_input">
 										비밀번호<br>
-
-										<span><input style="font-family: arial;"
-											type="password" name="pwd" data-validation="1" maxlength="14"
+										<span><input style="font-family: arial;" type="password" name="pwd" data-validation="1" maxlength="14"
 											placeholder="비밀번호(6~14자리)" autocomplete="new-password"></span>
-
-
-										<span><input style="font-family: arial;"
-											type="password" name="pwd_check" data-validation="1"
+										<span><input style="font-family: arial;" type="password" name="pwd_check" data-validation="1"
 											maxlength="14" placeholder="비밀번호 확인"></span>
 									</div>
 								</td>
@@ -230,30 +226,33 @@ input::placeholder {
 						</thead>
 						<tbody>
 							<tr>
-								<td>이름<br>
+								<td>
+									이름<br>
 									<div class="name_input">
-										<span><input type="text" placeholder="이름 입력"
-											name="name" value="<%=dto.getName()%>" data-validation="1"
-											maxlength="6" autocomplete="off" readonly="readonly"></span>
-									</div> <br> 전화번호<br>
+										<span><input type="text" placeholder="이름 입력" name="name" value="<%=dto.getName()%>"
+											data-validation="1" maxlength="6" autocomplete="off" readonly="readonly"></span>
+									</div><br>
+									
+									전화번호<br>
 									<div class="tel_input">
-										<span><input type="tel" placeholder="휴대폰 번호 ('-'제외)"
-											name="tel" value="<%=dto.getTel()%>" data-validation="1"
-											maxlength="11" formattype="number" autocomplete="off"></span>
-									</div> <br> 생년월일<br>
+										<span><input type="tel" placeholder="휴대폰 번호 ('-'제외)" name="tel" value="<%=dto.getTel()%>"
+											data-validation="1" maxlength="11" autocomplete="off"></span>
+									</div><br>
+									
+									생년월일<br>
 									<div class="birth_input">
-										<span><input type="date" placeholder="생년월일 입력"
-											name="birthdate"
-											max='<fmt:formatDate value="${now}" pattern="yyyy-MM-dd"/>' value="<%=dto.getBirthdate()%>"></span>
-									</div> <br> 이메일<br>
+										<span><input type="date" placeholder="생년월일 입력" name="birthdate" value="<%=dto.getBirthdate()%>"
+											max='<fmt:formatDate value="${now}" pattern="yyyy-MM-dd"/>'></span>
+									</div><br>
+									
+									이메일<br>
 									<div class="email_input">
-										<span><input type="text" placeholder="이메일 주소 입력"
-											name="email1" value="<%=dto.getEmail1()%>"
+										<span><input type="text" placeholder="이메일 주소 입력" name="email1" value="<%=dto.getEmail1()%>"
 											data-validation="1" maxlength="50" autocomplete="off"><i>@</i></span>
-										<span><input type="text" maxlength="50" name="email2"
-											data-validation="1" value="<%=dto.getEmail2()%>"
-											autocomplete="off"></span> <span> <select
-											name="select_email" id="btn_email_select">
+										<span><input type="text" maxlength="50" name="email2" value="<%=dto.getEmail2()%>"
+											data-validation="1" autocomplete="off"></span>
+										<span>
+											<select name="select_email" id="btn_email_select">
 												<option value="">직접입력</option>
 												<option value="naver.com">naver.com</option>
 												<option value="daum.net">daum.net</option>
@@ -261,13 +260,16 @@ input::placeholder {
 												<option value="hotmail.com">hotmail.com</option>
 												<option value="nate.com">nate.com</option>
 												<option value="yahoo.co.kr">yahoo.co.kr</option>
-										</select>
+											</select>
 										</span>
-									</div> <br> 주소<br>
+									</div><br>
+									
+									주소<br>
 									<div class="address_input">
-										<span><input type="text" placeholder="우편번호" name="postcode" maxlength="5" size="6" value="<%=dto.getPostcode()%>"></span>
-										<span><input type="button" onclick="execDaumPostcode()" value="우편번호 검색"></span><br>
-										<span><input type="text" name="address1" size="30" value="<%=dto.getAddress1()%>"></span>
+										<span><input type="text" name="postcode" placeholder="우편번호"
+											maxlength="5" size="6" value="<%=dto.getPostcode()%>"></span>
+										<span><input type="button" value="우편번호 검색" onclick="execDaumPostcode()"></span><br>
+										<span><input type="text" placeholder="주소 입력" name="address1" size="30" value="<%=dto.getAddress1()%>"></span>
 										<span><input type="text" placeholder="상세주소 입력" name="address2" size="30" value="<%=dto.getAddress2()%>"></span>
 									</div>
 								</td>
@@ -299,8 +301,8 @@ input::placeholder {
 										</p>
 										
 										<p >
-											계좌번호 입력<br> <span><input type="text"
-												name="account_no" id="account_no"
+											계좌번호 입력<br>
+											<span><input type="text" name="account_no" id="account_no"
 												maxlength="15" size="15" data-validation="1" value="<%=dto.getAccount_no()%>"></span>
 										</p>
 
@@ -326,20 +328,14 @@ input::placeholder {
 										</p>
 										<p>
 											카드번호 입력<br>
-											<span><input type="text" name="card_no1" maxlength="4" size="4"
-												data-validation="1" value="<%=dto.getCard_no1()%>"></span>
-											<span><input type="text" name="card_no2"
-												maxlength="4" size="4"
-												data-validation="1"
-												value="<%=dto.getCard_no2()%>"></span>
-											<span><input type="text" name="card_no3"
-												 maxlength="4" size="4"
-												data-validation="1"
-												value="<%=dto.getCard_no3()%>"></span>
-											<span><input type="text" name="card_no4"
-												 maxlength="4" size="4"
-												data-validation="1"
-												value="<%=dto.getCard_no4()%>"></span>
+											<span><input type="text" name="card_no1" value="<%=dto.getCard_no1()%>"
+												maxlength="4" size="4" data-validation="1"></span>
+											<span><input type="text" name="card_no2" value="<%=dto.getCard_no2()%>"
+												maxlength="4" size="4" data-validation="1"></span>
+											<span><input type="text" name="card_no3" value="<%=dto.getCard_no3()%>"
+												 maxlength="4" size="4" data-validation="1"></span>
+											<span><input type="text" name="card_no4" value="<%=dto.getCard_no4()%>"
+												 maxlength="4" size="4" data-validation="1"></span>
 										</p>
 										<p class="card_exp_date">
 											유효기간<br>
@@ -359,8 +355,7 @@ input::placeholder {
 												<option value="12" <%=exp_month.equals("12")?"selected":""%>>12</option>
 											</select> 월 &nbsp;&nbsp;
 											<select name="exp_year">
-												<option
-													value="0" <%=exp_year.equals("")|| exp_year == null?"selected":""%>>년(Year)</option>
+												<option value="0" <%=exp_year.equals("")|| exp_year == null?"selected":""%>>년(Year)</option>
 												<option value="1" <%=exp_year.equals("1")?"selected":""%>>21</option>
 												<option value="2" <%=exp_year.equals("2")?"selected":""%>>22</option>
 												<option value="3" <%=exp_year.equals("3")?"selected":""%>>23</option>
@@ -372,16 +367,14 @@ input::placeholder {
 												<option value="9" <%=exp_year.equals("9")?"selected":""%>>29</option>
 												<option value="10" <%=exp_year.equals("10")?"selected":""%>>30</option>
 											</select> 년도
-										</p> <input type="hidden" name="loginRedirect"
-										value="/member/join_step4_basic">
+										</p> 
 									</td>
 								</tr>
 							</tbody>
 						</table>
 						<div class="btn_wrap">
 							<input type="button" value="수정하기" class="btn btn-warning" onclick="updateInfoConfirm()"> 
-								<input type="button"value="다시 입력하기" class="btn btn-warning"
-								onclick="javascript:window.location='login.jsp'">
+							<input type="button"value="다시 입력하기" class="btn btn-warning" onclick="javascript:window.location='modify.jsp'">
 						</div>
 					</div>
 				</form>

@@ -12,7 +12,7 @@
 	%>
 	<script>
 		alert("로그아웃 되었습니다.");
-		location.href = "login.html"; // 로그아웃 후 메인 페이지로 이동
+		location.href = "login.jsp"; // 로그아웃 후 메인 페이지로 이동
 	</script>
 </body>
 </html>
