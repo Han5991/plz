@@ -26,7 +26,7 @@
 	%>
 	<script>
 		alert("회원가입을 축하합니당❤❤");
-		document.location.href = "login.html"; //페이지 이동
+		document.location.href = "login.jsp"; //페이지 이동
 	</script>
 	<%
 		}else{
