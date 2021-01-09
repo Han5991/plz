@@ -244,7 +244,7 @@ input::placeholder {
 									<div class="birth_input">
 										<span><input type="date" placeholder="생년월일 입력"
 											name="birthdate"
-											max='<fmt:formatDate value="${now}" pattern="yyyy-MM-dd"/>'></span>
+											max='<fmt:formatDate value="${now}" pattern="yyyy-MM-dd"/>' value="<%=dto.getBirthdate()%>"></span>
 									</div> <br> 이메일<br>
 									<div class="email_input">
 										<span><input type="text" placeholder="이메일 주소 입력"
