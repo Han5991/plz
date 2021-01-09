@@ -1,5 +1,17 @@
+<%@page import="com.javamini.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	request.setCharacterEncoding("UTF-8");
+String storeName = request.getParameter("search_shop"); //효연이가 만든 address.jpg 파일에서 검색창 부분 name값 받아오기
+StoreDao dao = StoreDao.getInstance();
+StoreDto dto = new StoreDto();
+dto = (StoreDto) session.getAttribute("StoreId");
+
+String name = request.getParameter("name");
+int price = Integer.parseInt(request.getParameter("price"));
+int quantity = Integer.parseInt(request.getParameter("quantity"));
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -91,17 +103,17 @@ img {
 					<tbody>
 						<tr>
 							<td>매장 주소</td>
-							<td>(매장 주소)</td>
+							<td><%=dto.getStoreAddress()%></td>
 							<td></td>
 						</tr>
 						<tr>
 							<td>포장 매장</td>
-							<td>(포장 매장 명)</td>
-							<td>00-000-0000</td>
+							<td><%=dto.getStoreName()%></td>
+							<td><%=dto.getStorePhone()%></td>
 						</tr>
 						<tr>
 							<td>포장 예상시간</td>
-							<td>60분</td>
+							<td>null분</td>
 							<td></td>
 						</tr>
 						<tr>
@@ -126,17 +138,20 @@ img {
 					</thead>
 					<tbody>
 						<tr>
-							<td><img src="../img/Ice_Vanilla_Latte.jpg"
-								class="img-rounded" alt="Cinque Terre"></td>
-							<td>아이스 바닐라 라떼</td>
-							<td>1</td>
-							<td>16,500</td>
+							<td><img src="../showImage?key1=<%=name%>" width="250"
+								height="250" /></td>
+							<td>메뉴 <%=name%></td>
+							<input type="hidden" value="<%=name%>" name="name">
+							<td>가격 <%=price%></td>
+							<input type="hidden" value="<%=price%>" name="price">
+							<td>수량 <%=quantity%></td>
+							<input type="hidden" value="<%=quantity%>" name="quantity">
 						</tr>
 						<tr>
 							<td></td>
 							<td></td>
 							<td>총 주문 금액</td>
-							<td>16,500</td>
+							<td><%=price * quantity%>원</td>
 						</tr>
 					</tbody>
 				</table>

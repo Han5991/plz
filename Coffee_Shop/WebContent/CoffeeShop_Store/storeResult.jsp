@@ -9,6 +9,8 @@
 String storeName = request.getParameter("search_shop"); //효연이가 만든 address.jpg 파일에서 검색창 부분 name값 받아오기
 StoreDao dao = StoreDao.getInstance();
 %>
+<%!StoreDto dto;
+	String storeId, storeAddress, storePhone;%>
 
 <!DOCTYPE html>
 <html>
@@ -165,11 +167,11 @@ footer {
 					ArrayList<StoreDto> dtos = dao.getStoreByName(storeName);
 
 				for (int i = 0; i < dtos.size(); i++) {
-					StoreDto dto = dtos.get(i);
-					String storeId = dto.getStoreId();
+					dto = dtos.get(i);
+					storeId = dto.getStoreId();
 					storeName = dto.getStoreName();
-					String storeAddress = dto.getStoreAddress();
-					String storePhone = dto.getStorePhone();
+					storeAddress = dto.getStoreAddress();
+					storePhone = dto.getStorePhone();
 				%>
 				<tr>
 					<td><span style="margin-left: 10px"><%=dto.getStoreName()%></span></td>
@@ -178,7 +180,8 @@ footer {
 					<td>
 						<form action="../Sooyeon/MenuList.jsp" method="post">
 							<input type="hidden" value="<%=dto.getStoreId()%>">
-							<button type="submit" class="btn btn-warning" >선택</button>
+							<%session.setAttribute("StoreId", dao.getStore(dto.getStoreId()));%>
+							<button type="submit" class="btn btn-warning">선택</button>
 						</form>
 					</td>
 				</tr>

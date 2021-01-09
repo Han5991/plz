@@ -138,9 +138,8 @@ public ArrayList<StoreDto> getStoreByName(String storeName) {
 		try {
 			stmt=connection.createStatement();
 			rs = stmt.executeQuery(query);
-			
+			dto = new StoreDto();
 			while(rs.next()) {
-				dto = new StoreDto();
 				dto.setStoreId(rs.getString("storeId"));
 				dto.setStoreName(rs.getString("storeName"));
 				dto.setStoreAddress(rs.getString("storeAddress"));
