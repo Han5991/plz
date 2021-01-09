@@ -95,9 +95,8 @@ public class MemberDao {
 			pstmt.setString(19, dto.getExp_year());
 			pstmt.setString(20, dto.getOrder_list());
 
-			ri = MemberDao.MEMBER_JOIN_SUCCESS; // 1
 			pstmt.executeUpdate();
-
+			ri = MemberDao.MEMBER_JOIN_SUCCESS; // 1
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
