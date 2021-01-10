@@ -115,7 +115,7 @@ int sum = 0;
 							<td><%=dto.getQuantity()%></td>
 						</tr>
 						<%
-							sum += dto.getPrice();
+							sum += dto.getPrice()*dto.getQuantity();
 						}
 						%>
 					</tbody>
@@ -134,8 +134,8 @@ int sum = 0;
 					</thead>
 					<tbody>
 						<tr>
-							<td><input type="reset" value="메뉴 추가하기"
-								class="btn btn-warning"><input type="submit"
+							<td><input type="button" value="메뉴 추가하기"
+								class="btn btn-warning" onclick="location.href='../Sooyeon/MenuList.jsp'"><input type="submit"
 								value="주문하기" class="btn btn-warning"></td>
 						</tr>
 					</tbody>

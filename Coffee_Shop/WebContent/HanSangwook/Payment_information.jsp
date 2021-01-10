@@ -151,7 +151,7 @@ img {
 							<td><%=Menudto.getQuantity()%></td>
 						</tr>
 						<%
-							sum += Menudto.getPrice();
+							sum += Menudto.getPrice()*Menudto.getQuantity();
 						}
 						%>
 						<tr>
