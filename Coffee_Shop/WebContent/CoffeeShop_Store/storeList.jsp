@@ -91,41 +91,76 @@ border-bottom:2px solid lightgray; position:relative}
 	
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 70px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 </style>
 
 <title>매장 관리 페이지 | 카페 2020</title>
 </head>
 <body style="background: lightgray">
-   <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-               data-target="#myNavbar">
-               <span class="icon-bar"></span> <span class="icon-bar"></span> <span
-                  class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Portfolio1</a>
-         </div>
-         <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-               <li><a href="#">About</a></li>
-               <li><a href="#">Gallery</a></li>
-               <li><a href="#">Contact</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-               <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
-                     Login</a></li>
-            </ul>
-         </div>
-      </div>
-   </nav>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a style="font-size:25px; padding-left:0px;">ADMIN</a></li>
+					<li><a href="../admin/admin_main.jsp">회원 관리</a></li>
+					<li><a href="../CoffeeShop_Store/storeList.jsp" style="color: #c25e00;">매장 관리</a></li>
+					<li>
+						<div class="dropdown">
+  						<a style="color: #9d9d9d;">메뉴관리</a>
+  						<div class="dropdown-content">
+    						<p><a href="../HanSangwook/updateForm.jsp" style="color:black">수정</a></p>
+						    <p><a href="../HanSangwook/insertForm.jsp" style="color:black">추가</a></p>
+						    <p><a href="../HanSangwook/deleteForm.jsp" style="color:black">삭제</a></p>
+						</div>
+  
+						</div>
+					</li>
+
+					<li><a href="#">주문 관리</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="../Hyoyeon/logout.jsp"><span class="glyphicon glyphicon-log-in"></span>
+							Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
    <div class="jumbotron" style="background-color: white;">
       <div class="container text-center">
         <div class="tabmenu">
          <ul class="tab_motion">
          	<li>
-         		<strong>매장 관리 페이지</strong> 
+         		<h2>매장 관리 페이지</h2> 
          	</li>       
          </ul>
          

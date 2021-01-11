@@ -42,16 +42,6 @@ img {
 	object-fit: cover
 }
 
-.btnTab {
-	margin-bottom: 0;
-	border-radius: 0;
-	border: none;
-	height: 70px;
-	font-size: 20px;
-	background-color: #D9CDBC;
-	font-color: gray;
-}
-
 a:hover:not(.active) {
 	color: white;
 }
@@ -68,10 +58,49 @@ a:hover:not(.active) {
 	border: 0;
 	float: left;
 }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 70px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.jumbotron {
+   margin-bottom: 20px;
+}
+
+.tab_motion{
+	text-align: center;
+ 	text-decoration: none;	 
+}
+.tabmenu > ul {
+    max-width: 1000px;
+    margin: auto;
+}
+.tab_motion > li {
+    display: inline-block; 
+    font-size: 20px;
+}
 </style>
 </head>
 <body>
-<body style="background: white">
+<body style="background: lightgray">
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -80,37 +109,48 @@ a:hover:not(.active) {
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Autumn Leaves</a>
+				
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li><a href="#">About</a></li>
-					<li><a href="#">Gallery</a></li>
-					<li><a href="#">Contact</a></li>
+					<li><a style="font-size:25px; padding-left:0px;">ADMIN</a></li>
+					<li><a href="../admin/admin_main.jsp">회원 관리</a></li>
+					<li><a href="../CoffeeShop_Store/storeList.jsp">매장 관리</a></li>
+					<li>
+						<div class="dropdown">
+  						<a style="color: #c25e00;">메뉴관리</a>
+  						<div class="dropdown-content">
+    						<p><a href="updateForm.jsp" style="color:black">수정</a></p>
+						    <p><a href="insertForm.jsp" style="color:#c25e00">추가</a></p>
+						    <p><a href="deleteForm.jsp" style="color:black">삭제</a></p>
+						</div>
+  
+						</div>
+					</li>
+
+					<li><a href="#">주문 관리</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
-							Login</a></li>
+					<li><a href="../Hyoyeon/logout.jsp"><span class="glyphicon glyphicon-log-in"></span>
+							Logout</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
+	
+	<div class="jumbotron" style="background-color: white;">
+      <div class="container text-center">
+        <div class="tabmenu">
+         <ul class="tab_motion">
+         	<li>
+         		<h2>메뉴 정보 추가</h2> 
+         	</li>       
+         </ul>
+         
+      </div>
+   	</div>
+   </div>
 
-	<div id="container">
-		<div id="section">
-			<div class="tabArea navbar- menus">
-				<div class="btnTab text-center">
-					<a href="../Sooyeon/MenuList.jsp" class="active"><span
-						class="all">전체</span></a> <a href="../Sooyeon/espresso.jsp"><span
-						class="chi06">에스프레소</span></a> <a href="../Sooyeon/blended.jsp"><span
-						class="chi08">블렌디드 </span></a> <a href="../Sooyeon/etc.jsp"><span
-						class="chi01">티</span></a> <a href="etc.jsp"><span
-						class="../Sooyeon/etc.jsp">기타 음료</span></a> <a
-						href="../Sooyeon/dessert.jsp"><span class="chi02">디저트</span></a>
-				</div>
-			</div>
-		</div>
-	</div>
 	
 	<form action="../insertOk" method="post" enctype="multipart/form-data" name="reg_frm">
 		<div class="jumbotron">
@@ -118,7 +158,7 @@ a:hover:not(.active) {
 				<table class="table">
 					<thead style="font-size: 30px;">
 						<tr>
-							<td><h2>메뉴 추가 페이지</h2></td>
+							<td><h2>메뉴 추가 </h2></td>
 						</tr>
 					</thead>
 					<tbody>
