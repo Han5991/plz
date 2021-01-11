@@ -45,9 +45,7 @@
 			} else { //값이 null이 아니면(회원일 경우)
 				String name = dto.getName();
 				//로그인 정보 세션에 저장(다른페이지로 넘겨야되서)
-				session.setAttribute("dto", dto);
-				session.setAttribute("id", id);
-				session.setAttribute("name", name);
+				session.setAttribute("user", dto);
 				session.setAttribute("ValidMem", "yes");
 				
 				//정보수정을 테스트위해 main.jsp이동 살려둠
