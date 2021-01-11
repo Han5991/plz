@@ -5,7 +5,6 @@
 	pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
-String storeName = request.getParameter("search_shop"); //효연이가 만든 address.jpg 파일에서 검색창 부분 name값 받아오기
 StoreDao dao = StoreDao.getInstance();
 StoreDto dto = (StoreDto) session.getAttribute("storeId");
 
@@ -69,31 +68,31 @@ img {
 <title>결제 정보</title>
 </head>
 <body style="background: lightgray">
-	<form>
-		<nav class="navbar navbar-inverse">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#myNavbar">
-						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#">Portfolio</a>
-				</div>
-				<div class="collapse navbar-collapse" id="myNavbar">
-					<ul class="nav navbar-nav">
-						<li><a href="#">About</a></li>
-						<li><a href="#">Gallery</a></li>
-						<li><a href="#">Contact</a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
-								Login</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
 
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Portfolio</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="#">About</a></li>
+					<li><a href="#">Gallery</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
+							Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<form action="Payment_Result.jsp">
 		<div class="jumbotron">
 			<div class="container text-center">
 				<table class="table">
@@ -151,14 +150,15 @@ img {
 							<td><%=Menudto.getQuantity()%></td>
 						</tr>
 						<%
-							sum += Menudto.getPrice()*Menudto.getQuantity();
+							sum += Menudto.getPrice() * Menudto.getQuantity();
 						}
 						%>
 						<tr>
 							<td></td>
 							<td></td>
 							<td>총 주문 금액</td>
-							<td><%=sum%>원</td>
+							<td><%=sum%>원<input type="hidden" value="<%=sum%>"
+								name="sum"></td>
 						</tr>
 					</tbody>
 				</table>
