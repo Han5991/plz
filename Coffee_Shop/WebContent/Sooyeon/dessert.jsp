@@ -54,9 +54,16 @@ session.setAttribute("storeId", dto);
 	border: none;
 	height: 70px;
 	font-size: 20px;
-	background-color: #D9CDBC;
+	background-color: lightgray;
 	font-color: gray;
+	line-height:70px;
 }
+
+.btnTab > a{
+	color: #c67100;
+	padding: 0 20px;
+}
+
 
 a:hover:not(.active) {
 	color: white;
@@ -77,7 +84,7 @@ a:hover:not(.active) {
 </style>
 <title>Insert title here</title>
 </head>
-<body style="background: white">
+<body style="background: lightgray">
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
