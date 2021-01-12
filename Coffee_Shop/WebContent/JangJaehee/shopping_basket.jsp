@@ -7,10 +7,17 @@
 String price[] = request.getParameterValues("price");
 String quantity[] = request.getParameterValues("quantity");
 MenuDto dto = null;
-ArrayList<MenuDto> Menudtos = new ArrayList<MenuDto>();
-for (int a = 0; a < name.length; a++)
-	if (!quantity[a].equals("0"))
-		Menudtos.add(new MenuDto(name[a], Integer.parseInt(price[a]), Integer.parseInt(quantity[a])));
+ArrayList<MenuDto> Menudtos = (ArrayList) session.getAttribute("orderList");
+if (Menudtos == null) {
+	Menudtos = new ArrayList<MenuDto>();
+	for (int a = 0; a < name.length; a++)
+		if (!quantity[a].equals("0"))
+	Menudtos.add(new MenuDto(name[a], Integer.parseInt(price[a]), Integer.parseInt(quantity[a])));
+} else {
+	for (int a = 0; a < name.length; a++)
+		if (!quantity[a].equals("0"))
+	Menudtos.add(new MenuDto(name[a], Integer.parseInt(price[a]), Integer.parseInt(quantity[a])));
+}
 session.setAttribute("orderList", Menudtos);
 int sum = 0;
 %>
@@ -115,7 +122,7 @@ int sum = 0;
 							<td><%=dto.getQuantity()%></td>
 						</tr>
 						<%
-							sum += dto.getPrice()*dto.getQuantity();
+							sum += dto.getPrice() * dto.getQuantity();
 						}
 						%>
 					</tbody>
@@ -135,8 +142,9 @@ int sum = 0;
 					<tbody>
 						<tr>
 							<td><input type="button" value="메뉴 추가하기"
-								class="btn btn-warning" onclick="location.href='../Sooyeon/MenuList.jsp'"><input type="submit"
-								value="주문하기" class="btn btn-warning"></td>
+								class="btn btn-warning"
+								onclick="history.back()"><input
+								type="submit" value="주문하기" class="btn btn-warning"></td>
 						</tr>
 					</tbody>
 				</table>

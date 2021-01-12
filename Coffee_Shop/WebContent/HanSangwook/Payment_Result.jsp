@@ -183,7 +183,7 @@ img {
 												<td><%=Menudto.getQuantity()%></td>
 											</tr>
 											<%
-											}
+												}
 											%>
 										</table>
 									</div>
@@ -227,18 +227,17 @@ img {
 						<tbody>
 							<tr>
 								<td>매장 이름</td>
-								<td><%=dto.getStoreName()%>
-								${storeId.storeName}</td>
+								<td>${storeId.storeName}</td>
 								<td></td>
 							</tr>
 							<tr>
 								<td>매장 주소</td>
-								<td><%=dto.getStoreAddress()%>${storeId.storeAddress}</td>
+								<td>${storeId.storeAddress}</td>
 								<td></td>
 							</tr>
 							<tr>
 								<td>전화 번호</td>
-								<td><%=dto.getStorePhone()%></td>
+								<td>${storeId.storePhone}</td>
 								<td></td>
 							</tr>
 						</tbody>
