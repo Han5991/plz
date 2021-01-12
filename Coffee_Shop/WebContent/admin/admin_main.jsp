@@ -31,7 +31,6 @@
 .jumbotron {
 	margin-bottom: 20px;
 }
-/* Add a gray background color and some padding to the footer */
 footer {
 	background-color: #f2f2f2;
 	padding: 25px;
@@ -139,7 +138,7 @@ footer {
 						<div class="dropdown">
   						<a style="color: #9d9d9d;">메뉴관리</a>
   						<div class="dropdown-content">
-    						<p><a href="../HanSangwook/updateForm.jsp" style="color:black">수정</a></p>
+    						<p><a href="../HanSangwook/updateSelect.jsp" style="color:black">수정</a></p>
 						    <p><a href="../HanSangwook/insertForm.jsp" style="color:black">추가</a></p>
 						    <p><a href="../HanSangwook/deleteForm.jsp" style="color:black">삭제</a></p>
 						</div>
