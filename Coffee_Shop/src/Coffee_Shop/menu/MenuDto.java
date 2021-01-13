@@ -1,6 +1,9 @@
 package Coffee_Shop.menu;
 
-public class MenuDto {
+import java.io.Serializable;
+
+public class MenuDto implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private String name;
 	private int price;
 	private int quantity;
