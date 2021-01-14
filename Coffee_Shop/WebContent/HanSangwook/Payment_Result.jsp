@@ -1,16 +1,56 @@
+<%@page import="com.javalec.ex.*"%>
 <%@page import="Coffee_Shop.menu.*"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.javamini.*"%>
+<%@page import="java.io.*"%>
+<%@page import="java.sql.*"%>
+<%@page import="javax.naming.*"%>
+<%@page import="javax.sql.DataSource"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%!MenuDto menudto = null;
+	Context context = null;
+	DataSource dataSource = null;
+	Connection con = null;
+	PreparedStatement preparedStatement = null;
+	ResultSet resultSet = null;%>
 <%
 	request.setCharacterEncoding("UTF-8");
-StoreDto dto = (StoreDto) session.getAttribute("storeId");
 
+StoreDto dto = (StoreDto) session.getAttribute("storeId");
+MemberDto user = (MemberDto) session.getAttribute("user");
 ArrayList<MenuDto> Menudtos = new ArrayList<MenuDto>();
 Menudtos = (ArrayList) session.getAttribute("orderList");
-MenuDto Menudto = null;
+
+ByteArrayOutputStream bos = new ByteArrayOutputStream();
+ObjectOutput c = new ObjectOutputStream(bos);
+c.writeObject(Menudtos);//주문목록
+
+byte[] a = bos.toByteArray();
+
+try {
+	context = new InitialContext();
+	dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
+	con = dataSource.getConnection();
+
+	Blob b1 = con.createBlob();
+	b1.setBytes(1, a);
+
+	String sql = "insert into oderlist values(oderlist_seq.NEXTVAL,?,?,?,sysdate)";
+	preparedStatement = con.prepareStatement(sql);
+	preparedStatement.setString(1, user.getId());
+	preparedStatement.setString(2, dto.getStoreId());
+	preparedStatement.setBlob(3, b1);
+
+	resultSet = preparedStatement.executeQuery();
+	if (resultSet.next()) {
+		out.println("<script>alert('주문이 완료되었습니다.');</script>");
+		System.out.println("주문완료");
+	}
+} catch (Exception e) {
+	e.printStackTrace();
+}
 %>
 <!DOCTYPE html>
 <html>
@@ -173,14 +213,14 @@ img {
 										<table class="table">
 											<%
 												for (int b = 0; b < Menudtos.size(); b++) {
-												Menudto = Menudtos.get(b);
+												menudto = Menudtos.get(b);
 											%>
 											<tr>
-												<td><img src="../showImage?key1=<%=Menudto.getName()%>"
+												<td><img src="../showImage?key1=<%=menudto.getName()%>"
 													width="250" height="250" /></td>
-												<td><%=Menudto.getName()%></td>
-												<td><%=Menudto.getPrice()%></td>
-												<td><%=Menudto.getQuantity()%></td>
+												<td><%=menudto.getName()%></td>
+												<td><%=menudto.getPrice()%></td>
+												<td><%=menudto.getQuantity()%></td>
 											</tr>
 											<%
 												}
@@ -262,7 +302,6 @@ img {
 					</table>
 				</div>
 			</div>
-
 		</div>
 
 		<div class="jumbotron">
