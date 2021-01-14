@@ -23,6 +23,9 @@ MemberDto user = (MemberDto) session.getAttribute("user");
 ArrayList<MenuDto> Menudtos = new ArrayList<MenuDto>();
 Menudtos = (ArrayList) session.getAttribute("orderList");
 
+session.removeAttribute("storeId");
+session.removeAttribute("orderList");
+
 ByteArrayOutputStream bos = new ByteArrayOutputStream();
 ObjectOutput c = new ObjectOutputStream(bos);
 c.writeObject(Menudtos);//주문목록
