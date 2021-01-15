@@ -9,7 +9,6 @@ String storeName = request.getParameter("search_shop"); //효연이가 만든 ad
 StoreDao dao = StoreDao.getInstance();
 %>
 <%!StoreDto dto;%>
-
 <!DOCTYPE html>
 <html>
 <head>

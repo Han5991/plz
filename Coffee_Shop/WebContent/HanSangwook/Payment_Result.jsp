@@ -23,9 +23,6 @@ MemberDto user = (MemberDto) session.getAttribute("user");
 ArrayList<MenuDto> Menudtos = new ArrayList<MenuDto>();
 Menudtos = (ArrayList) session.getAttribute("orderList");
 
-session.removeAttribute("storeId");
-session.removeAttribute("orderList");
-
 ByteArrayOutputStream bos = new ByteArrayOutputStream();
 ObjectOutput c = new ObjectOutputStream(bos);
 c.writeObject(Menudtos);//주문목록
@@ -313,11 +310,14 @@ img {
 					<input type="button" value="홈으로" class="btn btn-warning"
 						onclick="javascript:document.location.href='#'"> <input
 						type="button" value="나의 주문 관리" class="btn btn-warning"
-						onclick="javascript:document.location.href='#'">
+						onclick="javascript:document.location.href='oderlist.jsp'">
 				</div>
 			</div>
 		</div>
 	</form>
-
+	<%
+session.removeAttribute("storeId");
+session.removeAttribute("orderList");
+%>
 </body>
 </html>
