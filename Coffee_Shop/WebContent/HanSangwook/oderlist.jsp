@@ -146,6 +146,23 @@ li {
 .dropdown:hover .dropdown-content {
 	display: block;
 }
+
+.jumbotron {
+   margin-bottom: 20px;
+}
+
+.tab_motion{
+	text-align: center;
+ 	text-decoration: none;	 
+}
+.tabmenu > ul {
+    max-width: 1000px;
+    margin: auto;
+}
+.tab_motion > li {
+    display: inline-block; 
+    font-size: 20px;
+}
 </style>
 
 <title>매장 관리 페이지 | 카페 2020</title>
@@ -184,7 +201,7 @@ li {
 						</div>
 					</li>
 
-					<li><a href="#">주문 관리</a></li>
+					<li><a href="../HanSangwook/oderlist.jsp">주문 관리</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="../Hyoyeon/logout.jsp"><span
@@ -195,16 +212,17 @@ li {
 	</nav>
 
 	<div class="jumbotron" style="background-color: white;">
-		<div class="container text-center">
-			<div class="tabmenu">
-				<ul class="tab_motion">
-					<li>
-						<h2>주문 관리 페이지</h2>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+      <div class="container text-center">
+        <div class="tabmenu">
+         <ul class="tab_motion">
+         	<li>
+         		<h2>주문 정보 관리 </h2> 
+         	</li>       
+         </ul>
+         
+      </div>
+   	</div>
+   </div>
 
 	<div class="jumbotron" style="background-color: white;">
 		<div class="container text-center">

@@ -150,7 +150,7 @@ li {
 							<a style="color: #9d9d9d;">메뉴관리</a>
 							<div class="dropdown-content">
 								<p>
-									<a href="../HanSangwook/updateForm.jsp" style="color: black">수정</a>
+									<a href="../HanSangwook/updateSelect.jsp" style="color: black">수정</a>
 								</p>
 								<p>
 									<a href="../HanSangwook/insertForm.jsp" style="color: black">추가</a>
@@ -163,7 +163,7 @@ li {
 						</div>
 					</li>
 
-					<li><a href="#">주문 관리</a></li>
+					<li><a href="../HanSangwook/oderlist.jsp">주문 관리</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="../Hyoyeon/logout.jsp"><span
