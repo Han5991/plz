@@ -5,14 +5,16 @@
 <%@page import="Coffee_Shop.menu.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%!Context context = null;
+<%!
+	Context context = null;
 	DataSource dataSource = null;
 	Connection con = null;
 	PreparedStatement stmt = null;
 	ResultSet resultSet = null;
 	String name = null;
 	String filename = null;
-	int price = 0;%>
+	int price = 0;
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -141,7 +143,7 @@ a:hover:not(.active) {
 						</div>
 					</li>
 
-					<li><a href="#">주문 관리</a></li>
+					<li><a href="../HanSangwook/oderlist.jsp">주문 관리</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="../Hyoyeon/logout.jsp"><span class="glyphicon glyphicon-log-in"></span>

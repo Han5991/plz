@@ -232,7 +232,7 @@ li {
 						<td><span><%=resultSet.getString(3)%></span></td>
 						<td><span><%=resultSet.getDate(5).toString()%></span></td>
 						<td><span class="glyphicon glyphicon-stop"></span>주문 상세
-<button type="button" class="btn btn-info" data-toggle="collapse"
+							<button type="button" class="btn btn-info" data-toggle="collapse"
 								data-target="#detail<%=i%>"
 								style="background-color: #D9CDBC; border: none;">상세 펼치기</button></td>
 						<td>

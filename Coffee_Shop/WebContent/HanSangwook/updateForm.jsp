@@ -152,7 +152,7 @@ li {
 						</div>
 					</li>
 
-					<li><a href="#">주문 관리</a></li>
+					<li><a href="../HanSangwook/oderlist.jsp">주문 관리</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="../Hyoyeon/logout.jsp"><span class="glyphicon glyphicon-log-in"></span>
