@@ -18,7 +18,7 @@
 	int s = 0;
 	byte[] buffer = null;
 	Blob menu = null;
-	int i =0;%>
+	int i = 0;%>
 <%
 	try {
 	context = new InitialContext();
@@ -121,10 +121,6 @@ li {
 	font-size: 14px;
 }
 
-.btn {
-	
-}
-
 .dropdown {
 	position: relative;
 	display: inline-block;
@@ -159,7 +155,6 @@ li {
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
@@ -183,7 +178,6 @@ li {
 							</div>
 						</div>
 					</li>
-
 					<li><a href="#">주문 관리</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
@@ -238,7 +232,7 @@ li {
 						<td><span><%=resultSet.getString(3)%></span></td>
 						<td><span><%=resultSet.getDate(5).toString()%></span></td>
 						<td><span class="glyphicon glyphicon-stop"></span>주문 상세
-							<button type="button" class="btn btn-info" data-toggle="collapse"
+<button type="button" class="btn btn-info" data-toggle="collapse"
 								data-target="#detail<%=i%>"
 								style="background-color: #D9CDBC; border: none;">상세 펼치기</button></td>
 						<td>
@@ -246,7 +240,7 @@ li {
 								<table class="table">
 									<%
 										for (MenuDto a : Menudtos) {
-											i++;
+										i++;
 									%>
 									<tr>
 										<td><img src="../showImage?key1=<%=a.getName()%>"
@@ -271,7 +265,8 @@ li {
 				</table>
 				<span><button type="button" class="btn btn-success"
 						style="margin: 15px 0 0 0"
-						onclick="javascript:window.location='../Sooyeon/MenuList.jsp'">메뉴리스트로 가기</button></span>
+						onclick="javascript:window.location='../Sooyeon/MenuList.jsp'">메뉴리스트로
+						가기</button></span>
 			</div>
 		</div>
 	</div>
