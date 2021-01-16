@@ -225,6 +225,7 @@ li {
 
 						ois = new ObjectInputStream(new ByteArrayInputStream(buffer));
 						Menudtos = (ArrayList<MenuDto>) ois.readObject();
+						i++;
 					%>
 					<tr>
 						<td><span style="margin-left: 10px"><%=resultSet.getInt(1)%></span></td>
@@ -240,7 +241,6 @@ li {
 								<table class="table">
 									<%
 										for (MenuDto a : Menudtos) {
-										i++;
 									%>
 									<tr>
 										<td><img src="../showImage?key1=<%=a.getName()%>"
@@ -258,6 +258,7 @@ li {
 					</tr>
 					<%
 						}
+					i = 0;
 					} catch (Exception e) {
 					e.printStackTrace();
 					}
