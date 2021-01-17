@@ -38,17 +38,6 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-	function deleteConfirm() {
-		const result = confirm("정말 삭제하시겠습니까?");
-		console.log(result);
-		if (result) {
-			document.deleteButton.submit();
-		} else {
-			history.go(-1);
-		}
-	}
-</script>
 <style>
 @font-face {
 	font-family: hzStyleFont;
@@ -69,7 +58,7 @@
 .jumbotron {
 	margin-bottom: 20px;
 }
-/* Add a gray background color and some padding to the footer */
+
 footer {
 	background-color: #f2f2f2;
 	padding: 25px;
