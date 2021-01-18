@@ -82,7 +82,7 @@ try {
 .jumbotron {
 	margin-bottom: 0px;
 	background-color: white;
-	padding: 0 0 0 0;
+	padding: 0;
 }
 
 .table {
