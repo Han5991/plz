@@ -26,6 +26,8 @@
 .navbar {
 	margin-bottom: 0;
 	border-radius: 0;
+	border: none;
+	background-color: #D9CDBC;
 }
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
