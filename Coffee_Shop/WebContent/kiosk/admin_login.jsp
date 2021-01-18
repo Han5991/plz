@@ -118,7 +118,7 @@ footer {
 					<div id="id">ID:<input type="text" placeholder="id"> </div>
 					<div id="pw">PW:<input type="password" placeholder="password"> </div>
 					<input type="submit" value="*로그인*" id="btn">
-				</form>
+				</form> 
 			</div>
 			<div class="col-sm-3 sidenav">
 				<div class="well">
