@@ -106,13 +106,13 @@ h2{
 
 	<div class="container-fluid text-center">
 		<div class="row content">
-			<div class="col-sm-9 text-left">
+			<div class="col-sm-9 text-center">
 				<h1>결제 방법 선택 </h1>
 					<h4>결제 방식을 선택해 주세요.</h4>
 					
 				<hr>
 				<div class="card">
-					<img id="credit" src="../img/credit-card.png">
+					<img id="credit" src="../img/credit-card.png" onclick="location:'#'">
 					<h2>카드 결제</h2>
 				</div>
 			</div>
