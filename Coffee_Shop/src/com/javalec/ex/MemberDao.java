@@ -16,6 +16,7 @@ public class MemberDao {
 	public static final int MEMBER_LOGIN_PW_NO_GOOD = 0;
 	public static final int MEMBER_LOGIN_SUCCESS = 1;
 	public static final int MEMBER_LOGIN_IS_NOT = -1;
+	public static final int MEMBER_LOGIN_ADMIN = 2;
 
 	// �깃���
 	private static MemberDao instance = new MemberDao();
@@ -129,11 +130,15 @@ public class MemberDao {
 			pstmt = connection.prepareStatement(query);
 			pstmt.setString(1, id);
 			set = pstmt.executeQuery();
-
+			
 			if (set.next()) { // �대�� id�� ��蹂닿� ���ㅻ㈃
 				dbPwd = set.getString("pwd");
 				if (dbPwd.equals(pwd)) { // ���ν�� pwd�� ��鍮� pwd媛� �쇱���硫�
-					ri = MemberDao.MEMBER_LOGIN_SUCCESS; // 1
+					if(id.equals("admin")) {
+						ri = MemberDao.MEMBER_LOGIN_ADMIN; //2
+					}else {
+						ri = MemberDao.MEMBER_LOGIN_SUCCESS; // 1
+					}
 				} else { // ���ν�� pwd媛� �ㅻⅤ�ㅻ㈃
 					ri = MemberDao.MEMBER_LOGIN_PW_NO_GOOD; // 0
 				}
