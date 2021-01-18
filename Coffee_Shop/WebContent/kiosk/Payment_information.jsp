@@ -33,8 +33,6 @@
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {
 	height: 1119px;
-	text-align: center;
-	vertical-align: middle;
 }
 
 /* Set gray background color and 100% height */
@@ -60,6 +58,14 @@ footer {
 	.row.content {
 		height: auto;
 	}
+}
+
+table {
+	font-size: large;
+}
+
+img {
+	margin: 30px 100px 30px 0px;
 }
 </style>
 </head>
@@ -91,22 +97,33 @@ footer {
 	</nav>
 
 	<div class="container-fluid text-center">
+		<!-- 		<div class="row content" style="background-image: url('../img/menuImg/스벅.png'); background-size: contain;"> -->
 		<div class="row content">
-			<div class="col-sm-9 text-left">
-				<h1>Welcome</h1>
-				<p>
-				한글 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-					do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-					enim ad minim veniam, quis nostrud exercitation ullamco laboris
-					nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat
-					cupidatat non proident, sunt in culpa qui officia deserunt mollit
-					anim id est laborum consectetur adipiscing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-					minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-					aliquip ex ea commodo consequat.</p>
-				<hr>
-				<h3>Test</h3>
-				<p>Lorem ipsum...</p>
+			<div class="col-sm-9" align="center">
+				<table>
+					<thead>
+						<tr>
+							<th>주문제품</th>
+							<th>수량</th>
+							<th>가격</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><img src="../img/menuImg/스벅.png" height="250px"
+								width="250px"></td>
+							<td>1</td>
+							<td>5000원</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td></td>
+							<td>주문 금액</td>
+							<td>5000원</td>
+						</tr>
+					</tfoot>
+				</table>
 			</div>
 			<div class="col-sm-3 sidenav">
 				<div class="well">
@@ -120,7 +137,8 @@ footer {
 	</div>
 
 	<footer class="container-fluid text-center">
-		<p>Footer Text</p>
+		<input type="reset" value="주문 다시 하기" class="btn btn-warning">    <input
+			type="submit" value="결제 및 주문완료" class="btn btn-warning">
 	</footer>
 
 </body>
