@@ -61,23 +61,17 @@ footer {
 		height: auto;
 	}
 }
-#form{
-	width: 330px;
-   	height: 200px;
- 	border: 3px solid lightgray;
- 	border-radius: 20px;
- 	margin : 80px auto;
+img{
+	width: 150px;
+	height: 150px;
+	float: left;
+	margin-left: 100px;
+	
 }
-#id{
- 	margin: 20px  80px; 
-}	
-#pw{
- 	margin: 0px  80px; 
+.table tr{
+	font-size: 20px;
 }
-#btn{
-	margin: 20px 0; 
-	margin-left: 120px;
-}
+
 </style>
 </head>
 <body>
@@ -109,25 +103,35 @@ footer {
 
 	<div class="container-fluid text-center">
 		<div class="row content">
-			<div class="col-sm-9 text-left">
-				<h1>관리자 </h1>
+			<div class="col-sm-9 text-center">
+				<h1>장바구니 </h1>
 				<hr>
+				<table class="table">
+					<thead id="thead" >
+						<tr>
+							<td><h3>주문 제품</h3></td>
+						</tr>
+					</thead>
+						<tr>
+							<td><img src="../img/menuImg/blended_흑임자블렌.jpg" width="150" height="150" /></td>
+							<td>수량:  1개</td>
+							<td>가격:  4000원</td>
+						</tr>
+						<tr>
+							<td><img src="../img/menuImg/blended_모카블렌.jpg" width="150" height="150" /></td>
+							<td>수량:  1개</td>
+							<td>가격:  4500원</td>
+						</tr>
+				</table>
 				
-				<h3>admin login</h3>
-				<form action="" id="form">
-					<div id="id">ID:<input type="text" placeholder="id"> </div>
-					<div id="pw">PW:<input type="password" placeholder="password"> </div>
-					<input type="submit" value="*로그인*" id="btn">
-				</form> 
+				
 			</div>
+			
 			<div class="col-sm-3 sidenav">
-				<div class="well">
-					<p>ADS</p>
-				</div>
-				<div class="well">
-					<p>ADS</p>
-				</div>
-			</div>
+			<h3>총 합계 금액 : <br>8500원</h3><br><br>
+            	<input type="reset" value="메뉴 추가하기" class="btn btn-warning" style="font-size: 30px;"><br> <br> 
+               	<input type="submit" value="주문 하기" class="btn btn-warning" style="font-size: 30px;">
+         </div>
 		</div>
 	</div>
 
@@ -137,3 +141,6 @@ footer {
 
 </body>
 </html>
+
+
+
