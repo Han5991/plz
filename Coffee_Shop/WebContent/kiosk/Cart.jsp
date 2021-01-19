@@ -65,12 +65,14 @@ img{
 	width: 150px;
 	height: 150px;
 	float: left;
-	margin-left: 100px;
+	margin-left: 150px; 
 	
 }
 .table tr{
-	font-size: 20px;
+	font-size: 24px;
+	
 }
+
 
 </style>
 </head>
@@ -107,20 +109,24 @@ img{
 				<h1>장바구니 </h1>
 				<hr>
 				<table class="table">
-					<thead id="thead" >
+					<thead >
 						<tr>
 							<td><h3>주문 제품</h3></td>
-						</tr>
+							<td><h3>이름</h3></td>
+							<td><h3>수량</h3></td>
+							<td><h3>가격</h3></td>
 					</thead>
 						<tr>
 							<td><img src="../img/menuImg/blended_흑임자블렌.jpg" width="150" height="150" /></td>
-							<td>수량:  1개</td>
-							<td>가격:  4000원</td>
+							<td>흑임자블렌</td>
+							<td>1개</td>
+							<td>4000원</td>
 						</tr>
 						<tr>
 							<td><img src="../img/menuImg/blended_모카블렌.jpg" width="150" height="150" /></td>
-							<td>수량:  1개</td>
-							<td>가격:  4500원</td>
+							<td>모카블렌</td>
+							<td>1개</td>
+							<td>4500원</td>
 						</tr>
 				</table>
 				
