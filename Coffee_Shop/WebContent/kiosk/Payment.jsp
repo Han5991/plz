@@ -66,9 +66,10 @@ footer {
    	height: 350px;
  	border: 2px solid lightgray;
  	border-radius: 10px;
- 	margin : 80px auto;
+ 	margin : 180px auto;
 }
 #credit{
+
 	margin: 50px 75px;
 }
 h2{
@@ -108,7 +109,7 @@ h2{
 		<div class="row content">
 			<div class="col-sm-9 text-center">
 				<h1>결제 방법 선택 </h1>
-					<h4>결제 방식을 선택해 주세요.</h4>
+					<h3>결제 방식을 선택해 주세요.</h3>
 					
 				<hr>
 				<div class="card">

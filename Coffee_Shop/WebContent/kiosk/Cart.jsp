@@ -61,17 +61,18 @@ footer {
 		height: auto;
 	}
 }
-
-img {
+img{
 	width: 150px;
 	height: 150px;
 	float: left;
-	margin-left: 100px;
+	margin-left: 150px; 
+	
+}
+.table tr{
+	font-size: 24px;
 }
 
-.table tr {
-	font-size: 20px;
-}
+
 </style>
 </head>
 <body>
@@ -104,45 +105,47 @@ img {
 	<div class="container-fluid text-center">
 		<div class="row content">
 			<div class="col-sm-9 text-center">
-				<h1>장바구니</h1>
+				<h1>장바구니 </h1>
 				<hr>
 				<table class="table">
-					<thead id="thead">
+					<thead >
 						<tr>
 							<td><h3>주문 제품</h3></td>
+							<td><h3>이름</h3></td>
 							<td><h3>수량</h3></td>
 							<td><h3>가격</h3></td>
-						</tr>
 					</thead>
-					<tr>
-						<td><img src="../img/menuImg/blended_흑임자블렌.jpg" width="150"
-							height="150" /></td>
-						<td>1개</td>
-						<td>4000원</td>
-					</tr>
-					<tr>
-						<td><img src="../img/menuImg/blended_모카블렌.jpg" width="150"
-							height="150" /></td>
-						<td>1개</td>
-						<td>4500원</td>
-					</tr>
+						<tr>
+							<td><img src="../img/menuImg/blended_흑임자블렌.jpg" width="150" height="150" /></td>
+							<td>흑임자블렌</td>
+							<td>1개</td>
+							<td>4000원</td>
+						</tr>
+						<tr>
+							<td><img src="../img/menuImg/blended_모카블렌.jpg" width="150" height="150" /></td>
+							<td>모카블렌</td>
+							<td>1개</td>
+							<td>4500원</td>
+						</tr>
 				</table>
+				
+				
 			</div>
-
+			
 			<div class="col-sm-3 sidenav">
-				<h3>
-					총 합계 금액 : <br>8500원
-				</h3>
-				<br> <br> <input type="reset" value="메뉴 추가하기"
-					class="btn btn-warning" style="font-size: 30px;"><br>
-				<br> <input type="submit" value="주문 하기" class="btn btn-warning"
-					style="font-size: 30px;">
-			</div>
+			<h3>총 합계 금액 : <br>8500원</h3><br><br>
+            	<input type="reset" value="메뉴 추가하기" class="btn btn-warning" style="font-size: 30px;"><br> <br> 
+               	<input type="submit" value="주문 하기" class="btn btn-warning" style="font-size: 30px;">
+         </div>
 		</div>
 	</div>
 
 	<footer class="container-fluid text-center">
 		<p>Footer Text</p>
 	</footer>
+
 </body>
 </html>
+
+
+
