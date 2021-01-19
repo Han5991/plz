@@ -62,62 +62,41 @@ footer {
 	}
 }
 #form{
-	width: 330px;
-   	height: 200px;
+	width: 450px;
+   	height: 400px;
  	border: 3px solid lightgray;
  	border-radius: 20px;
  	margin : 80px auto;
+ 	font-size: 24px;
 }
 #id{
- 	margin: 20px  80px; 
+ 	margin: 30px  80px;  
 }	
 #pw{
- 	margin: 0px  80px; 
+  	margin: 0px  80px;  
 }
 #btn{
-	margin: 20px 0; 
-	margin-left: 120px;
+	margin-top: 50px;
+	padding: 20px 20px;
 }
 </style>
 </head>
 <body>
 
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#myNavbar">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Logo</a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Projects</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
-							Login</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+<!-- Navigation -->
+<%@ include file="navbar_admin.jsp"%>
 
 	<div class="container-fluid text-center">
 		<div class="row content">
-			<div class="col-sm-9 text-left">
+			<div class="col-sm-9 text-center">
 				<h1>관리자 </h1>
 				<hr>
 				
 				<h3>admin login</h3>
 				<form action="" id="form">
 					<div id="id">ID:<input type="text" placeholder="id"> </div>
-					<div id="pw">PW:<input type="password" placeholder="password"> </div>
-					<input type="submit" value="*로그인*" id="btn">
+					<div id="pw">PW:<input type="password" placeholder="password" > </div>
+					<input type="submit" value="*로그인*" id="btn" size="50">
 				</form> 
 			</div>
 			<div class="col-sm-3 sidenav">

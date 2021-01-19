@@ -191,7 +191,6 @@ li {
 
 	<div class="jumbotron" style="background-color: white;">
 		<div class="container text-center">
-
 			<div class="contents_inner">
 				<table class="store_list" border="0">
 					<tr>

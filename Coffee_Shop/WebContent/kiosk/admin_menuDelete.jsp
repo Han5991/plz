@@ -61,78 +61,127 @@ footer {
 		height: auto;
 	}
 }
-#form{
-	width: 330px;
-   	height: 200px;
- 	border: 3px solid lightgray;
- 	border-radius: 20px;
- 	margin : 80px auto;
+
+.div_menu {
+
+}
+.menu{
+	width: 200px;
+   	height: 300px;
+ 	border: 1px solid lightgray;
+ 	border-radius: 10px;
+ 	margin : 20px;
+ 	font-size: 24px;
+ 	display: inline-block;
+ 	float:left;
+}
+
+.list {
+	list-style: none;
+}
+
+img {
+	width: 150px;
+	height: 150px;
+	margin-top: 5px;
+	border-radius: 10px;
 }
 #id{
- 	margin: 20px  80px; 
+ 	margin: 30px  80px;  
 }	
 #pw{
- 	margin: 0px  80px; 
+  	margin: 0px  80px;  
 }
 #btn{
-	margin: 20px 0; 
-	margin-left: 120px;
+	margin-top: 50px;
+	padding: 20px 20px;
 }
 </style>
 </head>
 <body>
 
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#myNavbar">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Logo</a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Projects</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
-							Login</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+<!-- Navigation -->
+<%@ include file="navbar_admin.jsp"%>
 
 	<div class="container-fluid text-center">
 		<div class="row content">
-			<div class="col-sm-9 text-left">
+			<div class="col-sm-12 text-center">
 				<h1>관리자 페이지</h1>
 				<hr>
 				
 				<h3>메뉴 삭제</h3>
-				<form action="" id="form">
-<!-- 					<div id="id">ID:<input type="text" placeholder="id"> </div> -->
-<!-- 					<div id="pw">PW:<input type="password" placeholder="password"> </div> -->
-<!-- 					<input type="submit" value="*로그인*" id="btn"> -->
-				</form> 
-			</div>
-			<div class="col-sm-3 sidenav">
-				<div class="well">
-					<p>ADS</p>
-				</div>
-				<div class="well">
-					<p>ADS</p>
+				<div class="div_menu">
+				
+				<form>
+						<div class="menu">
+							<p class="img">
+								<img src="../img/menuImg/blended_흑임자블렌.jpg"/>
+							</p>
+							<div class="text-center">
+								<p>흑임자 블렌드</p>
+								<p>3000원</p>
+								<p>
+									<label class="btn  btn-warning">선택 <input type="radio" value='' name="delete" ></label>
+								</p>
+							</div>
+						</div>
+						<div class="menu">
+							<p class="img">
+								<img src="../img/menuImg/blended_흑임자블렌.jpg"/>
+							</p>
+							<div class="text-center">
+								<p>흑임자 블렌드</p>
+								<p>3000원</p>
+								<p>
+									<label class="btn  btn-warning">선택 <input type="radio" value='' name="delete" ></label>
+								</p>
+							</div>
+						</div>
+						<div class="menu">
+							<p class="img">
+								<img src="../img/menuImg/blended_흑임자블렌.jpg"/>
+							</p>
+							<div class="text-center">
+								<p>흑임자 블렌드</p>
+								<p>3000원</p>
+								<p>
+									<label class="btn  btn-warning">선택 <input type="radio" value='' name="delete" ></label>
+								</p>
+							</div>
+						</div>
+						<div class="menu">
+							<p class="img">
+								<img src="../img/menuImg/blended_흑임자블렌.jpg"/>
+							</p>
+							<div class="text-center">
+								<p>흑임자 블렌드</p>
+								<p>3000원</p>
+								<p>
+									<label class="btn  btn-warning">선택 <input type="radio" value='' name="delete" ></label>
+								</p>
+							</div>
+						</div>
+						<div class="menu">
+							<p class="img">
+								<img src="../img/menuImg/blended_흑임자블렌.jpg"/>
+							</p>
+							<div class="text-center">
+								<p>흑임자 블렌드</p>
+								<p>3000원</p>
+								<p>
+									<label class="btn  btn-warning">선택 <input type="radio" value='' name="delete" ></label>
+								</p>
+							</div>
+						</div>
+						<input type="submit" value="삭제">
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
 
 	<footer class="container-fluid text-center">
-		<p>Footer Text</p>
+		<p><button type="button" onclick="">삭제</button></p>
 	</footer>
 
 </body>

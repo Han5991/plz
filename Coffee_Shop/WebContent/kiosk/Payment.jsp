@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,9 +66,10 @@ footer {
    	height: 350px;
  	border: 2px solid lightgray;
  	border-radius: 10px;
- 	margin : 80px auto;
+ 	margin : 180px auto;
 }
 #credit{
+
 	margin: 50px 75px;
 }
 h2{
@@ -79,41 +80,19 @@ h2{
 </head>
 <body>
 
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#myNavbar">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Logo</a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Projects</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
-							Login</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+<!-- Navigation -->
+<%@ include file="navbar_user.jsp"%>
 
 	<div class="container-fluid text-center">
 		<div class="row content">
 			<div class="col-sm-9 text-center">
-				<h1>°áÁ¦ ¹æ¹ı ¼±ÅÃ </h1>
-					<h4>°áÁ¦ ¹æ½ÄÀ» ¼±ÅÃÇØ ÁÖ¼¼¿ä.</h4>
+				<h1>ê²°ì œ ë°©ë²• ì„ íƒ </h1>
+					<h3>ê²°ì œ ë°©ì‹ì„ ì„ íƒí•´ ì£¼ì„¸ìš”.</h3>
 					
 				<hr>
 				<div class="card">
 					<img id="credit" src="../img/credit-card.png" onclick="location:'#'">
-					<h2>Ä«µå °áÁ¦</h2>
+					<h2>ì¹´ë“œ ê²°ì œ</h2>
 				</div>
 			</div>
 			<div class="col-sm-3 sidenav">
