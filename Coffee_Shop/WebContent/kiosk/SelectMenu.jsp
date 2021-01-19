@@ -22,27 +22,6 @@
 	font-family: hzStyleFont;
 }
 
-/* Remove the navbar's default margin-bottom and rounded borders */
-.navbar {
-	margin-bottom: 0;
-	border-radius: 0;
-	border: none;
-	background-color: #D9CDBC;
-}
-
-/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-.row.content {
-	height: 1119px;
-	text-align: center;
-	vertical-align: middle;
-}
-
-/* Set gray background color and 100% height */
-.sidenav {
-	padding-top: 20px;
-	background-color: #f1f1f1;
-	height: 100%;
-}
 
 /* Set black background color, white text and some padding */
 footer {
@@ -109,8 +88,9 @@ a.animated-button.victoria-four:hover:after {
 </style>
 </head>
 <body>
-
-	<nav class="navbar navbar-inverse">
+<!-- Navigation -->
+<%-- <%@include file="navbar_user.jsp"%> --%>
+	
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
