@@ -70,11 +70,21 @@ footer {
 table {
 	font-size: x-large;
 }
-td{
-padding-right: 20px;
+
+td {
+	padding-right: 20px;
 }
+
 img {
 	margin: 30px 100px 30px 0px;
+}
+
+form {
+	width: 330px;
+	height: 200px;
+	border: 3px solid lightgray;
+	border-radius: 20px;
+	margin: 10px;
 }
 </style>
 </head>
@@ -108,33 +118,28 @@ img {
 	<div class="container-fluid text-center">
 		<!-- 		<div class="row content" style="background-image: url('../img/menuImg/스벅.png'); background-size: contain;"> -->
 		<div class="row content text-center">
-			<div class="col-sm-9" align="center">
+			<div class="col-sm-10" align="center">
 				<h1>주문 관리 페이지</h1>
 				<hr>
-				<table style="text-align: center;">
-					<thead>
-						<tr>
-							<td>주문 번호</td>
-							<td>키오스크 아이디</td>
-							<td>주문시각</td>
-							<td>주문금액</td>
-							<td>주문목록</td>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>1</td>
-							<td>test1</td>
-							<td><%=h%>시<%=m%>분<%=s%>초</td>
-							<td>5000원</td>
-							<td></td>
-						</tr>
-					</tbody>
-					<tfoot>
-					</tfoot>
-				</table>
+
+				<form action="">
+					<!-- 					<div id="id">ID:<input type="text" placeholder="id"> </div> -->
+					<!-- 					<div id="pw">PW:<input type="password" placeholder="password"> </div> -->
+					<!-- 					<input type="submit" value="*로그인*" id="btn"> -->
+				</form>
+				<form action="">
+					<!-- 					<div id="id">ID:<input type="text" placeholder="id"> </div> -->
+					<!-- 					<div id="pw">PW:<input type="password" placeholder="password"> </div> -->
+					<!-- 					<input type="submit" value="*로그인*" id="btn"> -->
+				</form>
+				<form action="">
+					<!-- 					<div id="id">ID:<input type="text" placeholder="id"> </div> -->
+					<!-- 					<div id="pw">PW:<input type="password" placeholder="password"> </div> -->
+					<!-- 					<input type="submit" value="*로그인*" id="btn"> -->
+				</form>
+
 			</div>
-			<div class="col-sm-3 sidenav">
+			<div class="col-sm-2 sidenav">
 				<div class="well">
 					<p>ADS</p>
 				</div>
