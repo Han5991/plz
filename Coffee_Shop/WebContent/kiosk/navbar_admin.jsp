@@ -20,6 +20,7 @@
 
 * {
 	font-family: hzStyleFont;
+	font-size: 25px;
 }
 
 /* Remove the navbar's default margin-bottom and rounded borders */
@@ -28,6 +29,7 @@
 	border-radius: 0;
 	border: none;
 	background-color: #D9CDBC;
+
 }
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -35,20 +37,6 @@
 	height: 1119px;
 	text-align: center;
 	vertical-align: middle;
-}
-
-/* Set gray background color and 100% height */
-.sidenav {
-	padding-top: 20px;
-	background-color: #f1f1f1;
-	height: 100%;
-}
-
-/* Set black background color, white text and some padding */
-footer {
-	background-color: #555;
-	color: white;
-	padding: 15px;
 }
 
 /* On small screens, set height to 'auto' for sidenav and grid */
@@ -60,50 +48,34 @@ footer {
 	.row.content {
 		height: auto;
 	}
-}
-#form{
-	width: 330px;
-   	height: 200px;
- 	border: 3px solid lightgray;
- 	border-radius: 20px;
- 	margin : 80px auto;
-}
-#id{
- 	margin: 20px  80px; 
 }	
-#pw{
- 	margin: 0px  80px; 
-}
-#btn{
-	margin: 20px 0; 
-	margin-left: 120px;
-}
 </style>
 </head>
 <body>
 
-<!-- Navigation -->
-<%@ include file="navbar_admin.jsp"%>
-
-	<div class="container-fluid text-center">
-		<div class="row content">
-			<div class="col-sm-12 text-center">
-				<h1>관리자 페이지</h1>
-				<hr>
-				
-				<h3>메뉴 삭제</h3>
-				<form action="" id="form">
-<!-- 					<div id="id">ID:<input type="text" placeholder="id"> </div> -->
-<!-- 					<div id="pw">PW:<input type="password" placeholder="password"> </div> -->
-<!-- 					<input type="submit" value="*로그인*" id="btn"> -->
-				</form> 
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#" style="font-size: 25px;">Admin</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">메뉴추가</a></li>
+					<li><a href="#">메뉴 수정</a></li>
+					<li><a href="#">메뉴 삭제</a></li>
+					<li><a href="#">영수증 출력 관리</a></li>
+				</ul>
+<!-- 				<ul class="nav navbar-nav navbar-right"> -->
+<!-- 					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> -->
+<!-- 							Login</a></li> -->
+<!-- 				</ul> -->
 			</div>
 		</div>
-	</div>
-
-	<footer class="container-fluid text-center">
-		<p>Footer Text</p>
-	</footer>
-
+	</nav>
 </body>
 </html>
