@@ -49,24 +49,6 @@ int s = calendar.get(Calendar.SECOND);
 	height: 100%;
 }
 
-/* Set black background color, white text and some padding */
-footer {
-	background-color: #555;
-	color: white;
-	padding: 15px;
-}
-
-/* On small screens, set height to 'auto' for sidenav and grid */
-@media screen and (max-width: 767px) {
-	.sidenav {
-		height: auto;
-		padding: 15px;
-	}
-	.row.content {
-		height: auto;
-	}
-}
-
 table {
 	font-size: x-large;
 }
@@ -99,17 +81,17 @@ ul {
 <body>
 	<!-- Navigation -->
 	<%@ include file="navbar_user.jsp"%>
-	<div class="container-fluid text-center">
+	<div class="container-fluid">
 		<div class="row content text-center">
-			<div class="col-sm-11" align="center">
+			<div class="col-sm-10" align="center">
 				<h1>주문 관리 페이지</h1>
 				<hr>
 				<ul id=ui>
 					<%
 						for (int i = 1; i < 10; i++) {
 					%>
-					<li>주문번호 : <%=i%><br> 주문시각 : <%=h%>시<%=m%>분<%=s%>초<br>
-						주문목록 :
+					<li>주문번호 : <%=i%><br> 주문시각 : <%=h%>시<%=m%>분<%=s%>초<br>주문상태
+						: 조리전<br> 주문목록 :
 						<table>
 							<tr>
 								<td><img src="../img/menuImg/blended_그린티블렌.jpg" width="100"
@@ -133,7 +115,7 @@ ul {
 					%>
 				</ul>
 			</div>
-			<div class="col-sm-1 sidenav">
+			<div class="col-sm-2 sidenav">
 				<div class="well">
 					<p>ADS</p>
 				</div>
