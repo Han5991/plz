@@ -71,11 +71,10 @@ img{
 .table tr{
 	font-size: 24px;
 }
-/* .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
-    vertical-align: center; 
-
-} */
-
+.table td{
+	display: table-cell;
+	vertical-align: middle;
+}
 </style>
 </head>
 <body>
@@ -96,7 +95,7 @@ img{
 							<td><h3>수량</h3></td>
 							<td><h3>가격</h3></td>
 					</thead>
-						<tr align="center">
+						<tr class="">
 							<td><img src="../img/menuImg/blended_흑임자블렌.jpg" width="150" height="150" /></td>
 							<td>흑임자블렌</td>
 							<td>1개</td>
