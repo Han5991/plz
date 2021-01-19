@@ -140,8 +140,8 @@ a.animated-button.victoria-four:hover:after {
 			<h1>옵션 선택</h1>
 			<hr>
 			<form action="*">
-				<ul class="*">
-					<li class="menuInfo">
+				<ul class="*" style="list-style: none;">
+					<li class="menuInfo" >
 						<p>메뉴이름</p>
 						<div class="optionImg">
 							<img class="detail" alt="*" src="../img/menuImg/blended_그린티블렌.jpg" width="150"

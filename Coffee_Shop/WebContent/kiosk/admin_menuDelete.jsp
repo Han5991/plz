@@ -109,7 +109,7 @@ footer {
 
 	<div class="container-fluid text-center">
 		<div class="row content">
-			<div class="col-sm-9 text-left">
+			<div class="col-sm-12 text-center">
 				<h1>관리자 페이지</h1>
 				<hr>
 				
@@ -119,14 +119,6 @@ footer {
 <!-- 					<div id="pw">PW:<input type="password" placeholder="password"> </div> -->
 <!-- 					<input type="submit" value="*로그인*" id="btn"> -->
 				</form> 
-			</div>
-			<div class="col-sm-3 sidenav">
-				<div class="well">
-					<p>ADS</p>
-				</div>
-				<div class="well">
-					<p>ADS</p>
-				</div>
 			</div>
 		</div>
 	</div>
