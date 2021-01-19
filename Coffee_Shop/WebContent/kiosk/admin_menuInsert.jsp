@@ -30,13 +30,6 @@
 	vertical-align: middle;
 }
 
-/* Set gray background color and 100% height */
-.sidenav {
-	padding-top: 20px;
-	background-color: #f1f1f1;
-	height: 100%;
-}
-
 /* Set black background color, white text and some padding */
 footer {
 	background-color: #555;
@@ -46,10 +39,6 @@ footer {
 
 /* On small screens, set height to 'auto' for sidenav and grid */
 @media screen and (max-width: 767px) {
-	.sidenav {
-		height: auto;
-		padding: 15px;
-	}
 	.row.content {
 		height: auto;
 	}
@@ -61,16 +50,6 @@ footer {
  	border-radius: 20px;
  	margin : 80px auto;
 }
-#id{
- 	margin: 20px  80px; 
-}	
-#pw{
- 	margin: 0px  80px; 
-}
-#btn{
-	margin: 20px 0; 
-	margin-left: 120px;
-}
 </style>
 </head>
 <body>
@@ -80,7 +59,7 @@ footer {
 
 	<div class="container-fluid text-center">
 		<div class="row content">
-			<div class="col-sm-9 text-left">
+			<div class="col-sm-12 text-center">
 				<h1>관리자 페이지</h1>
 				<hr>
 				
@@ -91,14 +70,7 @@ footer {
 <!-- 					<input type="submit" value="*로그인*" id="btn"> -->
 				</form> 
 			</div>
-			<div class="col-sm-3 sidenav">
-				<div class="well">
-					<p>ADS</p>
-				</div>
-				<div class="well">
-					<p>ADS</p>
-				</div>
-			</div>
+
 		</div>
 	</div>
 

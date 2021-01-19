@@ -71,36 +71,17 @@ img{
 .table tr{
 	font-size: 24px;
 }
+/* .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    vertical-align: center; 
 
+} */
 
 </style>
 </head>
 <body>
 
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#myNavbar">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Logo</a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Projects</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
-							Login</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+<!-- Navigation -->
+<%@ include file="navbar_user.jsp"%>
 
 	<div class="container-fluid text-center">
 		<div class="row content">
@@ -115,7 +96,7 @@ img{
 							<td><h3>수량</h3></td>
 							<td><h3>가격</h3></td>
 					</thead>
-						<tr>
+						<tr align="center">
 							<td><img src="../img/menuImg/blended_흑임자블렌.jpg" width="150" height="150" /></td>
 							<td>흑임자블렌</td>
 							<td>1개</td>
@@ -133,7 +114,7 @@ img{
 			</div>
 			
 			<div class="col-sm-3 sidenav">
-			<h3>총 합계 금액 : <br>8500원</h3><br><br>
+			<h2>총 합계 금액 : <br>8500원</h2><br><br>
             	<input type="reset" value="메뉴 추가하기" class="btn btn-warning" style="font-size: 30px;"><br> <br> 
                	<input type="submit" value="주문 하기" class="btn btn-warning" style="font-size: 30px;">
          </div>
