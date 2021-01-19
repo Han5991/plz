@@ -62,21 +62,22 @@ footer {
 	}
 }
 #form{
-	width: 330px;
-   	height: 200px;
+	width: 450px;
+   	height: 400px;
  	border: 3px solid lightgray;
  	border-radius: 20px;
  	margin : 80px auto;
+ 	font-size: 24px;
 }
 #id{
- 	margin: 20px  80px; 
+ 	margin: 30px  80px;  
 }	
 #pw{
- 	margin: 0px  80px; 
+  	margin: 0px  80px;  
 }
 #btn{
-	margin: 20px 0; 
-	margin-left: 120px;
+	margin-top: 50px;
+	padding: 20px 20px;
 }
 </style>
 </head>
@@ -109,15 +110,15 @@ footer {
 
 	<div class="container-fluid text-center">
 		<div class="row content">
-			<div class="col-sm-9 text-left">
+			<div class="col-sm-9 text-center">
 				<h1>관리자 </h1>
 				<hr>
 				
 				<h3>admin login</h3>
 				<form action="" id="form">
 					<div id="id">ID:<input type="text" placeholder="id"> </div>
-					<div id="pw">PW:<input type="password" placeholder="password"> </div>
-					<input type="submit" value="*로그인*" id="btn">
+					<div id="pw">PW:<input type="password" placeholder="password" > </div>
+					<input type="submit" value="*로그인*" id="btn" size="50">
 				</form> 
 			</div>
 			<div class="col-sm-3 sidenav">
