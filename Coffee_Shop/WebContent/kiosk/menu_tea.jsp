@@ -138,6 +138,7 @@ img {
 							<td><img src="../img/menuImg/tea_티_녹차.jpg" height="200px"
 								width="200px"><br>녹차<br>3000원</td>
 							<td><img src="../img/menuImg/tea_티_밀크티.jpg" height="200px"
+			
 								width="200px"><br>밀크티<br>4000원</td>
 						</tr>
 					</tbody>
