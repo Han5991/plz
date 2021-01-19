@@ -1,5 +1,12 @@
+<%@page import="java.util.Calendar"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	Calendar calendar = Calendar.getInstance();
+int h = calendar.get(Calendar.HOUR_OF_DAY);
+int m = calendar.get(Calendar.MINUTE);
+int s = calendar.get(Calendar.SECOND);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,7 +70,9 @@ footer {
 table {
 	font-size: x-large;
 }
-
+td{
+padding-right: 20px;
+}
 img {
 	margin: 30px 100px 30px 0px;
 }
@@ -98,36 +107,30 @@ img {
 
 	<div class="container-fluid text-center">
 		<!-- 		<div class="row content" style="background-image: url('../img/menuImg/스벅.png'); background-size: contain;"> -->
-		<div class="row content">
+		<div class="row content text-center">
 			<div class="col-sm-9" align="center">
+				<h1>주문 관리 페이지</h1>
+				<hr>
 				<table style="text-align: center;">
 					<thead>
 						<tr>
-							<th>주문제품</th>
-							<th>수량</th>
-							<th>가격</th>
+							<td>주문 번호</td>
+							<td>키오스크 아이디</td>
+							<td>주문시각</td>
+							<td>주문금액</td>
+							<td>주문목록</td>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td><img src="../img/menuImg/스벅.png" height="150px"
-								width="150px"></td>
 							<td>1</td>
+							<td>test1</td>
+							<td><%=h%>시<%=m%>분<%=s%>초</td>
 							<td>5000원</td>
-						</tr>
-						<tr>
-							<td><img src="../img/menuImg/스벅.png" height="150px"
-								width="150px"></td>
-							<td>1</td>
-							<td>5000원</td>
+							<td></td>
 						</tr>
 					</tbody>
 					<tfoot>
-						<tr>
-							<td></td>
-							<td>주문 금액</td>
-							<td>5000원</td>
-						</tr>
 					</tfoot>
 				</table>
 			</div>
@@ -138,10 +141,9 @@ img {
 				<div class="well">
 					<p>ADS</p>
 				</div>
-				<input type="reset" value="  주문 다시 하기  " class="btn btn-warning"
-					style="font-size: 30px;"><br>
-				<br>
-				<input type="submit" value="결제 및 주문완료" class="btn btn-warning"
+				<input type="reset" value="주문 취소" class="btn btn-warning"
+					style="font-size: 30px;"><br> <br> <input
+					type="submit" value="조리 시작" class="btn btn-warning"
 					style="font-size: 30px;">
 			</div>
 		</div>

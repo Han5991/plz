@@ -33,6 +33,8 @@
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {
 	height: 1119px;
+	text-align: center;
+	vertical-align: middle;
 }
 
 /* Set gray background color and 100% height */
@@ -59,14 +61,17 @@ footer {
 		height: auto;
 	}
 }
-
-table {
-	font-size: x-large;
+img{
+	width: 150px;
+	height: 150px;
+	float: left;
+	margin-left: 100px;
+	
+}
+.table tr{
+	font-size: 20px;
 }
 
-img {
-	margin: 30px 100px 30px 0px;
-}
 </style>
 </head>
 <body>
@@ -97,55 +102,45 @@ img {
 	</nav>
 
 	<div class="container-fluid text-center">
-		<!-- 		<div class="row content" style="background-image: url('../img/menuImg/스벅.png'); background-size: contain;"> -->
 		<div class="row content">
-			<div class="col-sm-9" align="center">
-				<table style="text-align: center;">
-					<thead>
+			<div class="col-sm-9 text-center">
+				<h1>장바구니 </h1>
+				<hr>
+				<table class="table">
+					<thead id="thead" >
 						<tr>
-							<th>주문제품</th>
-							<th>수량</th>
-							<th>가격</th>
+							<td><h3>주문 제품</h3></td>
 						</tr>
 					</thead>
-					<tbody>
 						<tr>
-							<td><img src="../img/menuImg/스벅.png" height="150px"
-								width="150px"></td>
-							<td>1</td>
-							<td>5000원</td>
+							<td><img src="../img/menuImg/blended_흑임자블렌.jpg" width="150" height="150" /></td>
+							<td>수량:  1개</td>
+							<td>가격:  4000원</td>
 						</tr>
 						<tr>
-							<td><img src="../img/menuImg/스벅.png" height="150px"
-								width="150px"></td>
-							<td>1</td>
-							<td>5000원</td>
+							<td><img src="../img/menuImg/blended_모카블렌.jpg" width="150" height="150" /></td>
+							<td>수량:  1개</td>
+							<td>가격:  4500원</td>
 						</tr>
-					</tbody>
-					<tfoot>
-						<tr>
-							<td></td>
-							<td>주문 금액</td>
-							<td>5000원</td>
-						</tr>
-					</tfoot>
 				</table>
+				
+				
 			</div>
+			
 			<div class="col-sm-3 sidenav">
-				<div class="well">
-					<p>ADS</p>
-				</div>
-				<div class="well">
-					<p>ADS</p>
-				</div>
-				<input type="reset" value="  주문 다시 하기  " class="btn btn-warning"
-					style="font-size: 30px;"><br>
-				<br>
-				<input type="submit" value="결제 및 주문완료" class="btn btn-warning"
-					style="font-size: 30px;">
-			</div>
+			<h3>총 합계 금액 : <br>8500원</h3><br><br>
+            	<input type="reset" value="메뉴 추가하기" class="btn btn-warning" style="font-size: 30px;"><br> <br> 
+               	<input type="submit" value="주문 하기" class="btn btn-warning" style="font-size: 30px;">
+         </div>
 		</div>
 	</div>
 
+	<footer class="container-fluid text-center">
+		<p>Footer Text</p>
+	</footer>
+
 </body>
 </html>
+
+
+
