@@ -154,6 +154,7 @@ img {
 			
 			</div>
 			
+			
 			<div class="col-sm-3 sidenav">
 				
 				<h3>Cart</h3>
