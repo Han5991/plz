@@ -167,7 +167,6 @@ a.animated-button.victoria-four:hover:after {
 							<input type="hidden" value="덜뜨겁게" name="덜뜨겁게"> <input
 								type="hidden" value="보통" name="보통"> <input type="hidden"
 								value="더뜨겁게" name="더뜨겁게">
-								
 						</p>
 						<p class="hover-ice">
 							<input type="hidden" value="얼음 조금" name="얼음 조금"> <input
