@@ -70,7 +70,6 @@ img{
 }
 .table tr{
 	font-size: 24px;
-	
 }
 
 
