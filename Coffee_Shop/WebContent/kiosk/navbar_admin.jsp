@@ -32,23 +32,6 @@
 
 }
 
-/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-.row.content {
-	height: 1119px;
-	text-align: center;
-	vertical-align: middle;
-}
-
-/* On small screens, set height to 'auto' for sidenav and grid */
-@media screen and (max-width: 767px) {
-	.sidenav {
-		height: auto;
-		padding: 15px;
-	}
-	.row.content {
-		height: auto;
-	}
-}	
 </style>
 </head>
 <body>
@@ -65,9 +48,9 @@
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">메뉴추가</a></li>
-					<li><a href="#">메뉴 수정</a></li>
-					<li><a href="#">메뉴 삭제</a></li>
+					<li class="active"><a href="admin_menuInsert.jsp">메뉴추가</a></li>
+					<li><a href="admin_menuModify.jsp">메뉴 수정</a></li>
+					<li><a href="admin_menuDelete.jsp">메뉴 삭제</a></li>
 					<li><a href="#">영수증 출력 관리</a></li>
 				</ul>
 <!-- 				<ul class="nav navbar-nav navbar-right"> -->
