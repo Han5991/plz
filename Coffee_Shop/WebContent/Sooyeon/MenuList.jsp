@@ -16,11 +16,11 @@
 	int price = 0;%>
 <%
 	request.setCharacterEncoding("UTF-8");
-String storeId = request.getParameter("storeId"); //효연이가 만든 address.jpg 파일에서 검색창 부분 name값 받아오기
-session.setAttribute("storeId2", storeId);
-StoreDao dao = StoreDao.getInstance();
-StoreDto dto = dao.getStore(storeId);
-session.setAttribute("storeId", dto);
+	String storeId = request.getParameter("storeId"); //효연이가 만든 address.jpg 파일에서 검색창 부분 name값 받아오기
+	session.setAttribute("storeId2", storeId);
+	StoreDao dao = StoreDao.getInstance();
+	StoreDto dto = dao.getStore(storeId);
+	session.setAttribute("storeId", dto);
 %>
 <!DOCTYPE html>
 <html>
@@ -57,16 +57,15 @@ session.setAttribute("storeId", dto);
 	font-size: 20px;
 	background-color: lightgray;
 	font-color: gray;
-	line-height:70px;
+	line-height: 70px;
 }
 
-.btnTab > a{
+.btnTab>a {
 	color: #c67100;
 	padding: 0 20px;
 }
 
-
-a:hover:not(.active) {
+a:hover:not (.active ) {
 	color: white;
 }
 
@@ -130,19 +129,19 @@ a:hover:not(.active) {
 			<ul class="menuProduct">
 				<%
 					try {
-					context = new InitialContext();
-					dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
-					con = dataSource.getConnection();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+						context = new InitialContext();
+						dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
+						con = dataSource.getConnection();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 
-				try {
-					stmt = con.prepareStatement("SELECT * FROM menu");
-					resultSet = stmt.executeQuery();
-					while (resultSet.next()) {
-						name = resultSet.getString("name");
-						price = resultSet.getInt("price");
+					try {
+						stmt = con.prepareStatement("SELECT * FROM menu");
+						resultSet = stmt.executeQuery();
+						while (resultSet.next()) {
+							name = resultSet.getString("name");
+							price = resultSet.getInt("price");
 				%>
 				<li class="list">
 					<p class="img">
@@ -169,18 +168,18 @@ a:hover:not(.active) {
 				</li>
 				<%
 					}
-				} catch (Exception e) {
-				e.printStackTrace();
-				} finally {
-				try {
-				if (con != null)
-					con.close();
-				if (stmt != null)
-					stmt.close();
-				} catch (Exception e) {
-				e.printStackTrace();
-				}
-				}
+					} catch (Exception e) {
+						e.printStackTrace();
+					} finally {
+						try {
+							if (con != null)
+								con.close();
+							if (stmt != null)
+								stmt.close();
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
 				%>
 				<input type="submit" value="담기">
 			</ul>
