@@ -85,7 +85,7 @@ footer {
 </head>
 <body>
 	<!-- Navigation -->
-	<%@ include file="navbar_user.jsp"%>
+	<%@ include file="navbar_admin.jsp"%>
 	<h1>주문 관리 페이지</h1>
 	<hr>
 	<ul id="ul" class="active">
