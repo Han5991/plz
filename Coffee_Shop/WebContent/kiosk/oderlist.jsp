@@ -42,13 +42,6 @@ int s = calendar.get(Calendar.SECOND);
 	height: 1119px;
 }
 
-/* Set gray background color and 100% height */
-.sidenav {
-	padding-top: 20px;
-	background-color: #f1f1f1;
-	height: 100%;
-}
-
 table {
 	font-size: x-large;
 }
@@ -66,69 +59,76 @@ ul {
 	list-style: none;
 }
 
-#ui>li {
+#ul>li {
 	margin: 5px;
-	width: 270px;
+	width: 300px;
 	float: left;
 	border: 3px solid lightgray;
 	border-radius: 20px;
 	text-align: left;
-	float: left;
 	width: 270px;
+	padding: 5px;
+}
+
+#ul>li:active {
+	background-color: lightgray;
+}
+
+footer {
+	width: 100%;
+	bottom: 0;
+	position: fixed;
+	background: lightgray;
+	text-align: center;
 }
 </style>
 </head>
 <body>
 	<!-- Navigation -->
-	<%@ include file="navbar_user.jsp"%>
-	<div class="container-fluid">
-		<div class="row content text-center">
-			<div class="col-sm-10" align="center">
-				<h1>주문 관리 페이지</h1>
-				<hr>
-				<ul id=ui>
-					<%
-						for (int i = 1; i < 10; i++) {
-					%>
-					<li>주문번호 : <%=i%><br> 주문시각 : <%=h%>시<%=m%>분<%=s%>초<br>주문상태
-						: 조리전<br> 주문목록 :
-						<table>
-							<tr>
-								<td><img src="../img/menuImg/blended_그린티블렌.jpg" width="100"
-									height="100" /></td>
-								<td colspan="3">수량 : 1<br>금액 : 5000원<br></td>
-							</tr>
-							<tr>
-								<td><img src="../img/menuImg/blended_그린티블렌.jpg" width="100"
-									height="100" /></td>
-								<td colspan="3">수량 : 1<br>금액 : 5000원<br></td>
-							</tr>
-							<tr>
-								<td><img src="../img/menuImg/blended_그린티블렌.jpg" width="100"
-									height="100" /></td>
-								<td colspan="3">수량 : 1<br>금액 : 5000원<br></td>
-							</tr>
-						</table>
-					</li>
-					<%
-						}
-					%>
-				</ul>
-			</div>
-			<div class="col-sm-2 sidenav">
-				<div class="well">
-					<p>ADS</p>
-				</div>
-				<div class="well">
-					<p>ADS</p>
-				</div>
-				<input type="reset" value="주문 취소" class="btn btn-warning"
-					style="font-size: 30px;"><br> <br> <input
-					type="submit" value="조리 시작" class="btn btn-warning"
-					style="font-size: 30px;">
-			</div>
-		</div>
-	</div>
+	<%@ include file="navbar_admin.jsp"%>
+	<h1>주문 관리 페이지</h1>
+	<hr>
+	<ul id="ul" class="active">
+		<%
+			for (int i = 1; i < 10; i++) {
+		%>
+		<li class="oderNum">주문번호 : <%=i%><br> 주문시각 : <%=h%>시<%=m%>분<%=s%>초<br>주문상태
+			: 조리전<br> 주문목록 :
+			<table>
+				<tr>
+					<td><img src="../img/menuImg/blended_그린티블렌.jpg" width="100"
+						height="100" /></td>
+					<td colspan="3">수량 : 1<br>금액 : 5000원<br></td>
+				</tr>
+				<tr>
+					<td><img src="../img/menuImg/blended_그린티블렌.jpg" width="100"
+						height="100" /></td>
+					<td colspan="3">수량 : 1<br>금액 : 5000원<br></td>
+				</tr>
+				<tr>
+					<td><img src="../img/menuImg/blended_그린티블렌.jpg" width="100"
+						height="100" /></td>
+					<td colspan="3">수량 : 1<br>금액 : 5000원<br></td>
+				</tr>
+			</table>
+		</li>
+		<%
+			}
+		%>
+	</ul>
+	<footer class="container-fluid text-center">
+		<input type="reset" value="주문 취소" class="btn btn-warning"
+			style="font-size: 30px;"><input type="submit" value="조리 시작"
+			class="btn btn-warning" style="font-size: 30px;">
+	</footer>
 
 </body>
+<script type="text/javascript">
+	$(function() {
+		$('.oderNum').click(function() {
+			var n = $('.oderNum').index(this)+1;
+			console.log(n);
+		});
+	})
+</script>
 </html>

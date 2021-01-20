@@ -1,0 +1,275 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bootstrap Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+@font-face {
+	font-family: hzStyleFont;
+	src: url("../font/ImcreSoojin.ttf");
+}
+
+* {
+	font-family: hzStyleFont;
+}
+
+/* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+	margin-bottom: 0;
+	border-radius: 0;
+	border: none;
+	background-color: #D9CDBC;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {
+	height: 1119px;
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+	padding-top: 20px;
+	background-color: #f1f1f1;
+	height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+	background-color: #555;
+	color: white;
+	padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+	.sidenav {
+		height: auto;
+		padding: 15px;
+	}
+	.row.content {
+		height: auto;
+	}
+}
+
+table {
+	font-size: x-large;
+}
+
+img {
+	margin: 30px 100px 30px 0px;
+}
+</style>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.coffee').show(); 
+		$('.blended').hide(); 
+		$('.etc').hide();
+		$('.tea').hide();
+		$('.dessert').hide(); 
+		
+		$('.show1').click(function() {
+			$('.coffee').show();
+			$('.blended').hide();
+			$('.etc').hide();
+			$('.tea').hide();
+			$('.dessert').hide();
+			return false;
+		});
+		$('.show2').click(function() {
+			$('.coffee').hide();
+			$('.blended').show();
+			$('.etc').hide();
+			$('.tea').hide();
+			$('.dessert').hide();
+			return false;
+		});
+		$('.show3').click(function() {
+			$('.coffee').hide();
+			$('.blended').hide();
+			$('.etc').show();
+			$('.tea').hide();
+			$('.dessert').hide();
+			return false;
+		});
+		$('.show4').click(function() {
+			$('.coffee').hide();
+			$('.blended').hide();
+			$('.etc').hide();
+			$('.tea').show();
+			$('.dessert').hide();
+			return false;
+		});
+		$('.show5').click(function() {
+			$('.coffee').hide; //페이지를 로드할 때 표시할 요소
+			$('.blended').hide(); //페이지를 로드할 때 표시할 요소
+			$('.etc').hide(); //페이지를 로드할 때 숨길 요소
+			$('.tea').hide(); //페이지를 로드할 때 숨길 요소
+			$('.dessert').show(); //페이지를 로드할 때 숨길 요소
+			return false;
+		});
+	});
+</script>
+</head>
+<body>
+
+	<%@ include file="navbar_user.jsp"%>
+	<br>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">메뉴</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li class="show1">커피</li>
+					<li class="show2">블렌디드</li>
+					<li class="show3">음료</li>
+					<li class="show4">티</li>
+					<li class="show5">디저트</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container-fluid text-center">
+		<div class="row content">
+			<div class="col-sm-10" align="center">
+				<div class="coffee">
+					<table style="text-align: center;">
+						<tr>
+							<td><img src="../img/menuImg/espresso_아메리카노_아이스.jpg"
+								height="200px" width="200px"><br>아이스_아메리아카노<br>5500원</td>
+							<td><img src="../img/menuImg/espresso_아메리카노.jpg"
+								height="200px" width="200px"><br>아메리카노<br>5000원</td>
+							<td><img src="../img/menuImg/espresso_에스프레소.jpg"
+								height="200px" width="200px"><br>에스프레소<br>5000원</td>
+						</tr>
+						<tr>
+							<td><img src="../img/menuImg/espresso_카라멜 마키아토.jpg"
+								height="200px" width="200px"><br>카라멜 마키아토<br>4000원</td>
+							<td><img src="../img/menuImg/espresso_토피넛.jpg"
+								height="200px" width="200px"><br>토피넛<br>3500원</td>
+						</tr>
+					</table>
+				</div>
+				<div class="blended">
+					<table style="text-align: center;">
+						<tr>
+							<td><img src="../img/menuImg/blended_그린티블렌.jpg"
+								height="200px" width="200px"><br>그린티 블렌디드<br>5500원</td>
+							<td><img src="../img/menuImg/blended_모카블렌.jpg"
+								height="200px" width="200px"><br>모카 블렌디드<br>5000원</td>
+							<td><img src="../img/menuImg/blended_바닐라블렌.jpg"
+								height="200px" width="200px"><br>바닐라 블렌디드<br>5000원</td>
+						</tr>
+						<tr>
+							<td><img src="../img/menuImg/blended_초코칩블렌.jpg"
+								height="200px" width="200px"><br>초코칩 블렌디드<br>4000원</td>
+							<td><img src="../img/menuImg/blended_카페모카.jpg"
+								height="200px" width="200px"><br>카페모카<br>3500원</td>
+							<td><img src="../img/menuImg/blended_카푸치노.jpg"
+								height="200px" width="200px"><br>카푸치노<br>3500원</td>
+						</tr>
+						<tr>
+							<td><img src="../img/menuImg/blended_화초모블렌.jpg"
+								height="200px" width="200px"><br>화이트초코모카 블렌디드<br>6000원</td>
+							<td><img src="../img/menuImg/blended_화초블렌.jpg"
+								height="200px" width="200px"><br>화이트초코 블렌디드<br>5500원</td>
+							<td><img src="../img/menuImg/blended_흑임자블렌.jpg"
+								height="200px" width="200px"><br>흑임자 블렌디드<br>6500원</td>
+						</tr>
+					</table>
+				</div>
+				<div class="etc">
+					<table style="text-align: center;">
+						<tr>
+							<td><img src="../img/menuImg/etc_라임에이드.jpg"
+								height="200px" width="200px"><br>라임에이드<br>5500원</td>
+							<td><img src="../img/menuImg/etc_복숭아에이드.jpg"
+								height="200px" width="200px"><br>복숭아에이드<br>5000원</td>
+							<td><img src="../img/menuImg/etc_우유.jpg"
+								height="200px" width="200px"><br>우유<br>5000원</td>
+						</tr>
+						<tr>
+							<td><img src="../img/menuImg/etc_자몽에이드.jpg"
+								height="200px" width="200px"><br>자몽에이드<br>4000원</td>
+							<td><img src="../img/menuImg/etc_핫초코.jpg"
+								height="200px" width="200px"><br>핫초코<br>3500원</td>
+						</tr>
+					</table>
+				</div>
+				<div class="tea">
+					<table style="text-align: center;">
+						<tr>
+							<td><img src="../img/menuImg/tea_티_녹차.jpg"
+								height="200px" width="200px"><br>녹차<br>5500원</td>
+							<td><img src="../img/menuImg/tea_티_밀크티.jpg"
+								height="200px" width="200px"><br>밀크티<br>5000원</td>
+							<td><img src="../img/menuImg/tea_티_얼그레이.jpg"
+								height="200px" width="200px"><br>얼그레이<br>5000원</td>
+						</tr>
+						<tr>
+							<td><img src="../img/menuImg/tea_티_히비스커스.jpg"
+								height="200px" width="200px"><br>히비스커스<br>4000원</td>
+						</tr>
+					</table>
+				</div>
+				<div class="dessert">
+					<table style="text-align: center;">
+						<tr>
+							<td><img src="../img/menuImg/blended_그린티블렌.jpg"
+								height="200px" width="200px"><br>그린티 블렌디드<br>5500원</td>
+							<td><img src="../img/menuImg/blended_모카블렌.jpg"
+								height="200px" width="200px"><br>모카 블렌디드<br>5000원</td>
+							<td><img src="../img/menuImg/blended_바닐라블렌.jpg"
+								height="200px" width="200px"><br>바닐라 블렌디드<br>5000원</td>
+						</tr>
+						<tr>
+							<td><img src="../img/menuImg/blended_초코칩블렌.jpg"
+								height="200px" width="200px"><br>초코칩 블렌디드<br>4000원</td>
+							<td><img src="../img/menuImg/blended_카페모카.jpg"
+								height="200px" width="200px"><br>카페모카<br>3500원</td>
+							<td><img src="../img/menuImg/blended_카푸치노.jpg"
+								height="200px" width="200px"><br>카푸치노<br>3500원</td>
+						</tr>
+						<tr>
+							<td><img src="../img/menuImg/blended_화초모블렌.jpg"
+								height="200px" width="200px"><br>화이트초코모카 블렌디드<br>6000원</td>
+							<td><img src="../img/menuImg/blended_화초블렌.jpg"
+								height="200px" width="200px"><br>화이트초코 블렌디드<br>5500원</td>
+							<td><img src="../img/menuImg/blended_흑임자블렌.jpg"
+								height="200px" width="200px"><br>흑임자 블렌디드<br>6500원</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<div class="col-sm-2 sidenav">
+
+				<h3>Cart</h3>
+				<div class="well">
+					<p>주문메뉴 리스트</p>
+				</div>
+
+				<input type="submit" value="결제 하기" class="btn btn-warning"
+					style="font-size: 30px;">
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

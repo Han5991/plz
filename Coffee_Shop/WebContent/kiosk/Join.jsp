@@ -27,7 +27,7 @@
 	margin-bottom: 0;
 	border-radius: 0;
 	border: none;
-	background-color: #b1bfca;
+	background-color: #D9CDBC;
 }
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -63,24 +63,25 @@ footer {
 }
 
 #form {
-	width: 450px;
-	height: 400px;
+	width: 550px;
+	height: 350px;
 	border: 3px solid lightgray;
 	border-radius: 20px;
 	margin: 80px auto;
 	font-size: 24px;
+	
 }
 
 #id {
-	margin: 30px 80px;
+	margin: 40px 80px;
 }
 
 #pw {
-	margin: 0px 80px;
+	margin: 30px 80px;
 }
 
 #btn {
-	margin-top: 50px;
+	margin-top: 40px;
 	padding: 20px 20px;
 	border-radius: 10px;
 	background-color: #bcaaa4;
@@ -95,18 +96,18 @@ footer {
 	<div class="container-fluid text-center">
 		<div class="row content">
 			<div class="col-sm-12 text-center">
-				<h1>로그인</h1>
+				<h1>회원 가입</h1>
 				<hr>
 
-				<h3>Login coffee shop</h3>
+				<h3>Join coffee shop</h3>
 				<form action="" id="form">
 					<div id="id">
-						ID:<input type="text" placeholder="id">
+						ID : <input type="text" placeholder="id">
 					</div>
 					<div id="pw">
-						PW:<input type="password" placeholder="password">
+						PW : <input type="password" placeholder="password">
 					</div>
-					<input type="submit" value="로그인" id="btn" size="50">
+					<input type="submit" value="가입하기" id="btn" size="50">
 				</form>
 			</div>
 		</div>
