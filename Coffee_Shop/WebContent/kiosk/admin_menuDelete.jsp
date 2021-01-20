@@ -33,7 +33,7 @@
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {
-	height: 1119px;
+	height: 880px;
 	text-align: center;
 	vertical-align: middle;
 }
