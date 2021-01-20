@@ -42,13 +42,6 @@ int s = calendar.get(Calendar.SECOND);
 	height: 1119px;
 }
 
-/* Set gray background color and 100% height */
-.sidenav {
-	padding-top: 20px;
-	background-color: #f1f1f1;
-	height: 100%;
-}
-
 table {
 	font-size: x-large;
 }
@@ -83,12 +76,10 @@ ul {
 
 footer {
 	width: 100%;
-	height: 100px;
-	position: absolute;
 	bottom: 0;
+	position: fixed;
 	background: lightgray;
 	text-align: center;
-	color: white;
 }
 </style>
 </head>
@@ -101,7 +92,7 @@ footer {
 		<%
 			for (int i = 1; i < 10; i++) {
 		%>
-		<li>주문번호 : <%=i%><br> 주문시각 : <%=h%>시<%=m%>분<%=s%>초<br>주문상태
+		<li class="oderNum">주문번호 : <%=i%><br> 주문시각 : <%=h%>시<%=m%>분<%=s%>초<br>주문상태
 			: 조리전<br> 주문목록 :
 			<table>
 				<tr>
@@ -132,4 +123,12 @@ footer {
 	</footer>
 
 </body>
+<script type="text/javascript">
+	$(function() {
+		$('.oderNum').click(function() {
+			var n = $('.oderNum').index(this)+1;
+			console.log(n);
+		});
+	})
+</script>
 </html>
