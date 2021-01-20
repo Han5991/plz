@@ -12,7 +12,6 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
 <style>
 @font-face {
 	font-family: hzStyleFont;
@@ -63,35 +62,29 @@ footer {
 	}
 }
 
-.div_menu {
+#form {
+	width: 550px;
+	height: 350px;
+	border: 3px solid lightgray;
+	border-radius: 20px;
+	margin: 80px auto;
+	font-size: 24px;
 	
 }
 
-.menu {
-	width: 200px;
-	height: 300px;
-	border: 1px solid lightgray;
+#id {
+	margin: 40px 80px;
+}
+
+#pw {
+	margin: 30px 80px;
+}
+
+#btn {
+	margin-top: 40px;
+	padding: 20px 20px;
 	border-radius: 10px;
-	margin: 30px;
-	font-size: 24px;
-	display: inline-block;
-	float: left;
-}
-
-.list {
-	list-style: none;
-}
-
-img {
-	width: 150px;
-	height: 150px;
-	margin-top: 5px;
-	border-radius: 10px;
-}
-
-.footer-button {
-	display: flex;
-	justify-content: center;
+	background-color: #bcaaa4;
 }
 </style>
 </head>
@@ -102,46 +95,27 @@ img {
 
 	<div class="container-fluid text-center">
 		<div class="row content">
-			<div class="col-sm-12" align="center">
-				<h1>관리자 페이지</h1>
+			<div class="col-sm-12 text-center">
+				<h1>회원 가입</h1>
 				<hr>
-				<h3>메뉴 삭제</h3>
-				<div class="div_menu">
 
-					<%
-						for (int i = 0; i < 20; i++) {
-					%>
-					<form>
-						<div class="menu">
-							<p class="img">
-								<img src="../img/menuImg/blended_흑임자블렌.jpg" />
-							</p>
-							<div class="text-center">
-								<p>흑임자 블렌드</p>
-								<p>3000원</p>
-								<p>
-									<input type="button" value='삭제하기' name="delete"
-										class="btn btn-warning">
-								</p>
-							</div>
-						</div>
-					</form>
-					<%
-						}
-					%>
-
-				</div>
+				<h3>Join coffee shop</h3>
+				<form action="" id="form">
+					<div id="id">
+						ID : <input type="text" placeholder="id">
+					</div>
+					<div id="pw">
+						PW : <input type="password" placeholder="password">
+					</div>
+					<input type="submit" value="가입하기" id="btn" size="50">
+				</form>
 			</div>
 		</div>
 	</div>
-	<script>
-		$("input[name=delete]").click(function() {
-			if (confirm("정말 삭제하시겠습니까 ?") == true) {
-				alert("삭제되었습니다");
-			} else {
-				return;
-			}
-		});
-	</script>
+
+	<footer class="container-fluid text-center">
+		<p>Footer Text</p>
+	</footer>
+
 </body>
 </html>
