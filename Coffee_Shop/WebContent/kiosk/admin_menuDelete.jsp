@@ -64,17 +64,18 @@ footer {
 }
 
 .div_menu {
-
+	
 }
-.menu{
+
+.menu {
 	width: 200px;
-   	height: 300px;
- 	border: 1px solid lightgray;
- 	border-radius: 10px;
- 	margin : 30px;
- 	font-size: 24px;
- 	display: inline-block;
- 	float:left;
+	height: 300px;
+	border: 1px solid lightgray;
+	border-radius: 10px;
+	margin: 30px;
+	font-size: 24px;
+	display: inline-block;
+	float: left;
 }
 
 .list {
@@ -89,15 +90,15 @@ img {
 }
 
 .footer-button {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 </style>
 </head>
 <body>
 
-<!-- Navigation -->
-<%@ include file="navbar_admin.jsp"%>
+	<!-- Navigation -->
+	<%@ include file="navbar_admin.jsp"%>
 
 	<div class="container-fluid text-center">
 		<div class="row content">
@@ -106,39 +107,41 @@ img {
 				<hr>
 				<h3>메뉴 삭제</h3>
 				<div class="div_menu">
-				<form>
-				<%
-					for(int i = 0; i < 20; i++){
-				%>
+
+					<%
+						for (int i = 0; i < 20; i++) {
+					%>
+					<form>
 						<div class="menu">
 							<p class="img">
-								<img src="../img/menuImg/blended_흑임자블렌.jpg"/>
+								<img src="../img/menuImg/blended_흑임자블렌.jpg" />
 							</p>
 							<div class="text-center">
 								<p>흑임자 블렌드</p>
 								<p>3000원</p>
 								<p>
-									<input type="button" value='삭제하기' id="delete" class="btn btn-warning">
+									<input type="button" value='삭제하기' id="delete"
+										class="btn btn-warning">
 								</p>
 							</div>
 						</div>
-				<%
-					}
-				%>
 					</form>
+					<%
+						}
+					%>
+
 				</div>
 			</div>
 		</div>
 	</div>
-<script>
-$("#delete").click(function(){
-    if(confirm("정말 삭제하시겠습니까 ?") == true){
-        alert("삭제되었습니다");   
-    }
-    else{
-        return;
-    }
-});
-</script>
+	<script>
+		$("#delete").click(function() {
+			if (confirm("정말 삭제하시겠습니까 ?") == true) {
+				alert("삭제되었습니다");
+			} else {
+				return;
+			}
+		});
+	</script>
 </body>
 </html>

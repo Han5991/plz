@@ -66,7 +66,6 @@ table {
 
 	<!-- Navigation -->
 	<%@ include file="navbar_user.jsp"%>
-
 	<div class="container-fluid">
 		<div class="row content">
 			<div class="col-sm-10">
