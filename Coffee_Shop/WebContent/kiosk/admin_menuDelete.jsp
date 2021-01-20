@@ -33,7 +33,7 @@
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {
-	height: 1119px;
+	height: 880px;
 	text-align: center;
 	vertical-align: middle;
 }
@@ -120,7 +120,7 @@ img {
 								<p>흑임자 블렌드</p>
 								<p>3000원</p>
 								<p>
-									<input type="button" value='삭제하기' name="delete"
+									<input type="button" value='삭제하기' class="delete"
 										class="btn btn-warning">
 								</p>
 							</div>
@@ -135,7 +135,7 @@ img {
 		</div>
 	</div>
 	<script>
-		$("input[name=delete]").click(function() {
+		$("input[class=delete]").click(function() {
 			if (confirm("정말 삭제하시겠습니까 ?") == true) {
 				alert("삭제되었습니다");
 			} else {
