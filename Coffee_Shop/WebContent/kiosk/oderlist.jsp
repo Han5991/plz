@@ -68,13 +68,14 @@ ul {
 
 #ui>li {
 	margin: 5px;
-	width: 270px;
+	width: 300px;
 	float: left;
 	border: 3px solid lightgray;
 	border-radius: 20px;
 	text-align: left;
 	float: left;
 	width: 270px;
+	padding: 5px;
 }
 </style>
 </head>
@@ -86,7 +87,7 @@ ul {
 			<div class="col-sm-10" align="center">
 				<h1>주문 관리 페이지</h1>
 				<hr>
-				<ul id=ui>
+				<ul id="ui">
 					<%
 						for (int i = 1; i < 10; i++) {
 					%>
@@ -131,4 +132,7 @@ ul {
 	</div>
 
 </body>
+<script type="text/javascript">
+	$("#ui").focus();
+</script>
 </html>

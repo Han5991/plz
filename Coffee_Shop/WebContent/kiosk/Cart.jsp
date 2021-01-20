@@ -69,7 +69,7 @@ table {
 
 	<div class="container-fluid">
 		<div class="row content">
-			<div class="col-sm-9">
+			<div class="col-sm-10">
 				<h1>장바구니</h1>
 				<hr>
 				<table>
@@ -95,7 +95,7 @@ table {
 				</table>
 			</div>
 
-			<div class="col-sm-3 sidenav">
+			<div class="col-sm-2 sidenav">
 				<h2>
 					총 합계 금액 : <br>8500원
 				</h2>
