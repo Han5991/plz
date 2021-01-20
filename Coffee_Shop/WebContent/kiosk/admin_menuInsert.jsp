@@ -60,11 +60,11 @@ footer {
 	}
 }
 #form{
-	width: 400px;
-   	height: 500px;
+	width: 500px;
+   	height: 700px;
  	border: 3px solid lightgray;
  	border-radius: 20px;
- 	margin : 80px auto;
+ 	margin : 40px auto;
 }
 
 .input-file-button{
@@ -89,13 +89,15 @@ footer {
 				<hr>
 				
 				<h3>메뉴 추가</h3>
-				<form action="" id="form">
+				<form action="" id="form" method="post">
+					<div style="margin: 0 auto; text-align:center;" >
 <!--<label class="input-file-button" for="input-file">이미지 업로드</label> -->
-					<img src="" id="loadImg" width="300px" height="300px" onerror="this.src='../img/default_img.jpg'">
-					<input type="file" id="imgAttach" name="imgAttach" onchange="LoadImg()"/><br>
+					<p><img src="" id="loadImg" width="300px" height="300px" onerror="this.src='../img/default_img.jpg'" style="margin-top: 20px;"></p>
+					<p><input type="file" id="imgAttach" name="imgAttach" onchange="LoadImg()" style="margin-left:40px;"/></p>
 
-					<div>
-						category : <select name="category" required="required">
+					
+						<p>
+						<select name="category" required="required">
 							<option value="category">select category</option>
 							<option value="coffee">Coffee</option>
 							<option value="nonCoffee">NonCoffee</option>
@@ -103,7 +105,13 @@ footer {
 							<option value="blended">Blended</option>
 							<option value="etc">etc.</option>
 						</select>
+						</p>
+						
+						<p><input type="text" name="name" placeholder="name" autocomplete="off"></p>
+						<p><input type="text" name="price" placeholder="price" autocomplete="off"></p>
+						<p><textarea cols="20" rows="2" placeholder="comment" style="resize: none;"></textarea>
 					</div>
+					<input type="submit" value="추가">
 				</form> 
 			</div>
 
