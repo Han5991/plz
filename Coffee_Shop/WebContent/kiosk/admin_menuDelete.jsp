@@ -12,6 +12,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 <style>
 @font-face {
 	font-family: hzStyleFont;
@@ -70,7 +71,7 @@ footer {
    	height: 300px;
  	border: 1px solid lightgray;
  	border-radius: 10px;
- 	margin : 20px;
+ 	margin : 30px;
  	font-size: 24px;
  	display: inline-block;
  	float:left;
@@ -86,15 +87,10 @@ img {
 	margin-top: 5px;
 	border-radius: 10px;
 }
-#id{
- 	margin: 30px  80px;  
-}	
-#pw{
-  	margin: 0px  80px;  
-}
-#btn{
-	margin-top: 50px;
-	padding: 20px 20px;
+
+.footer-button {
+  display: flex;
+  justify-content: center;
 }
 </style>
 </head>
@@ -105,14 +101,15 @@ img {
 
 	<div class="container-fluid text-center">
 		<div class="row content">
-			<div class="col-sm-12 text-center">
+			<div class="col-sm-12" align="center">
 				<h1>관리자 페이지</h1>
 				<hr>
-				
 				<h3>메뉴 삭제</h3>
 				<div class="div_menu">
-				
 				<form>
+				<%
+					for(int i = 0; i < 20; i++){
+				%>
 						<div class="menu">
 							<p class="img">
 								<img src="../img/menuImg/blended_흑임자블렌.jpg"/>
@@ -121,68 +118,27 @@ img {
 								<p>흑임자 블렌드</p>
 								<p>3000원</p>
 								<p>
-									<label class="btn  btn-warning">선택 <input type="radio" value='' name="delete" ></label>
+									<input type="button" value='삭제하기' id="delete" class="btn btn-warning">
 								</p>
 							</div>
 						</div>
-						<div class="menu">
-							<p class="img">
-								<img src="../img/menuImg/blended_흑임자블렌.jpg"/>
-							</p>
-							<div class="text-center">
-								<p>흑임자 블렌드</p>
-								<p>3000원</p>
-								<p>
-									<label class="btn  btn-warning">선택 <input type="radio" value='' name="delete" ></label>
-								</p>
-							</div>
-						</div>
-						<div class="menu">
-							<p class="img">
-								<img src="../img/menuImg/blended_흑임자블렌.jpg"/>
-							</p>
-							<div class="text-center">
-								<p>흑임자 블렌드</p>
-								<p>3000원</p>
-								<p>
-									<label class="btn  btn-warning">선택 <input type="radio" value='' name="delete" ></label>
-								</p>
-							</div>
-						</div>
-						<div class="menu">
-							<p class="img">
-								<img src="../img/menuImg/blended_흑임자블렌.jpg"/>
-							</p>
-							<div class="text-center">
-								<p>흑임자 블렌드</p>
-								<p>3000원</p>
-								<p>
-									<label class="btn  btn-warning">선택 <input type="radio" value='' name="delete" ></label>
-								</p>
-							</div>
-						</div>
-						<div class="menu">
-							<p class="img">
-								<img src="../img/menuImg/blended_흑임자블렌.jpg"/>
-							</p>
-							<div class="text-center">
-								<p>흑임자 블렌드</p>
-								<p>3000원</p>
-								<p>
-									<label class="btn  btn-warning">선택 <input type="radio" value='' name="delete" ></label>
-								</p>
-							</div>
-						</div>
-						<input type="submit" value="삭제">
+				<%
+					}
+				%>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<footer class="container-fluid text-center">
-		<p><button type="button" onclick="">삭제</button></p>
-	</footer>
-
+<script>
+$("#delete").click(function(){
+    if(confirm("정말 삭제하시겠습니까 ?") == true){
+        alert("삭제되었습니다");   
+    }
+    else{
+        return;
+    }
+});
+</script>
 </body>
 </html>
