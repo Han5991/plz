@@ -27,7 +27,7 @@
 	margin-bottom: 0;
 	border-radius: 0;
 	border: none;
-	background-color: #D9CDBC;
+	background-color: #b1bfca;
 }
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -82,6 +82,8 @@ footer {
 #btn {
 	margin-top: 50px;
 	padding: 20px 20px;
+	border-radius: 10px;
+	background-color: #bcaaa4;
 }
 </style>
 </head>
@@ -93,10 +95,10 @@ footer {
 	<div class="container-fluid text-center">
 		<div class="row content">
 			<div class="col-sm-12 text-center">
-				<h1>관리자</h1>
+				<h1>로그인</h1>
 				<hr>
 
-				<h3>admin login</h3>
+				<h3>Login coffee shop</h3>
 				<form action="" id="form">
 					<div id="id">
 						ID:<input type="text" placeholder="id">
@@ -104,7 +106,7 @@ footer {
 					<div id="pw">
 						PW:<input type="password" placeholder="password">
 					</div>
-					<input type="submit" value="*로그인*" id="btn" size="50">
+					<input type="submit" value="로그인" id="btn" size="50">
 				</form>
 			</div>
 		</div>
