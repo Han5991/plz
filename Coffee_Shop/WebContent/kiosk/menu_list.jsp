@@ -120,7 +120,6 @@ img {
 </script>
 </head>
 <body>
-
 	<%@ include file="navbar_user.jsp"%>
 	<br>
 	<nav class="navbar navbar-inverse">
