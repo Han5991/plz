@@ -18,6 +18,8 @@
 	src: url("../font/ImcreSoojin.ttf");
 }
 
+
+
 * {
 	font-family: hzStyleFont;
 }
