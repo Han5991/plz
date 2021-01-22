@@ -70,14 +70,12 @@ img {
 </style>
 </head>
 <body>
-
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#myNavbar">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="#" style="font-size: 25px;">Coffee</a>
 			</div>
@@ -94,8 +92,8 @@ img {
 				</ul>
 			</div>
 		</div>
-	</nav>
-	<br>
+	</nav> <br>
+
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -109,62 +107,91 @@ img {
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li><button type="button" class="btn btn-info"
-							data-toggle="collapse" data-target="#demo"
+							data-toggle="collapse" data-target="#coffee"
 							style="background-color: #D9CDBC; border: none;">커피</button></li>
-					<li><a href="#">티</a></li>
-					<li><a href="#">음료</a></li>
-					<li class="active"><a href="#">블렌디드</a></li>
-					<li><a href="#">디저트</a></li>
+					<li><button type="button" class="btn btn-info"
+							data-toggle="collapse" data-target="#tea"
+							style="background-color: #D9CDBC; border: none;">티</button></li>
+					<li><button type="button" class="btn btn-info"
+							data-toggle="collapse" data-target="#juice"
+							style="background-color: #D9CDBC; border: none;">음료</button></li>
+					<li><button type="button" class="btn btn-info"
+							data-toggle="collapse" data-target="#blend"
+							style="background-color: #D9CDBC; border: none;">블렌디드</button></li>
+					<li><button type="button" class="btn btn-info"
+							data-toggle="collapse" data-target="#dessert"
+							style="background-color: #D9CDBC; border: none;">디저트</button></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 
+
 	<div class="container-fluid text-center">
 		<div class="row content">
 			<div class="col-sm-10" align="center">
-				<div id="demo" class="collapse">
+				<div id="coffee" class="collapse">
 					<table style="text-align: center;">
-						<tr>
-							<td><img src="../img/menuImg/blended_그린티블렌.jpg"
-								height="200px" width="200px"><br>그린티 블렌디드<br>5500원</td>
-							<td><img src="../img/menuImg/blended_모카블렌.jpg"
-								height="200px" width="200px"><br>모카 블렌디드<br>5000원</td>
-							<td><img src="../img/menuImg/blended_바닐라블렌.jpg"
-								height="200px" width="200px"><br>바닐라 블렌디드<br>5000원</td>
-						</tr>
-						<tr>
-							<td><img src="../img/menuImg/blended_초코칩블렌.jpg"
-								height="200px" width="200px"><br>초코칩 블렌디드<br>4000원</td>
-							<td><img src="../img/menuImg/blended_카페모카.jpg"
-								height="200px" width="200px"><br>카페모카<br>3500원</td>
-							<td><img src="../img/menuImg/blended_카푸치노.jpg"
-								height="200px" width="200px"><br>카푸치노<br>3500원</td>
-						</tr>
-						<tr>
-							<td><img src="../img/menuImg/blended_화초모블렌.jpg"
-								height="200px" width="200px"><br>화이트초코모카 블렌디드<br>6000원</td>
-							<td><img src="../img/menuImg/blended_화초블렌.jpg"
-								height="200px" width="200px"><br>화이트초코 블렌디드<br>5500원</td>
-							<td><img src="../img/menuImg/blended_흑임자블렌.jpg"
-								height="200px" width="200px"><br>흑임자 블렌디드<br>6500원</td>
-						</tr>
+						<tbody>
+							<tr>
+								<td><img src="../img/menuImg/espresso_아메리카노.jpg"
+									height="200px" width="200px"><br>아메리카노<br>3000원</td>
+								<td><img src="../img/menuImg/espresso_에스프레소.jpg"
+									height="200px" width="200px"><br>에스프레소<br>4000원</td>
+
+							</tr>
+							<tr>
+								<td><img src="../img/menuImg/espresso_카라멜 마키아토.jpg"
+									height="200px" width="200px"><br>카라멜 마키아토<br>5000원</td>
+								<td><img src="../img/menuImg/espresso_토피넛.jpg"
+									height="200px" width="200px"><br>토피넛<br>5000원</td>
+							</tr>
+						</tbody>
 					</table>
 				</div>
 			</div>
 
-			<div class="col-sm-2 sidenav">
 
+			<div class="container-fluid text-center">
+				<div class="row content">
+					<div class="col-sm-10" align="center">
+						<div id="tea" class="collapse">
+							<table style="text-align: center;">
+								<tbody>
+									<tr>
+										<td><img src="../img/menuImg/tea_티_얼그레이.jpg"
+											height="200px" width="200px"><br>얼그레이<br>4000원</td>
+										<td><img src="../img/menuImg/blended_티_캐모마일.jpg"
+											height="200px" width="200px"><br>캐모마일<br>4000원</td>
+										<td><img src="../img/menuImg/tea_티_히비스커스.jpg"
+											height="200px" width="200px"><br>히비스커스<br>5000원</td>
+
+									</tr>
+									<tr>
+										<td><img src="../img/menuImg/tea_티_녹차.jpg" height="200px"
+											width="200px"><br>녹차<br>3000원</td>
+										<td><img src="../img/menuImg/tea_티_밀크티.jpg"
+											height="200px" width="200px"><br>밀크티<br>4000원</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+
+
+
+		<div class="col-sm-2 sidenav">
 				<h3>Cart</h3>
-				<div class="well">
-					<p>주문메뉴 리스트</p>
+					<div class="well">
+						<p>주문메뉴 리스트</p>
+					</div>
+					<input type="submit" value="결제 하기" class="btn btn-warning"
+						style="font-size: 30px;">
 				</div>
-
-				<input type="submit" value="결제 하기" class="btn btn-warning"
-					style="font-size: 30px;">
 			</div>
 		</div>
-	</div>
-
-</body>
+		
+		
+	</body>
 </html>
