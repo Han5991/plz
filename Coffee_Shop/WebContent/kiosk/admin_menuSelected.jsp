@@ -3,8 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Bootstrap Example</title>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -12,6 +11,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<title>Insert title here</title>
 <script type="text/javascript">
 /* 파일 삽입 시 이미지 미리보기 */
 	function LoadImg(){
@@ -82,19 +83,14 @@ img{
 </style>
 </head>
 <body>
-
-<!-- Navigation -->
-<%@ include file="navbar_admin.jsp"%>
-
-	<div class="container-fluid text-center">
+<div class="container-fluid text-center">
 		<div class="row content">
 			<div class="col-sm-12 text-center">
-				<h1>관리자 페이지</h1>
-				<hr>
-				
-				<h3>메뉴 추가</h3>
+			<h1>관리자 페이지</h1>
+			<hr>	
+			<h3>메뉴 상세 정보</h3>
 				<form action="" id="form" method="post">
-					<div style="margin: 0 auto; text-align:center;" >
+					<div style="margin: 0 auto; text-align:center; font-size:25px;" >
 <!--<label class="input-file-button" for="input-file">이미지 업로드</label> -->
 					<p><img src="" id="loadImg" width="300px" height="300px" onerror="this.src='../img/default_img.jpg'" style="margin-top: 20px;"></p>
 					<p><input type="file" id="imgAttach" name="imgAttach" onchange="LoadImg()" style="margin-left:40px;"/></p>
@@ -115,13 +111,11 @@ img{
 						<p><input type="text" name="price" placeholder="price" autocomplete="off"></p>
 						<p><textarea cols="20" rows="2" placeholder="comment" style="resize: none;"></textarea>
 					</div>
-					<input type="submit" value="추가">
+					<input type="submit" value="수정완료">
 				</form> 
 			</div>
 
 		</div>
 	</div>
-
-
 </body>
 </html>
