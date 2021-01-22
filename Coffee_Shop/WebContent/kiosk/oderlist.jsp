@@ -146,10 +146,9 @@ footer {
 	</ul>
 	<footer class="container-fluid text-center">
 		<input type="reset" value="주문 취소" class="btn btn-warning"
-			style="font-size: 30px;"><input type="submit" value="조리 시작"
+			style="font-size: 30px;">&nbsp;&nbsp;<input type="submit" value="조리 시작"
 			class="btn btn-warning" style="font-size: 30px;">
 	</footer>
-
 </body>
 <script type="text/javascript">
 	//주문번호 가져오기
