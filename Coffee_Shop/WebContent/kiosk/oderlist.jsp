@@ -67,7 +67,7 @@ ul {
 
 #ul>li {
 	width: 270px;
-	height : 500px;
+	height: 500px;
 	margin: 5px;
 	float: left;
 	border: 3px solid lightgray;
@@ -126,6 +126,8 @@ footer {
 		</li>
 		<%
 			}
+		con.close();
+		preparedStatement.close();
 		} catch (Exception e) {
 		e.printStackTrace();
 		}
