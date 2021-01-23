@@ -247,6 +247,8 @@ li {
 					<%
 						}
 					i = 0;
+					con.close();
+					preparedStatement.close();
 					} catch (Exception e) {
 					e.printStackTrace();
 					}

@@ -75,6 +75,10 @@ footer {
   	background-color: lightgray;
   	cursor: pointer;
 }
+
+img{
+	border-radius : 20px;
+}
 </style>
 </head>
 <body>
@@ -118,9 +122,6 @@ footer {
 		</div>
 	</div>
 
-	<footer class="container-fluid text-center">
-		<p>Footer Text</p>
-	</footer>
 
 </body>
 </html>

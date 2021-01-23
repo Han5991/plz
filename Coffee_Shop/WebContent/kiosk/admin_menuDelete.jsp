@@ -102,7 +102,7 @@ img {
 
 	<div class="container-fluid text-center">
 		<div class="row content">
-			<div class="col-sm-12" align="center">
+			<div class="col-sm-12 text-center" style="margin-left:30px;">
 				<h1>관리자 페이지</h1>
 				<hr>
 				<h3>메뉴 삭제</h3>
