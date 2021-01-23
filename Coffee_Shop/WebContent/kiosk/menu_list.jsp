@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,8 +18,6 @@
 	font-family: hzStyleFont;
 	src: url("../font/ImcreSoojin.ttf");
 }
-
-
 
 * {
 	font-family: hzStyleFont;
@@ -45,6 +44,7 @@
 }
 
 /* Set black background color, white text and some padding */
+
 footer {
 	background-color: #555;
 	color: white;
@@ -76,7 +76,15 @@ img {
 .show1{
 font-color:red;
 }
+
+.menu{
+	font-size:90%
+
+}
+
+
 </style>
+
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('.coffee').show(); 
@@ -130,9 +138,7 @@ font-color:red;
 </head>
 <body>
 
-	<%@ include file="navbar_user.jsp"%>
-	<br>
-	<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -140,73 +146,67 @@ font-color:red;
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">메뉴</a>
+				<a class="navbar-brand" href="#" style="font-size: 25px;">Coffee</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li class="show1">커피&nbsp;&nbsp;&nbsp;&nbsp;</li>
-					<li class="show2">블렌디드&nbsp;&nbsp;&nbsp;&nbsp;</li>
-					<li class="show3">음료&nbsp;&nbsp;&nbsp;&nbsp;</li>
-					<li class="show4">티&nbsp;&nbsp;&nbsp;&nbsp;</li>
-					<li class="show5">디저트&nbsp;&nbsp;&nbsp;&nbsp;</li>
+					<li class="active"><a href="menu.jsp">메뉴 선택</a></li>
+					<li><a href="#">장바구니</a></li>
+					<li><a href="#">결제 정보</a></li>
+					<li><a href="#">영수증 출력</a></li>
+					<li><a href="#">결제 완료</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="admin_login.jsp">관리자 로그인</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-	<!--  
-	<div class="container-fluid text-center">
+	
+
+	
+		<div class="container-fluid text-center">
 		<div class="row content">
-			<div class="col-sm-10" align="center">
-				<div class="coffee">
-					<table style="text-align: center;" >
-						<tr>
-							<td><img src="../img/menuImg/espresso_아메리카노_아이스.jpg"
-								height="200px" width="200px"><br>아이스 아메리카노<br>5500원</td>
-							<td><img src="../img/menuImg/espresso_아메리카노.jpg"
-								height="200px" width="200px"><br>아메리카노<br>5000원</td>
-							<td><img src="../img/menuImg/espresso_에스프레소.jpg"
-								height="200px" width="200px"><br>에스프레소<br>5000원</td>
-						</tr>
-						
-						<tr>
-							<td><img src="../img/menuImg/espresso_카라멜 마키아토.jpg"
-								height="200px" width="200px"><br>카라멜 마키아토<br>4000원</td>
-							<td><img src="../img/menuImg/espresso_토피넛.jpg"
-								height="200px" width="200px"><br>토피넛<br>3500원</td>
-							<td><img src="../img/menuImg/blended_카페모카.jpg"
-								height="200px" width="200px"><br>카페모카<br>3500원</td>
-						</tr>
-						
-						<tr>
-							<td><img src="../img/menuImg/blended_카푸치노.jpg"
-								height="200px" width="200px"><br>카푸치노<br>3500원</td>
-						</tr>
-					</table>
-				</div>-->
+			<div class="col-sm-9" align="center">
+				<div id="container">
+			<div id="section">
+				<div class="tabArea navbar- menus">
+					<div class="btnTab text-center">
+						<span class="menu">
+						<span class="show1">커피</span>
+						<span class="show2">블렌디드 </span> 
+						<span class="show3">티</span>
+						<span class="show4">음료</span> 
+						<span class="show5">디저트</span>
+						</span>
+				</div>
+			</div>
+			</div>
+			</div>
 				
 				<div class="coffee">
 					<table style="text-align: center;" >
 						<tr>
 							<td><img src="../img/menuImg/espresso_아메리카노_아이스.jpg"
-								height="200px" width="200px"><br>아이스 아메리카노<br>5500원</td>
+								height="200px" width="200px"><br>아이스 아메리카노<br>5500원<br></td>
 							<td><img src="../img/menuImg/espresso_아메리카노.jpg"
-								height="200px" width="200px"><br>아메리카노<br>5000원</td>
+								height="200px" width="200px"><br>아메리카노<br>5000원<br></td>
 							<td><img src="../img/menuImg/espresso_에스프레소.jpg"
-								height="200px" width="200px"><br>에스프레소<br>5000원</td>
+								height="200px" width="200px"><br>에스프레소<br>5000원<br></td>
 						</tr>
 						
 						<tr>
 							<td><img src="../img/menuImg/espresso_카라멜 마키아토.jpg"
-								height="200px" width="200px"><br>카라멜 마키아토<br>4000원</td>
+								height="200px" width="200px"><br>카라멜 마키아토<br>4000원<br></td>
 							<td><img src="../img/menuImg/espresso_토피넛.jpg"
-								height="200px" width="200px"><br>토피넛<br>3500원</td>
+								height="200px" width="200px"><br>토피넛 커피<br>3500원<br></td>
 							<td><img src="../img/menuImg/blended_카페모카.jpg"
-								height="200px" width="200px"><br>카페모카<br>3500원</td>
+								height="200px" width="200px"><br>카페모카<br>3500원<br></td>
 						</tr>
 						
 						<tr>
 							<td><img src="../img/menuImg/blended_카푸치노.jpg"
-								height="200px" width="200px"><br>카푸치노<br>3500원</td>
+								height="200px" width="200px"><br>카푸치노<br>3500원<br></td>
 						</tr>
 					</table>
 				</div>
@@ -225,7 +225,7 @@ font-color:red;
 							<td><img src="../img/menuImg/blended_초코칩블렌.jpg"
 								height="200px" width="200px"><br>초코칩 블렌디드<br>4000원</td>
 							<td><img src="../img/menuImg/blended_화초모블렌.jpg"
-								height="200px" width="200px"><br>화이트초코모카 블렌디드<br>6000원</td>
+								height="200px" width="200px"><br>화초모 블렌디드<br>6000원</td>
 							<td><img src="../img/menuImg/blended_화초블렌.jpg"
 								height="200px" width="200px"><br>화이트초코 블렌디드<br>5500원</td>
 						</tr>
@@ -280,7 +280,7 @@ font-color:red;
 							<td><img src="../img/menuImg/dessert_블베.jpg" height="200px"
 								width="200px"><br>블루베리 베이글<br>3500원</td>
 							<td><img src="../img/menuImg/dessert_치즈베이글.jpg" height="200px"
-								width="200px"><br><br>치즈베이글<br>3500원</td>
+								width="200px"><br>치즈베이글<br>3500원</td>
 						</tr>
 						<tr>
 							<td><img src="../img/menuImg/dessert_초스.jpg" height="200px"
@@ -299,10 +299,13 @@ font-color:red;
 								width="200px"><br>빨미까레<br>3000원</td>
 						</tr>
 					</table>
+					</div>
 				</div>
 			
-
-			<div class="col-sm-2 sidenav">
+			
+				
+				
+			<div class="col-sm-3 sidenav">
 
 				<h3>Cart</h3>
 				<div class="well">
@@ -312,6 +315,9 @@ font-color:red;
 				<input type="submit" value="결제 하기" class="btn btn-warning"
 					style="font-size: 30px;">
 			</div>
+		</div>
+	</div>
+		
 	
 </body>
 </html>
