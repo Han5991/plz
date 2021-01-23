@@ -99,9 +99,9 @@ footer {
 				<hr>
 
 				<h3>Login coffee shop</h3>
-				<form action="" id="form">
+				<form action="After_login.jsp" method="post" id="form"> 
 					<div id="id">
-						ID:<input type="text" placeholder="id">
+						ID:<input type="text" placeholder="id" >
 					</div>
 					<div id="pw">
 						PW:<input type="password" placeholder="password">
@@ -115,6 +115,6 @@ footer {
 	<footer class="container-fluid text-center">
 		<p>Footer Text</p>
 	</footer>
-
+	
 </body>
 </html>
