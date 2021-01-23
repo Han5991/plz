@@ -50,7 +50,6 @@
 	font-family: hzStyleFont;
 }
 
-/* Remove the navbar's default margin-bottom and rounded borders */
 .navbar {
 	margin-bottom: 0;
 	border-radius: 0;
@@ -58,22 +57,8 @@
 	background-color: #D9CDBC;
 }
 
-/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {
 	height: 1119px;
-}
-
-table {
-	font-size: x-large;
-}
-
-td {
-	padding-right: 20px;
-}
-
-img {
-	margin: 0px;
-	border-radius: 10px;
 }
 
 ul {
@@ -82,6 +67,7 @@ ul {
 
 #ul>li {
 	width: 270px;
+	height : 500px;
 	margin: 5px;
 	float: left;
 	border: 3px solid lightgray;
@@ -123,8 +109,9 @@ footer {
 			name="oderNum" type="hidden" value="<%=resultSet.getInt(1)%>">
 			<input name="storeid" type="hidden"
 			value="<%=resultSet.getString(3)%>"><br> 주문시각 :<%=resultSet.getDate(5).toString()%>
-			<br>주문상태 : 조리전<br>주문목록 :
-			<table>
+			<br>주문상태 : 조리전<br> <input type="button" value="주문목록 보기"
+			class="oderdetail">
+			<table class="detail">
 				<%
 					for (MenuDto a : Menudtos) {
 				%>
@@ -146,18 +133,25 @@ footer {
 	</ul>
 	<footer class="container-fluid text-center">
 		<input type="reset" value="주문 취소" class="btn btn-warning"
-			style="font-size: 30px;">&nbsp;&nbsp;<input type="submit" value="조리 시작"
-			class="btn btn-warning" style="font-size: 30px;">
+			style="font-size: 30px;">&nbsp;&nbsp;<input type="submit"
+			value="조리 시작" class="btn btn-warning" style="font-size: 30px;">
 	</footer>
 </body>
 <script type="text/javascript">
-	//주문번호 가져오기
+	$('.detail').hide();
 	$('.oderNum').click(function() {
 		var n = $('.oderNum').index(this);
 		var num = $("input[name=oderNum]:eq(" + n + ")").val();
-		var storeid = $("input[name=storeid]:eq(" + n + ")").val();
-		console.log(storeid);
-		console.log(num);
+	});
+	$('.oderdetail').click(function() {
+		var n = $('.oderdetail').index(this);
+		if ($(".detail:eq(" + n + ")").css("display") == "none") {
+			$(".detail:eq(" + n + ")").show();
+			$(".oderdetail:eq(" + n + ")").val("주문목록 숨기기");
+		} else {
+			$(".detail:eq(" + n + ")").hide();
+			$(".oderdetail:eq(" + n + ")").val("주문목록 보기");
+		}
 	});
 </script>
 </html>

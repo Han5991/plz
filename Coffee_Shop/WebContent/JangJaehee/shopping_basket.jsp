@@ -142,8 +142,7 @@ int sum = 0;
 					<tbody>
 						<tr>
 							<td><input type="button" value="메뉴 추가하기"
-								class="btn btn-warning"
-								onclick="history.back()"><input
+								class="btn btn-warning" onclick="history.back()"><input
 								type="submit" value="주문하기" class="btn btn-warning"></td>
 						</tr>
 					</tbody>
