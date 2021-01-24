@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,7 +44,6 @@
 }
 
 /* Set black background color, white text and some padding */
-
 footer {
 	background-color: #555;
 	color: white;
@@ -62,7 +61,7 @@ footer {
 	}
 }
 
-table td{
+table td {
 	font-size: x-large;
 	border-collapse: separate;
 	border-spacing: 50px;
@@ -70,29 +69,26 @@ table td{
 
 img {
 	margin: 0px auto;
-	display:block;
+	display: block;
 }
 
-.show1{
-font-color:red;
+.show1 {
+	font-color: red;
 }
 
-.menu{
-	font-size:90%
-
+.menu {
+	font-size: 90%
 }
-
-
 </style>
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('.coffee').show(); 
-		$('.blended').hide(); 
+		$('.coffee').show();
+		$('.blended').hide();
 		$('.etc').hide();
 		$('.tea').hide();
-		$('.dessert').hide(); 
-		
+		$('.dessert').hide();
+
 		$('.show1').click(function() {
 			$('.coffee').show();
 			$('.blended').hide();
@@ -137,55 +133,26 @@ font-color:red;
 </script>
 </head>
 <body>
+	<%@ include file="navbar_user.jsp"%>
 
-<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#myNavbar">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#" style="font-size: 25px;">Coffee</a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="menu.jsp">메뉴 선택</a></li>
-					<li><a href="#">장바구니</a></li>
-					<li><a href="#">결제 정보</a></li>
-					<li><a href="#">영수증 출력</a></li>
-					<li><a href="#">결제 완료</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="admin_login.jsp">관리자 로그인</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	
-
-	
-		<div class="container-fluid text-center">
+	<div class="container-fluid text-center">
 		<div class="row content">
 			<div class="col-sm-9" align="center">
 				<div id="container">
-			<div id="section">
-				<div class="tabArea navbar- menus">
-					<div class="btnTab text-center">
-						<span class="menu">
-						<span class="show1">커피</span>
-						<span class="show2">블렌디드 </span> 
-						<span class="show3">티</span>
-						<span class="show4">음료</span> 
-						<span class="show5">디저트</span>
-						</span>
+					<div id="section">
+						<div class="tabArea navbar- menus">
+							<div class="btnTab text-center">
+								<span class="menu"> <span class="show1">커피</span> <span
+									class="show2">블렌디드 </span> <span class="show3">티</span> <span
+									class="show4">음료</span> <span class="show5">디저트</span>
+								</span>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
-			</div>
-			</div>
-				
+
 				<div class="coffee">
-					<table style="text-align: center;" >
+					<table style="text-align: center;">
 						<tr>
 							<td><img src="../img/menuImg/espresso_아메리카노_아이스.jpg"
 								height="200px" width="200px"><br>아이스 아메리카노<br>5500원<br></td>
@@ -194,7 +161,7 @@ font-color:red;
 							<td><img src="../img/menuImg/espresso_에스프레소.jpg"
 								height="200px" width="200px"><br>에스프레소<br>5000원<br></td>
 						</tr>
-						
+
 						<tr>
 							<td><img src="../img/menuImg/espresso_카라멜 마키아토.jpg"
 								height="200px" width="200px"><br>카라멜 마키아토<br>4000원<br></td>
@@ -203,14 +170,14 @@ font-color:red;
 							<td><img src="../img/menuImg/blended_카페모카.jpg"
 								height="200px" width="200px"><br>카페모카<br>3500원<br></td>
 						</tr>
-						
+
 						<tr>
 							<td><img src="../img/menuImg/blended_카푸치노.jpg"
 								height="200px" width="200px"><br>카푸치노<br>3500원<br></td>
 						</tr>
 					</table>
 				</div>
-				
+
 				<div class="blended">
 					<table style="text-align: center;">
 						<tr>
@@ -235,43 +202,43 @@ font-color:red;
 						</tr>
 					</table>
 				</div>
-				
+
 				<div class="etc">
 					<table style="text-align: center;">
 						<tr>
-							<td><img src="../img/menuImg/etc_라임에이드.jpg"
-								height="200px" width="200px"><br>라임에이드<br>5500원</td>
-							<td><img src="../img/menuImg/etc_복숭아에이드.jpg"
-								height="200px" width="200px"><br>복숭아에이드<br>5000원</td>
-							<td><img src="../img/menuImg/etc_우유.jpg"
-								height="200px" width="200px"><br>우유<br>5000원</td>
+							<td><img src="../img/menuImg/etc_라임에이드.jpg" height="200px"
+								width="200px"><br>라임에이드<br>5500원</td>
+							<td><img src="../img/menuImg/etc_복숭아에이드.jpg" height="200px"
+								width="200px"><br>복숭아에이드<br>5000원</td>
+							<td><img src="../img/menuImg/etc_우유.jpg" height="200px"
+								width="200px"><br>우유<br>5000원</td>
 						</tr>
 						<tr>
-							<td><img src="../img/menuImg/etc_자몽에이드.jpg"
-								height="200px" width="200px"><br>자몽에이드<br>4000원</td>
-							<td><img src="../img/menuImg/etc_핫초코.jpg"
-								height="200px" width="200px"><br>핫초코<br>3500원</td>
+							<td><img src="../img/menuImg/etc_자몽에이드.jpg" height="200px"
+								width="200px"><br>자몽에이드<br>4000원</td>
+							<td><img src="../img/menuImg/etc_핫초코.jpg" height="200px"
+								width="200px"><br>핫초코<br>3500원</td>
 						</tr>
 					</table>
 				</div>
-				
+
 				<div class="tea">
 					<table style="text-align: center;">
 						<tr>
-							<td><img src="../img/menuImg/tea_티_녹차.jpg"
-								height="200px" width="200px"><br>녹차<br>5500원</td>
-							<td><img src="../img/menuImg/tea_티_밀크티.jpg"
-								height="200px" width="200px"><br>밀크티<br>5000원</td>
-							<td><img src="../img/menuImg/tea_티_얼그레이.jpg"
-								height="200px" width="200px"><br>얼그레이<br>5000원</td>
+							<td><img src="../img/menuImg/tea_티_녹차.jpg" height="200px"
+								width="200px"><br>녹차<br>5500원</td>
+							<td><img src="../img/menuImg/tea_티_밀크티.jpg" height="200px"
+								width="200px"><br>밀크티<br>5000원</td>
+							<td><img src="../img/menuImg/tea_티_얼그레이.jpg" height="200px"
+								width="200px"><br>얼그레이<br>5000원</td>
 						</tr>
 						<tr>
-							<td><img src="../img/menuImg/tea_티_히비스커스.jpg"
-								height="200px" width="200px"><br>히비스커스<br>4000원</td>
+							<td><img src="../img/menuImg/tea_티_히비스커스.jpg" height="200px"
+								width="200px"><br>히비스커스<br>4000원</td>
 						</tr>
 					</table>
 				</div>
-				
+
 				<div class="dessert">
 					<table style="text-align: center;">
 						<tr>
@@ -279,8 +246,8 @@ font-color:red;
 								width="200px"><br>몽블랑 데니쉬<br>5000원</td>
 							<td><img src="../img/menuImg/dessert_블베.jpg" height="200px"
 								width="200px"><br>블루베리 베이글<br>3500원</td>
-							<td><img src="../img/menuImg/dessert_치즈베이글.jpg" height="200px"
-								width="200px"><br>치즈베이글<br>3500원</td>
+							<td><img src="../img/menuImg/dessert_치즈베이글.jpg"
+								height="200px" width="200px"><br>치즈베이글<br>3500원</td>
 						</tr>
 						<tr>
 							<td><img src="../img/menuImg/dessert_초스.jpg" height="200px"
@@ -295,16 +262,16 @@ font-color:red;
 								width="200px"><br>플레인 스콘<br>3000원</td>
 							<td><img src="../img/menuImg/dessert_핫.jpg" height="200px"
 								width="200px"><br>소시지 바게트<br>5500원</td>
-							<td><img src="../img/menuImg/dessert_blended_빨1.jpg" height="200px"
-								width="200px"><br>빨미까레<br>3000원</td>
+							<td><img src="../img/menuImg/dessert_blended_빨1.jpg"
+								height="200px" width="200px"><br>빨미까레<br>3000원</td>
 						</tr>
 					</table>
-					</div>
 				</div>
-			
-			
-				
-				
+			</div>
+
+
+
+
 			<div class="col-sm-3 sidenav">
 
 				<h3>Cart</h3>
@@ -317,7 +284,7 @@ font-color:red;
 			</div>
 		</div>
 	</div>
-		
-	
+
+
 </body>
 </html>
