@@ -88,32 +88,8 @@ a.animated-button.victoria-four:hover:after {
 </style>
 </head>
 <body>
-<!-- Navigation -->
-<%-- <%@include file="navbar_user.jsp"%> --%>
-	
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#myNavbar">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Logo</a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Projects</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
-							Login</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+
+
 
 	<div class="container-fluid text-center">
 		<div id="option" class="option">
@@ -143,6 +119,9 @@ a.animated-button.victoria-four:hover:after {
 							<input type="button" value="HOT" name="HOT">
 							<input type="button" value="ICE" name="ICE">
 						</p>
+						
+						
+						
 						<p class="hover-hot">
 							<input type="hidden" value="덜뜨겁게" name="덜뜨겁게"> <input
 								type="hidden" value="보통" name="보통"> <input type="hidden"
@@ -156,6 +135,7 @@ a.animated-button.victoria-four:hover:after {
 					</li>
 					<hr>
 					<li class="ok"><input type="submit" value="선택완료"></li>
+					<li class="reset"><input type="reset" value="취소"></li>
 				</ul>
 			</form>
 		</div>
