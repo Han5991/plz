@@ -144,9 +144,8 @@ public class MemberDao {
 				}
 			} else { // �대�� id�� ��蹂닿� ���ㅻ㈃
 				ri = MemberDao.MEMBER_LOGIN_IS_NOT; // -1 ������ ������.
-			}
-
-
+			}	
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

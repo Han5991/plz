@@ -18,7 +18,7 @@
 	int s = 0;
 	byte[] buffer = null;
 	Blob menu = null;
-	int i = 0;%>
+	int sum = 0;%>
 <%
 	try {
 	context = new InitialContext();
@@ -114,6 +114,7 @@ footer {
 			<table class="detail">
 				<%
 					for (MenuDto a : Menudtos) {
+					sum += a.getPrice() * a.getQuantity();
 				%>
 				<tr>
 					<td><%=a.getName()%></td>
@@ -122,6 +123,9 @@ footer {
 				<%
 					}
 				%>
+				<tr>
+					<td>총계 : <%=sum%></td>
+				</tr>
 			</table>
 		</li>
 		<%

@@ -79,7 +79,7 @@ input {
 	<%@ include file="navbar_admin.jsp"%>
 	<h1 style="text-align: center;">재고 관리 페이지</h1>
 	<hr>
-	<form>
+	<form action="../inventoryUpdate.do">
 		<table id=inventory>
 			<tr>
 				<td>품목</td>
