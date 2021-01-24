@@ -254,7 +254,6 @@ input[type="radio"]:checked+label:before {
 		</div>
 	</nav>
 	
-
 	<div class="container-fluid text-center">
 		<!-- 		<div class="row content" style="background-image: url('../img/menuImg/스벅.png'); background-size: contain;"> -->
 		<div class="row content">
