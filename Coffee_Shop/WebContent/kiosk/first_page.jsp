@@ -22,29 +22,6 @@
 	font-family: hzStyleFont;
 }
 
-
-/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-.row.content {
-	height: 1119px;
-	text-align: center;
-	vertical-align: middle;
-}
-
-/* Set gray background color and 100% height */
-.sidenav {
-	padding-top: 20px;
-	background-color: #f1f1f1;
-	height: 100%;
-}
-
-/* Set black background color, white text and some padding */
-footer {
-	background-color: #555;
-	color: white;
-	padding: 0px;
-}
-
-/* On small screens, set height to 'auto' for sidenav and grid */
 @media screen and (max-width: 767px) {
 	.sidenav {
 		height: auto;
@@ -54,70 +31,54 @@ footer {
 		height: auto;
 	}
 }
+
 .menu {
 	width: 500px;
 	height: 600px;
 	border: 1px solid lightgray;
 	border-radius: 10px;
-	margin: 30px;
+	margin: 0 auto;
 	font-size: 24px;
 	display: inline-block;
 	float: left;
+	font-size: 24px;
 }
 
-.img{
+.img {
 	width: 300px;
 	height: 350px;
-
 }
 
 img {
 	width: 300px;
 	height: 300px;
 	margin-top: 70px;
-	display:block;
-	margin : 90px;
-	
-	
+	display: block;
+	margin: 90px;
 }
 
-.font{
+.font {
 	font-size: 180%;
 }
-
-
 </style>
 </head>
 <body>
 
 	<!-- Navigation -->
 	<%@ include file="navbar_user.jsp"%>
-	
-	<div class="container-fluid text-center">
-		<div class="row content">
-			<div class="col-sm-12 text-center" style="margin:250px;">
-				
-					<div class="div_menu">
 
-						<div class="menu" onclick="javascript:window.location='menu_list.jsp'"> 
-							<p class="img">
-								<img src="../img/coffee.png" />
-								<p class="font" style="margin:20px;">매장에서 식사</p>
-						</div>
-					</div>
-						
-						<div class="menu" onclick="javascript:window.location='menu_list.jsp'">
-						
-							<p class="img">
-								<img src="../img/take-away.png" />
-							</p>
-							
-							<div class="text-center">
-								<p class="font" style="margin:20px;">포장</p>
-							</div>
-						</div>
-				</div>
-			</div>
-		</div>
+	<div class="menu" onclick="javascript:window.location='menu_list.jsp'">
+		<p class="img">
+			<img src="../img/coffee.png" />
+		<p class="font" style="margin: 20px; text-align: center;">매장에서 식사</p>
+	</div>
+
+	<div class="menu" onclick="javascript:window.location='menu_list.jsp'" style="text-align: center;">
+		<p class="img">
+			<img src="../img/take-away.png" />
+		</p>
+		<p class="font" style="margin: 20px;">포장</p>
+	</div>
+
 </body>
 </html>
