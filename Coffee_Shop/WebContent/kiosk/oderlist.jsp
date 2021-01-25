@@ -138,17 +138,20 @@ footer {
 		}
 		%>
 	</ul>
-	<footer class="container-fluid text-center">
-		<input type="reset" value="주문 취소" class="btn btn-warning"
-			style="font-size: 30px;">&nbsp;&nbsp;<input type="submit"
-			value="조리 시작" class="btn btn-warning" style="font-size: 30px;">
+	<footer>
+		<input type="button" value="주문 취소" class="btn btn-warning"
+			style="font-size: 30px;">&nbsp;&nbsp;<input type="button"
+			value="조리 시작" class="btn btn-warning" style="font-size: 30px;">&nbsp;&nbsp;<input
+			type="button" value="영수증 출력" class="btn btn-warning"
+			style="font-size: 30px;" onclick="print()">
 	</footer>
 </body>
 <script type="text/javascript">
+var num =0;
 	$('.detail').hide();
 	$('.oderNum').click(function() {
 		var n = $('.oderNum').index(this);
-		var num = $("input[name=oderNum]:eq(" + n + ")").val();
+		num = $("input[name=oderNum]:eq(" + n + ")").val();
 	});
 	$('.oderdetail').click(function() {
 		var n = $('.oderdetail').index(this);
@@ -160,5 +163,10 @@ footer {
 			$(".oderdetail:eq(" + n + ")").val("주문목록 보기");
 		}
 	});
+	
+	function print() {
+		var url = "../receiptPrint.do?odernum="+num;
+		window.open(url, "receiptPrint","toolbar=no, menubar=no,scrollbar=yes, resizable=no, width=450,height=800");
+	}
 </script>
 </html>

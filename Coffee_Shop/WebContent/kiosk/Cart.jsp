@@ -13,18 +13,10 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style>
-@font-face {
-	font-family: hzStyleFont;
-	src: url("../font/ImcreSoojin.ttf");
-}
-
-* {
-	font-family: hzStyleFont;
-}
-
 img {
 	height: 150px;
 	width: 150px;
+	border-radius: 10px;
 }
 
 span {
@@ -34,10 +26,12 @@ span {
 	width: 15%;
 	text-align: center;
 	background: lightgray;
+	vertical-align: middle;
 }
 
 table {
 	margin: 50px auto;
+	text-align: center;
 }
 </style>
 </head>
@@ -45,7 +39,7 @@ table {
 
 	<!-- Navigation -->
 	<%@ include file="navbar_user.jsp"%>
-	<span> 총 합계 금액 : <br>8500원 <br> <br> <input
+	<span> 총 합계 금액 : <br>10000원 <br> <br> <input
 		type="reset" value="메뉴 추가하기" class="btn btn-warning"
 		style="font-size: 30px;"><br> <br> <input
 		type="submit" value="주문 하기" class="btn btn-warning"
