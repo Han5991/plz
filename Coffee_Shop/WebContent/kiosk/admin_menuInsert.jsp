@@ -113,7 +113,7 @@ img{
 						
 						<p><input type="text" name="name" placeholder="name" autocomplete="off"></p>
 						<p><input type="text" name="price" placeholder="price" autocomplete="off"></p>
-						<p><textarea cols="20" rows="2" placeholder="comment" style="resize: none;"></textarea>
+						<p><textarea cols="20" rows="2" wrap="hard" placeholder="comment" style="resize: none;"></textarea>
 					</div>
 					<input type="submit" value="추가">
 				</form> 
