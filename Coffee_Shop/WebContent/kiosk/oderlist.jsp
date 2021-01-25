@@ -57,10 +57,6 @@
 	background-color: #D9CDBC;
 }
 
-.row.content {
-	height: 1119px;
-}
-
 ul {
 	list-style: none;
 }
@@ -86,6 +82,11 @@ footer {
 	position: fixed;
 	background: lightgray;
 	text-align: center;
+}
+
+.oderdetail {
+	border-radius: 10px;
+	border: 0px;
 }
 </style>
 </head>
