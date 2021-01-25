@@ -36,7 +36,7 @@ public class adminDao {
 				dbpw = rs.getString("pw");
 				if (dbpw.equals(pw)) {
 					if (id.equals("admin")) {
-						result = 2; //  admin 로그인 성공
+						result = 2; //  admin login success
 					}/* else {
 						result = 1; // login success
 					}*/
